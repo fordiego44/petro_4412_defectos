@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div id="contenidoDestinatario"  class="tab-pane"  role="tabpanel" aria-labelledby="profile-tab-classic-orange" th:fragment="main">
+		<div class="rgba-petro-strong py-1" id="contenidoAccordionDestinatarios">
+			<div class="row d-flex justify-content-center">
+				<div class="col-md-12 col-xl-12">
+					<div class="accordion md-accordion accordion-5" id="acordionDestinatarios" role="tablist" aria-multiselectable="false">
+					
+						<div th:replace="fragments/correspondencia_detalle_firma/tab_destinatarios/destinatarios :: datos_destinatarios"></div>
+						<div th:replace="fragments/correspondencia_detalle_firma/tab_destinatarios/copias :: datos_copias"></div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

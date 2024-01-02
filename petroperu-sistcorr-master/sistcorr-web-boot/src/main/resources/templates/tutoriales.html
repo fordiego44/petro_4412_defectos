@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/plantilla_tutoriales">
+<head>
+
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid" id="principal">
+		<input type="hidden" id="bandeja" th:value="${bandeja}"/>
+		<input type="hidden" id="url" th:value="${url}"/>
+		
+		<div class="row" id="tutoriales">
+			<div class="col-sm-12">
+				<div class="rgba-petro-strong py-1" id="contenidoTutoriales">
+					<div class="row d-flex justify-content-center">
+						<div class="col-md-12 col-xl-12">
+							<div class="accordion md-accordion accordion-5" id="acordionDatos" role="tablist" aria-multiselectable="false">
+								<div class="card mb-2">
+									<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab" id="headingDatosNormativa" data-form="datosNormativa">
+										<a data-toggle="collapse" data-parent="#acordionDatos" id="btnDatosNormativa" href="#collapseDatosNormativa" aria-expanded="true" aria-controls="contenidoDatosNormativa" data-form="datosNormativa">
+											<div class="col-md-12">
+												<h6 class="mb-0 py-3 mt-1 sistcorr_acortion_title" data-form="datosFiltros" style="color:#000!important;"><b>Normativa</b></h6>
+											</div>
+										</a>
+									</div>
+									<div id="collapseDatosNormativa" class="collapse show" role="tabpanel" aria-labelledby="headingDatosNormativa" data-parent="#contenidoDatosNormativa">
+										<div class="card-body rgba-petro-strong  z-depth-1">
+											<div class="form-row" th:each="nor : ${normativa}">
+												<div class="col-sm-12">
+													<a class="tutorialDescarga downloadFile" th:attr="data-download=${'normativa/' + nor}">
+														<i th:if="${nor.contains('.pdf')}"	class="fas fa-file-pdf icon_pdf mr-3"></i> 
+														<i th:if="${nor.contains('.xls')}" class="fas fa-file-excel icon_excel mr-3"></i> 
+														<i th:if="${nor.contains('.doc')}" class="fas fa-file-word icon_word mr-3"></i> 
+														<i th:if="${nor.contains('.jpg') or nor.contains('.png') or nor.contains('.gif') or nor.contains('.bmp')}" class="fas fa-file-image icon_image mr-3"></i>
+														<i th:if="${nor.contains('.avi') or nor.contains('.flv') or nor.contains('.wmv') or nor.contains('.mp4') or nor.contains('.mkv') or nor.contains('.mov')}" class="fas fa-file-video icon_video mr-3"></i>  
+														<i th:if="${!nor.contains('.pdf') and !nor.contains('.xls') and !nor.contains('.doc') and !nor.contains('.jpg') and !nor.contains('.png') and !nor.contains('.gif') and !nor.contains('.bmp') 
+																	and !nor.contains('.avi') and !nor.contains('.flv') and !nor.contains('.wmv') and !nor.contains('.mp4') and !nor.contains('.mkv') and !nor.contains('.mov')}"
+														class="fas fa-file icon_otro mr-3"></i>
+														<span th:text="${nor}">Gestión Documental en Petroperú.pdf</span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row" id="tutoriales">
+			<div class="col-sm-12">
+				<div class="rgba-petro-strong py-1" id="contenidoTutoriales">
+					<div class="row d-flex justify-content-center">
+						<div class="col-md-12 col-xl-12">
+							<div class="accordion md-accordion accordion-5" id="acordionDatos" role="tablist" aria-multiselectable="false">
+								<div  class="card mb-2"	th:fragment="main">
+									<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab" id="headingDatosGuia" data-form="datosFiltros">
+										<a data-toggle="collapse" data-parent="#acordionDatos" id="btnDatosGuia" href="#collapseDatosGuia" aria-expanded="true" aria-controls="contenidoDatosGuia" data-form="datosGuia">
+											<div class="col-md-12">
+												<h6 class="mb-0 py-3 mt-1 sistcorr_acortion_title" data-form="datosFiltros" style="color:#000!important;"><b>Gu&iacute;as de usuario</b></h6>
+											</div>
+										</a>
+									</div>
+									<div id="collapseDatosGuia" class="collapse show" role="tabpanel" aria-labelledby="headingDatosGuia" data-parent="#contenidoDatosGuia">
+										<div class="card-body rgba-petro-strong  z-depth-1">
+											<div class="form-row" th:each="gui : ${guia}">
+												<div class="col-sm-12">
+													<a class="tutorialDescarga downloadFile" th:attr="data-download=${'guia/' + gui}">
+														<i th:if="${gui.contains('.pdf')}"	class="fas fa-file-pdf icon_pdf mr-3"></i> 
+														<i th:if="${gui.contains('.xls')}" class="fas fa-file-excel icon_excel mr-3"></i> 
+														<i th:if="${gui.contains('.doc')}" class="fas fa-file-word icon_word mr-3"></i> 
+														<i th:if="${gui.contains('.jpg') or gui.contains('.png') or gui.contains('.gif') or gui.contains('.bmp')}" class="fas fa-file-image icon_image mr-3"></i>
+														<i th:if="${gui.contains('.avi') or gui.contains('.flv') or gui.contains('.wmv') or gui.contains('.mp4') or gui.contains('.mkv') or gui.contains('.mov')}" class="fas fa-file-video icon_video mr-3"></i>  
+														<i th:if="${!gui.contains('.pdf') and !gui.contains('.xls') and !gui.contains('.doc') and !gui.contains('.jpg') and !gui.contains('.png') and !gui.contains('.gif') and !gui.contains('.bmp') 
+																	and !gui.contains('.avi') and !gui.contains('.flv') and !gui.contains('.wmv') and !gui.contains('.mp4') and !gui.contains('.mkv') and !gui.contains('.mov')}"
+														class="fas fa-file icon_otro mr-3"></i>
+														<span th:text="${gui}">Gestión Documental en Petroperú.pdf</span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row" id="tutoriales">
+			<div class="col-sm-12">
+				<div class="rgba-petro-strong py-1" id="contenidoTutoriales">
+					<div class="row d-flex justify-content-center">
+						<div class="col-md-12 col-xl-12">
+							<div class="accordion md-accordion accordion-5" id="acordionDatos" role="tablist" aria-multiselectable="false">
+								<div  class="card mb-2"	th:fragment="main">
+									<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab" id="headingDatosVideo" data-form="datosFiltros">
+										<a data-toggle="collapse" data-parent="#acordionDatos" id="btnDatosVideo" href="#collapseDatosVideo" aria-expanded="true" aria-controls="contenidoDatosVideo" data-form="datosVideo">
+											<div class="col-md-12">
+												<h6 class="mb-0 py-3 mt-1 sistcorr_acortion_title" data-form="datosFiltros" style="color:#000!important;"><b>Videos tutoriales</b></h6>
+											</div>
+										</a>
+									</div>
+									<div id="collapseDatosVideo" class="collapse show" role="tabpanel" aria-labelledby="headingDatosVideo" data-parent="#contenidoDatosVideo">
+										<div class="card-body rgba-petro-strong  z-depth-1">
+											<div class="form-row" th:each="vid : ${video}">
+												<div class="col-sm-12">
+													<a class="tutorialDescarga downloadFile" th:attr="data-download=${'video/' + vid}">
+														<i th:if="${vid.contains('.pdf')}"	class="fas fa-file-pdf icon_pdf mr-3"></i> 
+														<i th:if="${vid.contains('.xls')}" class="fas fa-file-excel icon_excel mr-3"></i> 
+														<i th:if="${vid.contains('.doc')}" class="fas fa-file-word icon_word mr-3"></i> 
+														<i th:if="${vid.contains('.jpg') or vid.contains('.png') or vid.contains('.gif') or vid.contains('.bmp')}" class="fas fa-file-image icon_image mr-3"></i>
+														<i th:if="${vid.contains('.avi') or vid.contains('.flv') or vid.contains('.wmv') or vid.contains('.mp4') or vid.contains('.mkv') or vid.contains('.mov')}" class="fas fa-file-video icon_video mr-3"></i>  
+														<i th:if="${!vid.contains('.pdf') and !vid.contains('.xls') and !vid.contains('.doc') and !vid.contains('.jpg') and !vid.contains('.png') and !vid.contains('.gif') and !vid.contains('.bmp') 
+																	and !vid.contains('.avi') and !vid.contains('.flv') and !vid.contains('.wmv') and !vid.contains('.mp4') and !vid.contains('.mkv') and !vid.contains('.mov')}"
+														class="fas fa-file icon_otro mr-3"></i>
+														<span th:text="${vid}">Gestión Documental en Petroperú.pdf</span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row" id="tutoriales">
+			<div class="col-sm-12">
+				<div class="rgba-petro-strong py-1" id="contenidoTutoriales">
+					<div class="row d-flex justify-content-center">
+						<div class="col-md-12 col-xl-12">
+							<div class="accordion md-accordion accordion-5" id="acordionDatos" role="tablist" aria-multiselectable="false">
+								<div  class="card mb-2"	th:fragment="main">
+									<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab" id="headingDatosManual" data-form="datosFiltros">
+										<a data-toggle="collapse" data-parent="#acordionDatos" id="btnDatosManual" href="#collapseDatosManual" aria-expanded="true" aria-controls="contenidoDatosManual" data-form="datosManual">
+											<div class="col-md-12">
+												<h6 class="mb-0 py-3 mt-1 sistcorr_acortion_title" data-form="datosFiltros" style="color:#000!important;"><b>Manuales de usuario</b></h6>
+											</div>
+										</a>
+									</div>
+									<div id="collapseDatosManual" class="collapse show" role="tabpanel" aria-labelledby="headingDatosManual" data-parent="#contenidoDatosManual">
+										<div class="card-body rgba-petro-strong  z-depth-1">
+											<div class="form-row" th:each="man : ${manual}">
+												<div class="col-sm-12">
+													<a class="tutorialDescarga downloadFile" th:attr="data-download=${'manual/' + man}">
+														<i th:if="${man.contains('.pdf')}"	class="fas fa-file-pdf icon_pdf mr-3"></i> 
+														<i th:if="${man.contains('.xls')}" class="fas fa-file-excel icon_excel mr-3"></i> 
+														<i th:if="${man.contains('.doc')}" class="fas fa-file-word icon_word mr-3"></i> 
+														<i th:if="${man.contains('.jpg') or man.contains('.png') or man.contains('.gif') or man.contains('.bmp')}" class="fas fa-file-image icon_image mr-3"></i>
+														<i th:if="${man.contains('.avi') or man.contains('.flv') or man.contains('.wmv') or man.contains('.mp4') or man.contains('.mkv') or man.contains('.mov')}" class="fas fa-file-video icon_video mr-3"></i>  
+														<i th:if="${!man.contains('.pdf') and !man.contains('.xls') and !man.contains('.doc') and !man.contains('.jpg') and !man.contains('.png') and !man.contains('.gif') and !man.contains('.bmp') 
+																	and !man.contains('.avi') and !man.contains('.flv') and !man.contains('.wmv') and !man.contains('.mp4') and !man.contains('.mkv') and !man.contains('.mov')}"
+														class="fas fa-file icon_otro mr-3"></i>
+														<span th:text="${man}">Gestión Documental en Petroperú.pdf</span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row" id="tutoriales">
+			<div class="col-sm-12">
+				<div class="rgba-petro-strong py-1" id="contenidoTutoriales">
+					<div class="row d-flex justify-content-center">
+						<div class="col-md-12 col-xl-12">
+							<div class="accordion md-accordion accordion-5" id="acordionDatos" role="tablist" aria-multiselectable="false">
+								<div  class="card mb-2"	th:fragment="main">
+									<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab" id="headingDatosRemitente" data-form="datosFiltros">
+										<a data-toggle="collapse" data-parent="#acordionDatos" id="btnDatosPregunta" href="#collapseDatosPregunta" aria-expanded="true" aria-controls="contenidoDatosPregunta" data-form="datosPregunta">
+											<div class="col-md-12">
+												<h6 class="mb-0 py-3 mt-1 sistcorr_acortion_title" data-form="datosFiltros" style="color:#000!important;"><b>Preguntas frecuentes</b></h6>
+											</div>
+										</a>
+									</div>
+									<div id="collapseDatosPregunta" class="collapse show" role="tabpanel" aria-labelledby="headingDatosPregunta" data-parent="#contenidoDatosPregunta">
+										<div class="card-body rgba-petro-strong  z-depth-1">
+											<div class="form-row" th:each="pre : ${pregunta}">
+												<div class="col-sm-12">
+													<a class="tutorialDescarga downloadFile" th:attr="data-download=${'preguntas/' + pre}">
+														<i th:if="${pre.contains('.pdf')}"	class="fas fa-file-pdf icon_pdf mr-3"></i> 
+														<i th:if="${pre.contains('.xls')}" class="fas fa-file-excel icon_excel mr-3"></i> 
+														<i th:if="${pre.contains('.doc')}" class="fas fa-file-word icon_word mr-3"></i> 
+														<i th:if="${pre.contains('.jpg') or pre.contains('.png') or pre.contains('.gif') or pre.contains('.bmp')}" class="fas fa-file-image icon_image mr-3"></i>
+														<i th:if="${pre.contains('.avi') or pre.contains('.flv') or pre.contains('.wmv') or pre.contains('.mp4') or pre.contains('.mkv') or pre.contains('.mov')}" class="fas fa-file-video icon_video mr-3"></i>  
+														<i th:if="${!pre.contains('.pdf') and !pre.contains('.xls') and !pre.contains('.doc') and !pre.contains('.jpg') and !pre.contains('.png') and !pre.contains('.gif') and !pre.contains('.bmp') 
+																	and !pre.contains('.avi') and !pre.contains('.flv') and !pre.contains('.wmv') and !pre.contains('.mp4') and !pre.contains('.mkv') and !pre.contains('.mov')}"
+														class="fas fa-file icon_otro mr-3"></i>
+														<span th:text="${pre}">Gestión Documental en Petroperú.pdf</span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script th:inline="javascript">
+		/*<![CDATA[*/
+		    var DEPENDENCIAS_USUARIO = /*[[${dependenciasUsuario}]]*/ '';
+		/*]]>*/
+		</script>
+		
+	</div>
+	
+	<div layout:fragment="modals">
+		
+	</div>
+	
+	<div layout:fragment="modulo_js">
+		<script type="text/javascript" th:src="@{/js/tutoriales/modulo.js?time=1111}" src="static/js/tutoriales/modulo.js"></script>
+    	<script type="text/javascript" th:src="@{/js/tutoriales/vista.js?time=1111}" src="static/js/tutoriales/vista.js"></script>
+	</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!-- 9000004276 -->
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head th:replace="fragments/head :: head">
+    <title>SISTCORR</title>
+  </head>
+  <body>
+    <div th:replace="fragments/preload :: preload"></div>
+    <link rel="stylesheet" th:href="@{/css/menu.css}" href="static/css/menu.css" />
+    <header th:replace="fragments/header_consulta_contrataciones :: header"> HEADER </header>
+    <link rel="stylesheet" th:href="@{/css/lista_documentos.css}" href="static/css/lista_documentos.css" />
+    <link rel="stylesheet" th:href="@{/css/consulta_comprobantes.css}" href="static/css/consulta_contrataciones.css" />
+    <main class="contenido" id="cuerpoModulo" style="display:none">
+      <div class="container-fluid">
+        <div layout:fragment="content"></div>
+      </div>
+    </main>
+    <div layout:fragment="modals"></div>
+    <div class="modal fade" id="modalProcesando" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm cascading-modal" role="document" align="center">
+        <div class="spinner-border text-warning" style="width: 3rem; height: 3rem;" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+    <div th:replace="fragments/js :: js_imports"></div>
+    <script type="text/javascript" th:src="@{/js/librerias/dataTables/dt/js/jquery.dataTables.js}" src="static/librerias/dataTables/dt/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" th:src="@{/js/librerias/dataTables/dt/js/dataTables.bootstrap4.js}" src="static/librerias/dataTables/dt/js/dataTables.bootstrap4.js"></script>
+    <script type="text/javascript" th:src="@{/js/librerias/dataTables/responsive/js/dataTables.responsive.js}" src="static/librerias/dataTables/responsive/js/dataTables.responsive.js"></script>
+    <script type="text/javascript" th:src="@{/js/librerias/dataTables/responsive/js/responsive.bootstrap4.js}" src="static/librerias/dataTables/responsive/js/responsive.bootstrap4.js"></script>
+    <script type="text/javascript" th:src="@{/js/librerias/es_datatable.js}" src="static/librerias/es_datatable"></script>
+    <script type="text/javascript" th:src="@{/js/utilitario.js}" src="static/js/utilitario.js"></script>
+    <script type="text/javascript" th:src="@{/js/menu.js}" src="static/js/menu.js"></script>
+    <script type="text/javascript" th:src="@{/js/sistcorr_modulo.js?time=9000004276}" src="static/js/sistcorr_modulo.js"></script>
+    <div layout:fragment="modulo_js"></div>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+/**/
+table.dataTable tbody td {
+    word-break: break-word;
+    vertical-align: top;
+}
+
+table.dataTable tbody td ul.dtr-details {
+	word-break: break-word;
+    vertical-align: top;
+}

@@ -1,0 +1,47 @@
+#opcion_asignar{
+	color:#0b1b6f;
+	cursor:pointer;
+	margin-right: 20px;
+}
+
+#opcion_asignarTodos{
+	color:#1ac520;
+	cursor:pointer;
+}
+
+#opcion_Enviar{
+	color:#27d2d2;
+	/*cursor:pointer;*/
+}
+
+.opcion{
+	font-size: 28px;
+}
+.opcion:hover{
+	font-size: 30px;
+}
+#compDetalleReq{
+	overflow: auto;
+}
+
+#listaAsignaciones a {
+	cursor: default;
+}
+
+#listaAsignacionesVacia a{
+	cursor: default;
+}
+
+.btnEliminarAsignacion{
+	cursor: pointer;
+}
+
+.gj-datepicker{
+	width: 97% !important;
+}
+
+.icon-date{
+	position: inherit !important;
+    top: 20px !important;
+    cursor: pointer;
+}

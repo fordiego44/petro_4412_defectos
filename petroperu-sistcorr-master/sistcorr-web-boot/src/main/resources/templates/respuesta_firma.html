@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/plantilla_respuesta_firma">
+<head>
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid" id="principal">
+	
+		<div class="card">
+			<div class="card-body" th:if="${error}">
+				<h6 class="alert alert-danger" th:text="${mensaje}">MENSAJE</h6>
+				<button type="button" class="btn btn-petroperu-rojo waves-effect waves-light" id="btnRegresarBandeja">Regresar a bandeja</button>	
+			</div>
+			<div class="card-body" th:if="${!error}">
+				<input type="hidden" th:value="${estado}" id="estadoCorrespondencia"/>
+				<input type="hidden" th:value="${rutaAprobacion}" id="rutaAprobacion"/>
+				<input type="hidden" th:value="${cantidad}" id="cantidadDestinatarios"/>
+				<input type="hidden" th:value="${cantidadInternos}" id="cantidadDestinatariosInternos"/>
+				<input type="hidden" th:value="${idCorrespondencia}" id="idCorrespondencia"/>
+				<h4 class="alert alert-success" th:text="${mensaje}">MENSAJE</h4>
+				<button type="button" class="btn btn-petroperu-rojo waves-effect waves-light" id="btnRegresarBandeja">Regresar a bandeja</button>	
+			</div>
+		</div>
+		
+		<script th:inline="javascript">
+		/*<![CDATA[*/
+		
+		/*]]>*/
+		</script>
+	</div>
+	
+	<div layout:fragment="modals">
+		<div class="modal fade" id="modalEnviarCorrespondencia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		        <h4 class="modal-title w-100 font-weight-bold">Enviar Correspondencia</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body mx-3">
+		      	 <p align="justify" class="texto_modal">&iquest;Est&aacute; seguro de enviar la correspondencia?</p>
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnEnviarCorrespondencia">Si</button>
+		        <button class="btn btn-petroperu-rojo" type="button"  data-dismiss="modal">No</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<div class="modal fade" id="modalAsignarSiguienteFirmante" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		        <h4 class="modal-title w-100 font-weight-bold">Asignar Siguiente Firmante</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body mx-3">
+		      	 <p align="justify" class="texto_modal">&iquest;Desea asignar el siguiente firmante?</p>
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnAsignarSiguienteFirmante">Si</button>
+		        <button class="btn btn-petroperu-rojo" type="button"  data-dismiss="modal">No</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	
+	<div layout:fragment="modulo_js">
+		<script type="text/javascript" th:src="@{/js/respuesta_firma/modulo.js?time=1111}" src="static/js/respuesta_firma/modulo.js"></script>
+    	<script type="text/javascript" th:src="@{/js/respuesta_firma/vista.js?time=1111}" src="static/js/respuesta_firma/vista.js"></script>
+	</div>
+</body>
+</html>

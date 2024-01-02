@@ -1,0 +1,81 @@
+<!-- 9000004276 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head></head>
+  <body>
+    <div class="tab-pane fade table_traza" id="contenidoTraza" role="tabpanel" aria-labelledby="contact-tab-classic-orange" th:fragment="main">
+      <div id="bodyEventos">
+        <div class="form-row">
+          <div class="col-sm-12">
+            <b> Historial de Eventos </b>
+          </div>
+        </div>
+        <div class="div_eventos">
+          <div th:each="eve,index : ${eventos}" class="row" style="padding-top: 10px;">
+            <div class="col-sm-12">
+              <div class="card card_pendiente" style="padding-left: 0px!important;">
+                <div th:class="${index.index%2 == 0}? 'card-body' : 'card-body odd'">
+                  <table border="0" style="width: 100%; table-layout: fixed;">
+                    <tbody>
+                      <tr>
+                        <td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 120px; padding-right: 5px;">Fecha: </td>
+                        <td class="text-left" style="font-size: 16px; font-weight: 400;">
+                          <span th:text="${eve.fechaSTR}">FECHA</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 120px; padding-right: 5px;">C&oacute;digo Usuario: </td>
+                        <td class="text-left" style="font-size: 16px; font-weight: 400;">
+                          <span th:utext="${eve.usuario}"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 120px; padding-right: 5px;">Nombre: </td>
+                        <td class="text-left" style="font-size: 16px; font-weight: 400;">
+                          <span th:utext="${eve.nomApeUsuario}"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 120px; padding-right: 5px;">Tipo Evento: </td>
+                        <td class="text-left" style="font-size: 16px; font-weight: 400;">
+                          <span th:text="${eve.detalle}">TIPO EVENTO</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 120px; padding-right: 5px;">Descripci&oacute;n: </td>
+                        <td class="text-left" style="font-size: 16px; font-weight: 400;">
+                          <div th:if="${eve.numCaract}">
+                            <span class="descripcion_traza" th:text="${eve.traza}">DESCRIPCION</span>
+                            <br />
+                          </div>
+                          <div class="visible" th:if="${!eve.numCaract}">
+                            <span class="descripcion_traza" th:text="${eve.traza.substring(0,99)}">DESCRIPCION</span>
+                            <span class="masTexto"> ... m&aacute;s</span>
+                            <br />
+                          </div>
+                          <div class="no_visible" th:if="${!eve.numCaract}">
+                            <span class="descripcion_traza" th:text="${eve.traza}">DESCRIPCION</span>
+                            <span class="menosTexto"> menos</span>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div th:if="${eventos.isEmpty()}" class="row" style="padding-top: 10px;">
+            <div class="col-sm-12">
+              <div class="card card_pendiente">
+                <div class="card-body">
+                  <p> No tiene eventos </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

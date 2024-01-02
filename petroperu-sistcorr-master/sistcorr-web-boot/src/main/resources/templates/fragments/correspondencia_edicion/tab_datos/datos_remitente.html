@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div class="card mb-2" th:fragment="datos_remitente">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosRemitente" data-form="datosRemitente">
+			<a data-toggle="collapse" data-parent="#acordionDatos"
+				id="btnDatosRemitente"
+				href="#collapseDatosRemitente" aria-expanded="true"
+				aria-controls="contenidoDatosRemitente" data-form="datosRemitente">
+				<i class="fas fa-building fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosRemitente"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosRemitente">REMITENTE</h6>
+			</a>
+		</div>
+
+		<div id="collapseDatosRemitente" class="collapse show"
+			role="tabpanel" aria-labelledby="headingDatosRemitente"
+			data-parent="#contenidoDatosRemitente">
+			<div class="card-body rgba-petro-strong  z-depth-1" style="padding-bottom: 0px !important;">
+				<div class="form-row" th:if="${correlativo.length() > 0}">
+					<div class="col-sm-12">
+						<strong class="card-title font-weight-bold mb-2" th:text="${correlativo}">CORRELATIVO</strong>
+					</div>
+				</div>
+				<br/>
+				<div class="form-row">
+					<div class="col-sm-12">
+						<div class="md-form mb-3">
+							<input  type="hidden" id="rmt_nombre_originadora" />
+							<label for="rmt_dependencia_originadora">Dependencia Originadora</label>
+							<select class="form-control sistcorrAutocompleRemoto" id="rmt_dependencia_originadora" required="required" data-msgerror="El campo dependencia originadora es obligatorio"></select>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<div class="custom-control custom-switch">
+							  <input type="checkbox" class="custom-control-input" id="corr_jerarquia" name="corr_jerarquia" disabled="disabled" value="1" />
+							  <label class="custom-control-label label_switch" for="corr_jerarquia" style="font-weight: 300px; color: #757575;">Elegir Dependencia fuera de L&iacute;nea Jer&aacute;rquica<br/></label>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="md-form mb-3">
+							<div class="custom-control">
+							  	<label>&iquest;Indicar&aacute; ruta de aprobaci&oacute;n?</label>
+							  	<!--div class="" style="margin-top: 10px;">
+							  		<input type="radio" class="" id="corr_ruta_aprobacion_si" name="corr_rutaAprobacion" value="false"/>
+							  		<label>SI</label>
+							  		<input type="radio" class="" id="corr_ruta_aprobacion_no" name="corr_rutaAprobacion" value="true" checked="checked" />
+							  		<label>NO</label>
+							  	</div-->
+							  </div>
+						</div>
+					</div>
+					<div class="col-sm-1">
+						<div class="md-form mb-3">
+							<div class="">
+						  		<input type="radio" class="" id="corr_ruta_aprobacion_si" name="corr_rutaAprobacion" value="1" style="margin-top:18px;" checked="checked" />
+						  		<label style="margin-left: 5px;" onclick="this.previousElementSibling.click();">SI</label>
+						  	</div>
+						</div>
+					</div>
+					<div class="col-sm-1">
+						<div class="md-form mb-3">
+							<div class="">
+						  		<input type="radio" class="" id="corr_ruta_aprobacion_no" name="corr_rutaAprobacion" value="0" style="margin-top:18px;" />
+						  		<label style="margin-left: 5px;" onclick="this.previousElementSibling.click();">NO</label>
+						  	</div>
+						</div>
+					</div>
+				</div>	
+				<br/>
+				<br/>
+				<div class="form-row">
+					<div class="col-sm-12">
+						<div class="md-form mb-3">
+							<label for="rmt_dependencia">Dependencia Remitente Aprobadora</label>
+							<select class="form-control sistcorrAutocompleRemoto" id="rmt_dependencia" required="required" data-msgerror="El campo dependencia es obligatorio"></select>
+						</div>
+					</div>
+					<!-- >div class="col-sm-6">
+						<div class="md-form mb-3">
+							<label for="rmt_lugarTrabajo" >Centro de Gesti&oacute;n de Correspondencia</label>
+							<select class="form-control sistcorrAutocompleRemoto" id="rmt_lugarTrabajo" required="required" data-msgerror="El campo lugar de trabajo es obligatorio"></select>
+						</div>
+					</div-->
+					
+				</div>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<input type="hidden" id="rmt_lugarTrabajo" data-nombreLugar="XXXX"/>
+						<div class="md-form mb-3">
+							<span class="labelTextArea" id="lblLUgarTrabajo">Centro de Gesti&oacute;n de Correspondencia</span>
+							<div class="more textarea" id="textoLugarTrabajo" style="border-bottom: 2px solid #00c851 !important; ">&nbsp;&nbsp;</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<input  type="hidden" id="rmt_nombre" data-codUsuario="0000"/>
+						<div class="md-form mb-3">
+							<span class="labelTextArea" id="lblJefeDependencia">Jefe Dependencia Remitente</span>
+							<div class="more textarea" id="textoJefeDependenciaRemitente" style="border-bottom: 2px solid #00c851 !important; ">&nbsp;&nbsp;</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<!-- >div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="rmt_nombre" class="form-control sistcorrInput validate" data-codUsuario="0000" required="required" data-msgerror="El campo nombre de remitente es obligatorio" disabled="disabled" /> 
+							<label for="rmt_nombre" class="active">Jefe Dependencia Remitente</label>
+						</div>
+					</div-->
+					<div class="col-sm-12" >
+						<br/>
+						<div class="md-form  mb-3" >
+							<i class="far fa-calendar-alt float-right icon-date" id="btnRmt_FechaDocumento"></i>
+							<input type="text" id="rmt_fechaDocumento" class="form-control " required="required" data-msgerror="El campo fecha de documento es obligatorio" readonly="readonly"/> 
+							<label for="rmt_fechaDocumento" class="active" style="margin-top: -0px !important">Fecha del documento</label>
+							
+						</div>
+					</div>
+				</div>
+				<br/>
+				<div class="form-row">
+					<div class="col-sm-12">
+						<div class="md-form mb-3">
+							<label for="rmt_tipoCorrespondencia" class="active">Tipo de Correspondencia</label>
+							<select class="form-control sistcorrAutocompleRemoto" id="rmt_tipoCorrespondencia" required="required" data-msgerror="El campo tipo de correspondencia es obligatorio">
+								<option disabled="disabled" selected="selected">Seleccione</option>
+								<option th:each="tipo : ${tiposCorrespondencia}" th:value="${tipo.id}" th:text="${tipo.text}"></option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3" style="display: none">
+							<input type="text" id="rmt_tipoCorrespondenciaOtros" class="form-control sistcorrInput validate" maxlength="40" /> 
+							<label for="rmt_tipoCorrespondenciaOtros" class="active">Otro tipo de correspondencia</label>
+						</div>
+					</div>
+				</div>
+				<br/>
+				<div class="form-row">
+					<div class="col-sm-12">
+						<div class="md-form mb-3">
+							<textarea id="rmt_asunto" class="md-textarea form-control sistcorrTextArea validate" required="required" data-msgerror="El campo asunto es obligatorio" rows="2" maxlength="254"></textarea>
+							<label for="rmt_asunto" style="margin-top: -8px;">Asunto</label>
+						</div>
+					</div>
+				</div>	
+				<div class="form-row">
+					<input type="hidden" id="rmt_idAsignacion" />
+					<input type="hidden" id="rmt_esDocumentoRespuesta" />
+					<div class="col-sm-4">
+						<div class="md-form mb-3">
+							<input type="text" id="rmt_esDocumentoRespuestaTexto" class="form-control" readonly="readonly" /> 
+							<label for="rmt_esDocumentoRespuestaTexto" class="active">&iquest;Es documento respuesta?</label>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="md-form mb-3">
+							<input type="text" id="rmt_correlativoEntrada" class="form-control sistcorrInput" readonly="readonly" /> 
+							<label for="rmt_correlativoEntrada" class="active">Correlativo</label>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="md-form mb-3">
+							<input type="text" id="rmt_tipoAccion" class="form-control sistcorrInput" readonly="readonly" /> 
+							<label for="rmt_tipoAccion" class="active">Tipo de acci&oacute;n</label>
+						</div>
+					</div>
+				</div>
+				<br/>
+				<div class="form-row">
+					<div class="col-sm-12">
+						<div class="md-form mb-3">
+							<input type="text" id="rmt_respuesta" class="form-control sistcorrInput" readonly="readonly" /> 
+							<label for="rmt_respuesta" class="active">Respuesta</label>
+						</div>
+					</div>
+				</div>	
+				<br/>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

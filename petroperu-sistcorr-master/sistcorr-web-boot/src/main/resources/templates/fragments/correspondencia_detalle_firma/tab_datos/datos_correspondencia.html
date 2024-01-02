@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div class="card mb-2" th:fragment="datos_correspondencia">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosCorrespondencia" data-form="datosCorrespondencia">
+			<a data-toggle="collapse" data-parent="#acordionDatos"
+				id="btnDatosCorrespondencia"
+				href="#collapseDatosCorrespondencia" aria-expanded="true"
+				aria-controls="contenidoDatosCorrespondencia" data-form="datosCorrespondencia">
+				<i class="fas fa-people-carry fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosCorrespondencia"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosRemitente">Correspondencia</h6>
+			</a>
+		</div>
+
+		<div id="collapseDatosCorrespondencia" class="collapse"
+			role="tabpanel" aria-labelledby="headingDatosCorrespondencia"
+			data-parent="#contenidoDatosCorrespondencia">
+			<div class="card-body rgba-petro-strong  z-depth-1">
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="corrFecha" class="form-control" readonly="readonly" /> 
+							<label for="corrFecha">Fecha</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="corrFirma" class="form-control" readonly="readonly" /> 
+							<label for="corrFirma">Firma Digital</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="corrTipoEmision" class="form-control" readonly="readonly" /> 
+							<label for="corrTipoEmision">Tipo de Emisi&oacute;n</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="corrDespachiFisico" class="form-control" readonly="readonly" /> 
+							<label for="corrDespachiFisico">Despacho F&iacute;sico</label>
+						</div>					
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="corrConfidencial" class="form-control" readonly="readonly" /> 
+							<label for="corrConfidencial">Confidencial</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="corrUrgente" class="form-control" readonly="readonly" /> 
+							<label for="corrUrgente">Urgente</label>
+						</div>
+					</div>
+				</div>
+				<!-- >div class="form-row">
+					<div class="col-sm-12">
+						<div class="md-form mb-3">
+							<input type="text" id="corrObservacion" class="form-control" disabled="disabled" /> 
+							<label for="corrObservacion">Observaci&oacute;n</label>
+						</div>
+					</div>
+				</div-->
+				<div class="md-form">
+						<span class="labelTextArea">Observaci&oacute;n</span>
+						<div class="more textarea" id="corrObservacion"></div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="corrEstado" class="form-control" readonly="readonly" />
+							<label for="corrUrgente">Estado</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="corrFecAct" class="form-control" readonly="readonly" />
+							<label for="corrUrgente">Fecha y Hora Ult. Actualiz.</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

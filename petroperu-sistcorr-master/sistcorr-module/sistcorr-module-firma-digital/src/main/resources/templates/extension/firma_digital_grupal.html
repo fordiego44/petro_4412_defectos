@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<script>
+		//Esta funcies para poder crear unas cookies
+		function setCookie(c_name,value,exdays)
+		{
+		var exdate=new Date();
+		exdate.setDate(exdate.getDate() + exdays);
+		var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+		document.cookie=c_name + "=" + c_value;
+		}
+		setCookie('bit4id-sign','sign',1)
+</script>
+<head>
+	<meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <title th:text="${titulo}">SISTCORR</title>
+    <link rel="icon" th:href="@{/images/favicon.ico}"/>
+    <link rel="stylesheet" th:href="@{/js/librerias/fontawesone/css/all.css}" href="static/librerias/fontawesone/css/all.css"/>
+	<link rel="stylesheet" th:href="@{/js/librerias/mdboostrap/css/popper.css}" href="static/librerias/mdboostrap/css/popper.css" />
+    <link rel="stylesheet" th:href="@{/js/librerias/mdboostrap/css/bootstrap.css}" href="static/librerias/mdboostrap/css/bootstrap.css" />
+    <link rel="stylesheet" th:href="@{/js/librerias/mdboostrap/css/mdb.css}" href="static/librerias/mdboostrap/css/mdb.css" />
+    <link rel="stylesheet" th:href="@{/js/librerias/toastr/toastr.css}" href="static/librerias/toastr/toastr.css" /> 
+    <link rel="stylesheet" th:href="@{/js/librerias/datepicker/datepicker.css}" href="static/librerias/datepicker/datepicker.css" /> 
+    <link rel="stylesheet" th:href="@{/js/librerias/materialize-select2/select2-materialize.css}" href="static/materialize-select2/datepicker/select2-materialize.css"/>
+    <link rel="stylesheet" th:href="@{/css/general.css?time=202101221262}" href="static/css/general.css"/>
+    
+    <link rel="stylesheet" th:href="@{/css/aplicaciones-header.css?time=202101221261}" href="static/css/aplicaciones-header.css" /><!-- TICKET 9000004403 -->
+    <style type="text/css">
+    	body{
+		    font-family: Roboto,sans-serif;
+		}
+    	.bit4-link {
+    		background-color: #15B78E !important;
+    		color: #fff; 
+    		padding: 0.84rem 2.14rem;
+    		font-size: 0.81rem;
+    		margin: 0.375rem;
+		    border: 0;
+		    -webkit-border-radius: 0.125rem;
+		    border-radius: 0.125rem;
+		    cursor: pointer;
+		    text-transform: uppercase;
+		    white-space: normal;
+		    word-wrap: break-word;
+		    display: inline-block;
+    		font-weight: 400;
+    	}
+    	
+    	.contenido {
+		    margin-top: 80px;
+		}
+    	
+    	#contenidoFormularioFirma{
+    	
+    	}
+    </style>
+</head>
+
+<body>
+	<!-- <header>
+		<nav class="navbar navbar-expand-lg navbar-light navbar-petroperu scrolling-navbar">
+            <div class="container-fluid">
+
+                
+
+                <a class="navbar-brand waves-effect" href="">
+                    <strong class="white-text" th:text="${titulo}">Confirmaci&oacute;n de Firma Grupal</strong>
+                </a>
+
+                <div class="navbar-nav">
+                    <ul class="navbar-nav nav-flex-icons">
+                    	
+                    </ul>
+                </div>
+            </div>
+        </nav>
+	</header> -->
+	
+	<!-- inicio ticket 9000004403 -->
+    <header class="m-header-main-ptp m-header--ptp" th:fragment="header">
+		<div class="m-box-table m-box-table--middle">
+			<!-- <div class="m-header__block">
+				
+			</div>
+			<div class="m-header__logo">
+				
+			</div> -->
+			<h1 class="m-header__title" style="text-align: left;padding-left: 120px;">
+				<span th:text="${titulo}">Confirmaci&oacute;n de Firma</span><span></span>
+			</h1>
+			
+			<div class="m-header__block" style="width: 20px; text-align: right;">
+				
+			</div>
+		</div>
+	</header>
+	<!-- fin ticket 9000004403 -->
+	
+	<main class="contenido" th:fragment="firma_digital">
+		<div class="container-fluid">
+			<div class="container-fluid">
+				<input type="hidden" th:value="${URL_ZIP}" id="url_zip"/>
+				<div id="cargando" style="height: 100vh">
+					<div class="flex-center flex-column">
+			
+						<h1 class="text-hide animated fadeIn mb-4"
+							style="width: 250px; height: 90px;">SISTCORR 2.0</h1>
+						<h5 class="animated fadeIn mb-3">Cargando...</h5>
+			
+						<p class="animated fadeIn text-muted">SISTCORR 2.0</p>
+					</div>
+				</div>
+				<div class="card" id="formulario_firma">
+					<div class="card-body">
+						<form id="bit4id" class="bit4id-sign" th:action="@{/signOkGrupal}" method="post">
+							<div class="bit4id-signReq" style="display: none">
+								<div class="bit4id-localFile">NO</div>
+				               <div class="bit4id-preview">NO</div>
+				               
+								<div class="bit4id-document" id="bit4id_document">URL_ZIP</div>
+					            <div class="bit4id-documentName" id="bit4id-documentName" >NOMBRE_ZIP.pdf</div> 
+					            <div class="bit4id-documentID" id="bit4id-documentID"  >NOMBRE_ZIP.pdf</div>
+					            <div class="bit4id-signatureType">PAdES</div> <!-- Sirve para indicar el tipo de firma a realizar. -->
+								<div class="bit4id-bundle">YES</div>
+								<!-- div class="bit4id-page">ALL</div-->
+								<div class="bit4id-editpagepos">NO</div>
+								<div class="bit4id-position">[10,10,210,50]</div>
+								<div class="bit4id-reason" th:if="${autor}">Soy el autor del documento</div>
+								<div class="bit4id-reason" th:if="${vb}">Doy V°B°</div>
+								<div class="bit4id-reason" th:if="${ultimo_firmante}">Aprobado</div>
+								<div class="bit4id-image">data:image/png;base64,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</div>
+						 		<div class="bit4id-paragraphFormat">[{ "font" : ["Universal",10],"align":"right","data_format":{"timezone":"America/Lima","strtime":"%d/%m/%Y  %H:%M:%S%z"},"format": ["Firmado digitalmente por:", "$(SN)s $(G)s","$(O)s","$(C)s","$(S)s", "Motivo: $(Reason)s", "Fecha: $(date)s"]}]</div>
+						 	<label id="bit4id-status">wait</label>
+						 	
+								<div class="bit4id-invisible" th:if="${ultimo_firmante}">NO</div>
+								<div class="bit4id-invisible" th:if="${!ultimo_firmante}">YES</div>
+								
+							</div>
+							<fieldset>
+					            <div><p><strong>Se proceder&aacute; a firmar digitalmente los <a id="linkDocumentos">documentos</a> de las correspondencias, est&aacute; seguro de continuar?</strong></p></div>
+					            <div id="bit4id-status"></div>
+					            <div>
+					            	<input type="submit" disabled="disabled" value="Firmar" id="btnMandarFirmar" class="btn btn-petroperu-verde waves-effect waves-light"/>
+					            	<button type="button" class="btn btn-petroperu-rojo waves-effect waves-light" id="btnCancelar" onclick="irABandeja()">Cancelar</button>	
+					            </div>
+				          	</fieldset>	
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<script type="text/javascript">
+		var url_zip = document.getElementById("url_zip").value;
+		var url_zip_completa = window.location.origin + url_zip;
+		console.log(url_zip_completa);
+		document.getElementById("bit4id_document").innerHTML = url_zip_completa; 
+		document.getElementById("linkDocumentos").href = url_zip_completa;
+		function irABandeja(){
+			window.location.replace("../../app/lista-documentos/firmados");
+		}
+
+		setTimeout(function(){
+			document.getElementById("cargando").style.display = "none";
+			document.getElementById("formulario_firma").style.display = "block";
+		}, 3000);
+	</script>
+	<!--script type="text/javascript" src="http://aplicativosdev.petroperu.com.pe:10001/smartengine/bit4id-sign.min.js"></script-->
+	<script type="text/javascript" src="https://scdp.petroperu.com.pe/smartengine/bit4id-sign.min.js"></script>
+</body>
+
+
+</html>

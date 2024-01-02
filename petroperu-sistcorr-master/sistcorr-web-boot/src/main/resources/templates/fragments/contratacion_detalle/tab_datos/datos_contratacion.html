@@ -1,0 +1,222 @@
+<!-- 9000004276 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head></head>
+  <body>
+    <div class="card mb-2" th:fragment="datos_contratacion">
+      <div class="card-header p-0 z-depth-1 plomo_relleno" role="tab" id="headingDatosContratacion" data-form="datosContratacion">
+        <a data-toggle="collapse" data-parent="#acordionDatos" id="btnDatosContratacion" href="#collapseDatosContratacion" aria-expanded="true" aria-controls="contenidoDatosContratacion" data-form="datosContratacion">
+          <i class="fas fa-mail-bulk fa-1x p-3 mr-4 float-left black-text" aria-hidden="true" data-form="datosContratacion"></i>
+          <h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title" data-form="datosContratacion">Datos Contratacion</h6>
+        </a>
+      </div>
+      <div id="collapseDatosContratacion" class="collapse show" role="tabpanel" aria-labelledby="headingDatosContratacion" data-parent="#contenidoDatosContratacion">
+        <div class="card-body rgba-petro-strong z-depth-1">
+          <form action="">
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="md-form">
+                  <span class="labelTextArea">N&uacute;mero de Proceso</span>
+                  <div class="more textarea" th:text="${contratacion.nroProceso!=null and #strings.length(contratacion.nroProceso)!=0?contratacion.nroProceso:'&nbsp;'}"></div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="md-form">
+                  <span class="labelTextArea">Tipo de Proceso</span>
+                  <div class="more textarea" th:text="${contratacion.tipoProceso!=null and #strings.length(contratacion.tipoProceso)!=0?contratacion.tipoProceso:'&nbsp;'}"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="md-form">
+                  <span class="labelTextArea">N&uacute;mero de Memo</span>
+                  <div class="more textarea" th:text="${contratacion.nroMemo!=null and #strings.length(contratacion.nroMemo)!=0?contratacion.nroMemo:'&nbsp;'}"></div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="md-form">
+                  <span class="labelTextArea">Dependencia</span>
+                  <div class="more textarea" th:text="${contratacion.dependencia!=null and #strings.length(contratacion.dependencia)!=0?contratacion.dependencia:'&nbsp;'}"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="md-form">
+                  <span class="labelTextArea">Persona de Contacto</span>
+                  <div class="more textarea" th:text="${contratacion.personaContacto!=null and #strings.length(contratacion.personaContacto)!=0?contratacion.personaContacto:'&nbsp;'}"></div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="md-form">
+                  <span class="labelTextArea">Anexo</span>
+                  <div class="more textarea" th:text="${contratacion.anexo!=null and #strings.length(contratacion.anexo)!=0?contratacion.anexo:'&nbsp;'}"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="md-form">
+                  <span class="labelTextArea">Cantidad de Bases</span>
+                  <div class="more textarea" th:text="${contratacion.cantidadBases!=null and #strings.length(contratacion.cantidadBases)!=0?contratacion.cantidadBases:'&nbsp;'}"></div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="md-form">
+                  <span class="labelTextArea">Valor Base</span>
+                  <div class="more textarea" th:text="${contratacion.valorBase!=null and #strings.length(contratacion.valorBase)!=0?contratacion.valorBase:'&nbsp;'}"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-12">
+                <div class="md-form">
+                  <span class="labelTextArea">Objeto del Proceso</span>
+                  <div class="more textarea" th:text="${contratacion.objetoProceso!=null and #strings.length(contratacion.objetoProceso)!=0?contratacion.objetoProceso:'&nbsp;'}"></div>
+                </div>
+              </div>
+            </div>
+			<div class="form-row">
+            <div class="form-row col-xl-6">
+              <div class="col-sm-6 mb-4">
+                <fieldset>
+                  <legend class="w-auto">Venta de Bases</legend>
+                  <div class="form-row">
+                    <div class="col">
+                      <div class="md-form">
+                        <span class="labelTextArea">Fecha Inicio</span>
+                        <div class="more textarea" th:text="${contratacion.ventaBasesFechaInicio!=null and #strings.length(contratacion.ventaBasesFechaInicio)!=0?contratacion.ventaBasesFechaInicio:'&nbsp;'}"></div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="md-form">
+                        <span class="labelTextArea">Fecha Cierre</span>
+                        <div class="more textarea" th:text="${contratacion.ventaBasesFechaCierre!=null and #strings.length(contratacion.ventaBasesFechaCierre)!=0?contratacion.ventaBasesFechaCierre:'&nbsp;'}"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col">
+                      <div class="md-form">
+                        <span class="labelTextArea">Hora Inicio</span>
+                        <div class="more textarea" th:text="${contratacion.ventaBasesHoraInicio!=null and #strings.length(contratacion.ventaBasesHoraInicio)!=0?contratacion.ventaBasesHoraInicio:'&nbsp;'}"></div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="md-form">
+                        <span class="labelTextArea">Hora Cierre</span>
+                        <div class="more textarea" th:text="${contratacion.ventaBasesHoraCierre!=null and #strings.length(contratacion.ventaBasesHoraCierre)!=0?contratacion.ventaBasesHoraCierre:'&nbsp;'}"></div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="col-sm-6 mb-4">
+                <fieldset>
+                  <legend class="w-auto">Consulta de Bases</legend>
+                  <div class="form-row">
+                    <div class="col">
+                      <div class="md-form">
+                        <span class="labelTextArea">Fecha Inicio</span>
+                        <div class="more textarea" th:text="${contratacion.consultaBasesFechaInicio!=null and #strings.length(contratacion.consultaBasesFechaInicio)!=0?contratacion.consultaBasesFechaInicio:'&nbsp;'}"></div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="md-form">
+                        <span class="labelTextArea">Fecha Cierre</span>
+                        <div class="more textarea" th:text="${contratacion.consultaBasesFechaCierre!=null and #strings.length(contratacion.consultaBasesFechaCierre)!=0?contratacion.consultaBasesFechaCierre:'&nbsp;'}"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col">
+                      <div class="md-form">
+                        <span class="labelTextArea">Hora Inicio</span>
+                        <div class="more textarea" th:text="${contratacion.consultaBasesHoraInicio!=null and #strings.length(contratacion.consultaBasesHoraInicio)!=0?contratacion.consultaBasesHoraInicio:'&nbsp;'}"></div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="md-form">
+                        <span class="labelTextArea">Hora Cierre</span>
+                        <div class="more textarea" th:text="${contratacion.consultaBasesHoraCierre!=null and #strings.length(contratacion.consultaBasesHoraCierre)!=0?contratacion.consultaBasesHoraCierre:'&nbsp;'}"></div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+            <div class="form-row col-xl-6">
+              <div class="col-sm-6 mb-4">
+                <fieldset>
+                  <legend class="w-auto">Recepci&oacute;n Propuestas</legend>
+                  <div class="form-row">
+                    <div class="col">
+                      <div class="md-form">
+                        <span class="labelTextArea">Fecha Inicio</span>
+                        <div class="more textarea" th:text="${contratacion.recepPropuestasFechaInicio!=null and #strings.length(contratacion.recepPropuestasFechaInicio)!=0?contratacion.recepPropuestasFechaInicio:'&nbsp;'}"></div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="md-form">
+                        <span class="labelTextArea">Fecha Cierre</span>
+                        <div class="more textarea" th:text="${contratacion.recepPropuestasFechaCierre!=null and #strings.length(contratacion.recepPropuestasFechaCierre)!=0?contratacion.recepPropuestasFechaCierre:'&nbsp;'}"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col">
+                      <div class="md-form">
+                        <span class="labelTextArea">Hora Inicio</span>
+                        <div class="more textarea" th:text="${contratacion.recepPropuestasHoraInicio!=null and #strings.length(contratacion.recepPropuestasHoraInicio)!=0?contratacion.recepPropuestasHoraInicio:'&nbsp;'}"></div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="md-form">
+                        <span class="labelTextArea">Hora Inicio</span>
+                        <div class="more textarea" th:text="${contratacion.recepPropuestasHoraInicio1!=null and #strings.length(contratacion.recepPropuestasHoraInicio1)!=0?contratacion.recepPropuestasHoraInicio1:'&nbsp;'}"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col">
+                      <div class="md-form">
+                        <span class="labelTextArea">Hora Cierre</span>
+                        <div class="more textarea" th:text="${contratacion.recepPropuestasHoraCierre!=null and #strings.length(contratacion.recepPropuestasHoraCierre)!=0?contratacion.recepPropuestasHoraCierre:'&nbsp;'}"></div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="md-form">
+                        <span class="labelTextArea">Hora Cierre</span>
+                        <div class="more textarea" th:text="${contratacion.recepPropuestasHoraCierre1!=null and #strings.length(contratacion.recepPropuestasHoraCierre1)!=0?contratacion.recepPropuestasHoraCierre1:'&nbsp;'}"></div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="col-sm-6 mb-4">
+                <fieldset>
+                  <legend class="w-auto">Impugnaciones</legend>
+                  <div class="form-row">
+                    <div class="col">
+                      <div class="md-form">
+                        <span class="labelTextArea">Fecha Inicio</span>
+                        <div class="more textarea" th:text="${contratacion.impugnacionesFechaInicio!=null and #strings.length(contratacion.impugnacionesFechaInicio)!=0?contratacion.impugnacionesFechaInicio:'&nbsp;'}"></div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="md-form">
+                        <span class="labelTextArea">Fecha Cierre</span>
+                        <div class="more textarea" th:text="${contratacion.impugnacionesFechaCierre!=null and #strings.length(contratacion.impugnacionesFechaCierre)!=0?contratacion.impugnacionesFechaCierre:'&nbsp;'}"></div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

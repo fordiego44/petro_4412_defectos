@@ -1,0 +1,87 @@
+<!-- 9000004412 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div class="card mb-2" th:fragment="datos_remitente">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosRemitente" data-form="datosRemitente">
+			<a data-toggle="collapse" data-parent="#acordionDatos"
+				id="btnDatosRemitente"
+				href="#collapseDatosRemitente" aria-expanded="true"
+				aria-controls="contenidoDatosRemitente" data-form="datosRemitente">
+				<i class="fas fa-building fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosRemitente"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosRemitente">DATOS</h6>
+			</a>
+		</div>
+
+		<div id="collapseDatosRemitente" class="collapse show"
+			role="tabpanel" aria-labelledby="headingDatosRemitente"
+			data-parent="#contenidoDatosRemitente">
+			<div class="card-body rgba-petro-strong  z-depth-1" style="padding-bottom: 0px !important;">
+				 
+				 
+				<br/>
+				<div class="form-row">
+						<div class="col-sm-6">
+							<div class="md-form mb-3">
+								<input type="number" id="rmt_ruc" class="form-control sistcorrInput"   /> 
+								<label for="rmt_ruc" class="active">* RUC</label>
+							</div>
+						</div>
+						<div class="col-sm-6">
+						
+							<button class="btn btn-block btn-primary btn-green btn-slim" id="validarSUNAT" type="button"> 														
+								<div id="validaSUNAT">
+									<i class="fas fa-id-card-alt" style="vertical-align: baseline;"></i>
+									<a class="ml-2" style="text-transform: none;">Validar SUNAT</a>
+								</div>
+								<div id="validandoSUNAT" style="display:none; vertical-align: inherit;">
+									<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+									<a class="ml-2" style="text-transform: none;">Validando RUC</a>
+								</div>
+							</button>
+						</div>
+				</div>	
+				<br/>
+				<div class="form-row">
+					<div class="col-sm-12">
+							<div class="md-form mb-3">
+								<input type="text" id="rmt_proveedor" class="form-control sistcorrInput"   /> 
+								<label for="rmt_proveedor" class="active">* Nombre del Proveedor</label>
+							</div>
+						</div>
+				</div>
+				 
+				<br/>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="mb-3">
+							<label for="rmt_proceso">* N&uacute;mero del proceso</label>
+							<select class="form-control sistcorrAutocompleRemoto" id="rmt_proceso" required="required" data-msgerror="El campo dependencia es obligatorio">
+								<option value="0">[TODOS]</option>
+								<option th:each="dep : ${proceso}" th:value="${dep.codigo}" th:text="${dep.descripcion}"></option>	 
+							</select>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="mb-3">
+							<label for="rmt_hora">* Marcar fuera de hora?</label>
+							<select class="form-control sistcorrAutocompleRemoto" id="rmt_hora" required="required" data-msgerror="El campo dependencia es obligatorio">
+								 <option  value="NO" >NO</option>
+								 <option value="SI"  >SI</option> 	 
+							</select>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

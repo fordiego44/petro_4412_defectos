@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div  class="card mb-2"	th:fragment="main">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosRemitente" data-form="datosFiltros">
+			<a data-toggle="collapse" data-parent="#acordionFiltros"
+				id="btnFiltrosJG"
+				href="#collapseFiltros" aria-expanded="true"
+				aria-controls="contenidoFiltros" data-form="datosFiltros">
+				<i class="fas fa-filter fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosFiltros"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosFiltros">FILTROS</h6>
+			</a>
+		</div>
+		
+		<div id="collapseFiltros" class="collapse show"
+			role="tabpanel" aria-labelledby="headingFiltros"
+			data-parent="#contenidoFiltros">
+			<div class="card-body rgba-petro-strong  z-depth-1" style="padding-bottom: 0px !important;">
+				
+				<br/>
+				<div class="form-row">						
+						<div class="col-sm-3">
+							<div class="md-form mb-3">
+								<label for="cmbTareaExcepcion" class="active">Tareas en Excepci&oacute;n</label>
+									 <select class="form-control sistcorrAutocompleRemoto"
+									id="cmbTareaExcepcion" selected="selected"
+									data-msgerror="">
+								<option  disabled="disabled"  selected="selected" value="0000">Seleccione</option>
+								<option value="TD_CE">Proceso de Despacho de Correspondencia</option>
+								<option value="TD_CR">Proceso de Correspondencia Recibida</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="md-form mb-3">
+								<input type="text" class="form-control validate" maxlength="20"
+									id="txtProceso" /> <label for="txtProceso" class="active">Proceso</label>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="md-form mb-3">
+								<input type="text" class="form-control validate" id="txtRefPrincipal"  maxlength="254"/>
+								<label for="txtRefPrincipal" class="active">Referencia Principal</label>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="md-form mb-3">
+								<input type="text" class="form-control validate" id="txtRefAlternativa"  maxlength="254"/>
+								<label for="txtRefAlternativa" class="active">Referencia Alternativa</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="col-sm-3">
+							<div class="md-form mb-3">
+								<i class="far fa-calendar-alt float-right icon-date" id="btnFechaDesde"></i>
+								<input type="text" class="form-control validate"
+									id="txtFechaDocumentoDesdeJG" style="margin-top: 15px"/> <label
+									for="txtFechaDocumentoDesdeJG">Fecha del Documento - Desde</label>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="md-form mb-3">
+								<i class="far fa-calendar-alt float-right icon-date" id="btnFechaHasta"></i>
+								<input type="text" class="form-control validate"
+									id="txtFechaDocumentoHastaJG" style="margin-top: 15px"/> <label
+									for="txtFechaDocumentoHastaJG">Fecha del Documento - Hasta</label>
+							</div>
+						</div>		
+					</div>					
+					<div class="form-row">
+						<div class="col-sm-12" align="right">
+							<button class="btn btn-petroperu-rojo" type="button" id="btnResetearJG">Limpiar</button>
+							<button class="btn btn-petroperu-verde" type="button" id="btnBuscarJG">Buscar</button>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

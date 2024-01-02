@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div  class="card mb-2"	th:fragment="main">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosRemitente" data-form="datosFiltros">
+			<a data-toggle="collapse" data-parent="#acordionFiltros"
+				id="btnFiltros"
+				href="#collapseFiltros" aria-expanded="true"
+				aria-controls="contenidoFiltros" data-form="datosFiltros">
+				<i class="fas fa-filter fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosFiltros"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosFiltros">FILTROS</h6>
+			</a>
+		</div>
+		
+		<div id="collapseFiltros" class="collapse show"
+			role="tabpanel" aria-labelledby="headingFiltros"
+			data-parent="#contenidoFiltros">
+			<div class="card-body rgba-petro-strong  z-depth-1" style="padding-bottom: 0px !important;">
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="corrCorrelativo" class="form-control" /> 
+							<label data-error="error" data-success="correcto" for="corrFecha" id="lblCorrelativo">Correlativo</label><!-- TICKET 9000004269 ADD id="lblCorrelativo" -->
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<select class="form-control sistcorrSelect" id="corrEstado">
+								<option value="0">[TODOS]</option>
+			        			<option th:each="est : ${estadosCorr}" th:value="${est.codigoEstado}" th:text="${est.estado}"></option>
+			        		</select>
+							<label data-error="error" data-success="correcto" for="corrEstado" class="active">Estado</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<i class="far fa-calendar-alt float-right icon-date" id="btnFechaDesde"></i>
+							<input type="text" id="corrFechaRegistroDesde" class="form-control validate" style="margin-top: 15px"/> 
+							<label for="txtFechaDocumentoDesde" id="lblFechaDocumentoDesde">Fecha de Registro - Desde</label><!-- TICKET 9000004269 ADD id="lblFechaDocumentoDesde" -->
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<i class="far fa-calendar-alt float-right icon-date" id="btnFechaHasta"></i>
+							<input type="text" id="corrFechaRegistroHasta" class="form-control validate" style="margin-top: 15px"/> 
+							<label for="txtFechaDocumentoHasta" id="lblFechaDocumentoHasta">Fecha de Registro - Hasta</label><!-- TICKET 9000004269 ADD id="lblFechaDocumentoDesde" -->
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="corrNumeroDocumentoInterno" class="form-control" />
+							<label data-error="error" data-success="correcto" for="corrNumeroDocumentoInterno" class="active">N&uacute;mero de Documento</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<i class="far fa-calendar-alt float-right icon-date" id="btnFechaDocumentoInterno"></i>
+							<input type="text" id="corrFechaDocumentoInterno" class="form-control" />
+							<label data-error="error" for="corrFechaDocumentoInterno" class="active">Fecha</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<div class="custom-control custom-switch">
+					        	<input type="checkbox" class="custom-control-input" id="corrProcedencia" name="corrProcedencia"/>
+								<label class="custom-control-label label_switch" for="corrProcedencia">Considerar Correspondencias Emitidas</label>
+				        	</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="md-form mb-3">
+							&nbsp;
+						</div>
+					</div>
+					<div class="col-sm-2" align="right">
+						<button type="button" class="btn btn-petroperu-verde px-3"
+							id="btnMasFiltros" data-toggle="tooltip" title="Aplicar m&aacute;s filtros">
+							<i class="fas fa-plus"></i> <i class="fas fa-filter"></i>
+						</button>
+						<button type="button" class="btn btn-petroperu-verde px-3"
+							id="btnMenosFiltros" data-toggle="tooltip" title="Aplicar menos Filtros">
+							<i class="fas fa-minus"></i> <i class="fas fa-filter"></i>
+						</button>
+					</div>
+				</div>
+				<div class="form-row filtro_secundario">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<label for="corrDependenciaRemitente" class="active">Dependencia Remitente Aprobadora</label>
+							<select class="form-control sistcorrSelect" id="corrDependenciaRemitente">
+								<option value="0">[TODOS]</option>
+			        			<option th:each="dep : ${dependenciasRemitentes}" th:value="${dep.codigo}" th:text="${dep.descripcion}"></option>
+			        		</select>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<label for="corrDependenciaDestinatario" class="active">Dependencia Destinatario</label>
+							<select class="form-control sistcorrSelect" id="corrDependenciaDestinatario">
+								<option value="0">[TODOS]</option>
+			        			<option th:each="dep : ${dependenciasDestinatarios}" th:value="${dep.codigo}" th:text="${dep.descripcion}"></option>
+			        		</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-row filtro_secundario">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<select class="form-control sistcorrSelect" id="corrTipoCorrespondencia">
+								<option value="0">[TODOS]</option>
+			        			<option th:each="tipo : ${tiposCorrespondencia}" th:value="${tipo.codigoEstado}" th:text="${tipo.estado}"></option>
+			        		</select>
+							<label data-error="error" data-success="correcto" for="corrTipoCorrespondencia" class="active">Tipo de Correspondencia</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="corrEntidadExterna" class="form-control" />
+							<label data-error="error" data-success="correcto" for="corrEntidadExterna">Entidad Externa</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-row filtro_secundario">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="corrGuiaRemision" class="form-control" />
+							<label data-error="error" data-success="correcto" for="corrGuiaRemision">Gu&iacute;a de Remisi&oacute;n</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="corrAsunto" class="form-control" />
+							<label data-error="error" data-success="correcto" for="corrAsunto">Asunto</label>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-row">
+					<div class="col-sm-12" align="right">
+						<button class="btn btn-petroperu-rojo" type="button" id="btnLimpiar">Limpiar</button>
+						<button class="btn btn-petroperu-verde" type="button" id="btnBuscar">Buscar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

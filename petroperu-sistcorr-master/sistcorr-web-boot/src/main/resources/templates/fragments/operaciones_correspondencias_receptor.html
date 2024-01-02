@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+
+<body>
+	<div class="card mb-4" th:fragment="operaciones">
+	
+	<div class="modal fade" id="modalCerrarCorrespondencia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+		  aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		      	 <h4 class="modal-title w-100 font-weight-bold">Cerrar correspondencia</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body mx-3">
+		      	<p align="justify" class="texto_modal">&iquest;Est&aacute; seguro de cerrar la correspondencia? Recuerde que ya no la tendr&aacute; disponible en su bandeja y solo
+		          podr&aacute; acceder a ella a trav&eacute;s  de las consultas.</p>
+		        <div class="md-form mb-2">
+		      		<div class="custom-control custom-switch">
+					  <input type="checkbox" class="custom-control-input" id="requiereRespuestaCerrar" name="requiereRespuestaCerrar" value="1"/>
+					  <label class="custom-control-label label_switch" for="requiereRespuestaCerrar" style="font-weight: 300px; color: #757575;">Requiere documento respuesta</label>
+					</div>
+		      	</div>
+		      	<br/>
+		      	<div class="md-form mb-2">
+		      		<input type="text" id="textNumeroDocumentoCerrar" class="form-control" /> 
+					<label for="textNumeroDocumentoCerrar">Nro. Documento Existente</label>
+		      	</div>
+		        <div class="md-form mb-2">
+		          <textarea id="textCerrarCorrespondencia" class="md-textarea form-control" rows="2" placeholder="Ingrese su respuesta aqu&iacute;"></textarea>
+		        </div>
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnCerrarCorrespondencia">Aceptar</button>
+		        <button class="btn btn-petroperu-rojo"  data-dismiss="modal">Cancelar</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		
+		<div class="modal fade" id="modalCompletarCorrespondencia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+		  aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		      	<h4 class="modal-title w-100 font-weight-bold">Completar correspondencia</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body mx-3">
+		      	<p align="justify" class="texto_modal">Para dar por cumplida la asignaci&oacute;n es preciso que complete  el texto de respuesta.</p>
+		      	<div class="md-form mb-2">
+		      		<div class="custom-control custom-switch">
+					  <input type="checkbox" class="custom-control-input" id="requiereRespuestaCompletar" name="requiereRespuestaCompletar" value="1"/>
+					  <label class="custom-control-label label_switch" for="requiereRespuestaCompletar" style="font-weight: 300px; color: #757575;">Requiere documento respuesta</label>
+					</div>
+		      	</div>
+		      	<br/>
+		      	<div class="md-form mb-2">
+		      		<input type="text" id="textNumeroDocumentoCompletar" class="form-control" /> 
+					<label for="textNumeroDocumentoCompletar">Nro. Documento Existente</label>
+		      	</div>
+		        <div class="md-form mb-2">
+		        	<textarea id="textCompletarCorrespondencia" class="md-textarea form-control" rows="2" placeholder="Ingrese su respuesta aqu&iacute;"></textarea>
+		        </div>
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnCompletarCorrespondencia">Aceptar</button>
+		        <button class="btn btn-petroperu-rojo"  data-dismiss="modal">Cancelar</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<!-- INICIO TICKET 9000004273 -->
+		<div class="modal fade" id="modalRechazarAsignacionCorres" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+		  aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		      	<h4 class="modal-title w-100 font-weight-bold">Rechazar Asignaci&oacute;n</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body mx-3">
+		      	<p align="justify" class="texto_modal">&iquest;Est&aacute; seguro de rechazar la asignaci&oacute;n? Recuerde que ya no lo tendr&aacute; disponible en su bandeja.</p>
+		      	
+		      	<br/>
+		      	<div class="md-form mb-2">
+		      		<textarea id="textMotivoRechazarAsignacionCorres" class="md-textarea form-control" maxlength="2000" rows="2" placeholder="Ingrese su motivo aqu&iacute;"></textarea>
+		      	</div>
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnRechazarAsignacionCorres">Aceptar</button>
+		        <button class="btn btn-petroperu-rojo"  data-dismiss="modal">Cancelar</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- FIN TICKET 9000004273 -->
+		
+		<div class="modal fade" id="modalDescargarArchivo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		        <h4 class="modal-title w-100 font-weight-bold">Descargar documento</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body mx-3">
+		        <p align="justify" class="texto_modal">El archivo sobrepasa el tama&ntilde;o permitido, continuar descarg&aacute;ndolo? </p>
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnDescargaArchivoSi">Si</button>
+		        <button class="btn btn-petroperu-rojo" type="button"  data-dismiss="modal">No</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<div class="modal fade" id="modalCargarArchivo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		        <h4 class="modal-title w-100 font-weight-bold">Cargar documento</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body mx-3">
+		        <p align="justify" class="texto_modal">&iquest;Est&aacute; realmente seguro que desea cargar este documento a la correspondencia? </p>
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnCargaArchivoSi">Si</button>
+		        <button class="btn btn-petroperu-rojo" type="button"  data-dismiss="modal">No</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<div class="modal fade" id="modalEliminarArchivo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		        <h4 class="modal-title w-100 font-weight-bold">Eliminar documento</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body mx-3">
+		        <p align="justify" class="texto_modal">&iquest;Est&aacute; realmente seguro que desea eliminar este documento? </p>
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnEliminarArchivoSi">Si</button>
+		        <button class="btn btn-petroperu-rojo" type="button"  data-dismiss="modal">No</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<div class="modal fade" id="modalAceptarCorrespondencia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+		  aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		      	 <h4 class="modal-title w-100 font-weight-bold">Aceptar correspondencia</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body mx-3">
+		      	<p align="justify" class="texto_modal">&iquest;Est&aacute; seguro de aceptar la correspondencia?</p>
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnAceptarCorrespondencia">Aceptar</button>
+		        <button class="btn btn-petroperu-rojo"  data-dismiss="modal">Cancelar</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<div class="modal fade" id="modalRechazarCorrespondencia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+		  aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		      	 <h4 class="modal-title w-100 font-weight-bold">Rechazar correspondencia</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body mx-3">
+		      	<p align="justify" class="texto_modal">&iquest;Est&aacute; seguro de rechazar la correspondencia? La acci&oacute;n que va a realizar requiere que ingrese una observaci&oacute;n
+		          con la justificaci&oacute;n.</p>
+		        <div class="md-form mb-2">
+		          <textarea id="textRechazarCorrespondencia" class="md-textarea form-control" maxlength="2000" rows="2" placeholder="Ingrese su respuesta aqu&iacute;"></textarea>
+		        </div>
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnRechazarCorres">Aceptar</button>
+		        <button class="btn btn-petroperu-rojo"  data-dismiss="modal">Cancelar</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<div class="modal fade" id="modalRegistrarObservacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+		  aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		      	<h4 class="modal-title w-100 font-weight-bold">Registro de observaci&oacute;n</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body mx-3">
+		        <div class="md-form mb-2">
+		        	<textarea id="textRegistrarObservacion" class="md-textarea form-control" rows="2" placeholder="Ingrese su observaci&oacute;n aqu&iacute;" maxlength="2000"></textarea>
+		        </div>
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnRegistrarObservacion">Aceptar</button>
+		        <button class="btn btn-petroperu-rojo"  data-dismiss="modal">Cancelar</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	
+		<div class="modal fade" id="modalAsignarCorrespondencia" tabindex="-1"	role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+		      <div class="modal-header text-center">
+		      	<h4 class="modal-title w-100 font-weight-bold">Asignar Destinatario</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <br/>
+        	  <div class="modal-body mx-3">
+	        	  <div class="md-form mb-2">
+					<label for="destInterno_lugarTrabajo">Centro de Gesti&oacute;n de Correspondencia</label>
+					<select class="form-control sistcorrAutocompleRemoto" id="destInterno_lugarTrabajo"></select>
+				  </div>
+			  </div>
+			  <div class="modal-body mx-3">
+				  <div class="md-form mb-2">
+					 <label for="destInterno_dependencia">Dependencia</label>
+					 <select class="form-control sistcorrAutocompleRemoto" id="destInterno_dependencia"></select>
+				  </div>
+			  </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnGuardarAsignacion">Guardar</button>
+		        <button class="btn btn-petroperu-rojo"  data-dismiss="modal">Cancelar</button>
+		      </div>
+		    </div>
+			</div>
+		</div>
+	
+	</div>
+	
+</body>
+
+
+</html>

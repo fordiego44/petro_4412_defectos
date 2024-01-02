@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/plantilla_adminEquipos">
+<head>
+
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid" id="principal">
+		
+		<div class="row" id="filtrosBusqueda">
+			<div class="col-sm-12">
+				<div class="rgba-petro-strong py-1 movmtacord20" id="contenidoAccordionDatos">
+					<div class="row d-flex justify-content-center">
+						<div class="col-md-12 col-xl-12">
+							<div class="accordion md-accordion accordion-5" id="acordionFiltros" role="tablist" aria-multiselectable="false">
+								<div th:replace="fragments/admin_equipos/tab_filtros :: main"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br/>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card">
+					<div class="card-body">
+						<table id="tablaDependencias" class="table table-striped table-bordered dt-responsive nowrap"
+							cellspacing="0" style="width: 100%;">
+								<thead>
+									<tr>
+										<th>Edi</th>
+										<th>C&oacute;digo</th>
+										<th>Nombre</th>
+										<th>Tipo</th>
+										<th>Jefe</th>
+										<th>Integrantes</th>
+										<th>Estado</th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<script th:inline="javascript">
+			
+		</script>
+		
+	</div>
+	
+	<div layout:fragment="modals">
+		
+	</div>
+	
+	<div layout:fragment="modulo_js">
+		<script type="text/javascript" th:src="@{/js/admin_equipos/modulo.js?time=1111}" src="static/js/admin_equipos/modulo.js"></script>
+    	<script type="text/javascript" th:src="@{/js/admin_equipos/vista.js?time=1111}" src="static/js/admin_equipos/vista.js"></script>
+	</div>
+</body>
+</html>

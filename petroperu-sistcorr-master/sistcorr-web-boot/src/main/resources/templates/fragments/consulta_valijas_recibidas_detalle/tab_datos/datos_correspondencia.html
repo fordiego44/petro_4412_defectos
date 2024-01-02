@@ -1,0 +1,58 @@
+<!-- 9000004412 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div class="card mb-2" th:fragment="datos_correspondencia">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosCorrespondencia" data-form="datosCorrespondencia">
+			<a data-toggle="collapse" data-parent="#acordionDatos"
+				id="btnDatosCorrespondencia"
+				href="#collapseDatosCorrespondencia" aria-expanded="true"
+				aria-controls="contenidoDatosCorrespondencia"
+				data-form="datosCorrespondencia"> <i
+				class="fas fa-mail-bulk fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosCorrespondencia"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosCorrespondencia">DATOS DETALLE</h6>
+				<input type="hidden" id="proceso"  />
+			</a>
+		</div>
+
+		<div id="collapseDatosCorrespondencia" class="collapse"
+			role="tabpanel" aria-labelledby="headingDatosCorrespondencia"
+			data-parent="#contenidoDatosCorrespondencia">
+			<div class="card-body rgba-petro-strong z-depth-1">
+				 
+		<div class="row">
+			<div class="col-sm-12"> 
+						<table id="tablaCorrespondenciasGeneral" class="table table-striped table-bordered dt-responsive nowrap"
+							cellspacing="0" style="width: 100%; ">
+								<thead>
+									<tr>
+										<th> </th>
+										<th>Radicado</th>
+										<th>Tipo Correspondencia</th> 
+										<th>Asunto</th> 
+										<th>Dependencia Destino</th>
+										<th>Persona Destino</th>
+										<th>Dependencia Remitente</th>
+										<th>Remitente</th>  
+									</tr>
+								</thead>
+								<tbody></tbody>
+						</table>  
+			</div>
+			
+		</div>
+		<br/>
+			</div>
+		</div>
+
+
+	</div>
+</body>
+</html>

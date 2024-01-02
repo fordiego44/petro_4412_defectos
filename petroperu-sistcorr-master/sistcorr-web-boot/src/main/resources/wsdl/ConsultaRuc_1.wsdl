@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://wscr.sunat.gob.pe:90/cl-ti-iaconsulruc-ws/services/ConsultaRuc" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://wscr.sunat.gob.pe:90/cl-ti-iaconsulruc-ws/services/ConsultaRuc" xmlns:intf="http://wscr.sunat.gob.pe:90/cl-ti-iaconsulruc-ws/services/ConsultaRuc" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="http://bean.consultaruc.registro.servicio2.sunat.gob.pe" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+  <wsdl:types>
+    <schema targetNamespace="http://bean.consultaruc.registro.servicio2.sunat.gob.pe" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://wscr.sunat.gob.pe:90/cl-ti-iaconsulruc-ws/services/ConsultaRuc"/>
+      <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <complexType name="BeanDdp">
+        <sequence>
+          <element name="cod_dep" nillable="true" type="xsd:string"/>
+          <element name="cod_dist" nillable="true" type="xsd:string"/>
+          <element name="cod_prov" nillable="true" type="xsd:string"/>
+          <element name="ddp_ciiu" nillable="true" type="xsd:string"/>
+          <element name="ddp_doble" nillable="true" type="xsd:string"/>
+          <element name="ddp_estado" nillable="true" type="xsd:string"/>
+          <element name="ddp_fecact" nillable="true" type="xsd:string"/>
+          <element name="ddp_fecalt" nillable="true" type="xsd:string"/>
+          <element name="ddp_fecbaj" nillable="true" type="xsd:string"/>
+          <element name="ddp_flag22" nillable="true" type="xsd:string"/>
+          <element name="ddp_identi" nillable="true" type="xsd:string"/>
+          <element name="ddp_inter1" nillable="true" type="xsd:string"/>
+          <element name="ddp_lllttt" nillable="true" type="xsd:string"/>
+          <element name="ddp_mclase" nillable="true" type="xsd:string"/>
+          <element name="ddp_nombre" nillable="true" type="xsd:string"/>
+          <element name="ddp_nomvia" nillable="true" type="xsd:string"/>
+          <element name="ddp_nomzon" nillable="true" type="xsd:string"/>
+          <element name="ddp_numer1" nillable="true" type="xsd:string"/>
+          <element name="ddp_numreg" nillable="true" type="xsd:string"/>
+          <element name="ddp_numruc" nillable="true" type="xsd:string"/>
+          <element name="ddp_reacti" nillable="true" type="xsd:string"/>
+          <element name="ddp_refer1" nillable="true" type="xsd:string"/>
+          <element name="ddp_secuen" type="xsd:int"/>
+          <element name="ddp_tamano" nillable="true" type="xsd:string"/>
+          <element name="ddp_tipvia" nillable="true" type="xsd:string"/>
+          <element name="ddp_tipzon" nillable="true" type="xsd:string"/>
+          <element name="ddp_tpoemp" nillable="true" type="xsd:string"/>
+          <element name="ddp_ubigeo" nillable="true" type="xsd:string"/>
+          <element name="ddp_userna" nillable="true" type="xsd:string"/>
+          <element name="desc_ciiu" nillable="true" type="xsd:string"/>
+          <element name="desc_dep" nillable="true" type="xsd:string"/>
+          <element name="desc_dist" nillable="true" type="xsd:string"/>
+          <element name="desc_estado" nillable="true" type="xsd:string"/>
+          <element name="desc_flag22" nillable="true" type="xsd:string"/>
+          <element name="desc_identi" nillable="true" type="xsd:string"/>
+          <element name="desc_numreg" nillable="true" type="xsd:string"/>
+          <element name="desc_prov" nillable="true" type="xsd:string"/>
+          <element name="desc_tamano" nillable="true" type="xsd:string"/>
+          <element name="desc_tipvia" nillable="true" type="xsd:string"/>
+          <element name="desc_tipzon" nillable="true" type="xsd:string"/>
+          <element name="desc_tpoemp" nillable="true" type="xsd:string"/>
+          <element name="esActivo" type="xsd:boolean"/>
+          <element name="esHabido" type="xsd:boolean"/>
+        </sequence>
+      </complexType>
+      <complexType name="BeanDds">
+        <sequence>
+          <element name="dds_aparta" nillable="true" type="xsd:string"/>
+          <element name="dds_asient" nillable="true" type="xsd:string"/>
+          <element name="dds_califi" nillable="true" type="xsd:string"/>
+          <element name="dds_centro" nillable="true" type="xsd:string"/>
+          <element name="dds_cierre" nillable="true" type="xsd:string"/>
+          <element name="dds_comext" nillable="true" type="xsd:string"/>
+          <element name="dds_consti" nillable="true" type="xsd:string"/>
+          <element name="dds_contab" nillable="true" type="xsd:string"/>
+          <element name="dds_docide" nillable="true" type="xsd:string"/>
+          <element name="dds_domici" nillable="true" type="xsd:string"/>
+          <element name="dds_ejempl" nillable="true" type="xsd:string"/>
+          <element name="dds_factur" nillable="true" type="xsd:string"/>
+          <element name="dds_fecact" nillable="true" type="xsd:string"/>
+          <element name="dds_fecnac" nillable="true" type="xsd:string"/>
+          <element name="dds_fecven" nillable="true" type="xsd:string"/>
+          <element name="dds_ficha" nillable="true" type="xsd:string"/>
+          <element name="dds_inicio" nillable="true" type="xsd:string"/>
+          <element name="dds_licenc" nillable="true" type="xsd:string"/>
+          <element name="dds_motbaj" nillable="true" type="xsd:string"/>
+          <element name="dds_motemi" nillable="true" type="xsd:string"/>
+          <element name="dds_nacion" nillable="true" type="xsd:string"/>
+          <element name="dds_nfolio" nillable="true" type="xsd:string"/>
+          <element name="dds_nomcom" nillable="true" type="xsd:string"/>
+          <element name="dds_nrodoc" nillable="true" type="xsd:string"/>
+          <element name="dds_numfax" nillable="true" type="xsd:string"/>
+          <element name="dds_numruc" nillable="true" type="xsd:string"/>
+          <element name="dds_orient" nillable="true" type="xsd:string"/>
+          <element name="dds_paispa" nillable="true" type="xsd:string"/>
+          <element name="dds_pasapo" nillable="true" type="xsd:string"/>
+          <element name="dds_patron" nillable="true" type="xsd:string"/>
+          <element name="dds_sexo" nillable="true" type="xsd:string"/>
+          <element name="dds_telef1" nillable="true" type="xsd:string"/>
+          <element name="dds_telef2" nillable="true" type="xsd:string"/>
+          <element name="dds_telef3" nillable="true" type="xsd:string"/>
+          <element name="dds_userna" nillable="true" type="xsd:string"/>
+          <element name="declara" nillable="true" type="xsd:string"/>
+          <element name="desc_cierre" nillable="true" type="xsd:string"/>
+          <element name="desc_comext" nillable="true" type="xsd:string"/>
+          <element name="desc_contab" nillable="true" type="xsd:string"/>
+          <element name="desc_docide" nillable="true" type="xsd:string"/>
+          <element name="desc_domici" nillable="true" type="xsd:string"/>
+          <element name="desc_factur" nillable="true" type="xsd:string"/>
+          <element name="desc_motbaj" nillable="true" type="xsd:string"/>
+          <element name="desc_nacion" nillable="true" type="xsd:string"/>
+          <element name="desc_orient" nillable="true" type="xsd:string"/>
+          <element name="desc_sexo" nillable="true" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="BeanT1144">
+        <sequence>
+          <element name="cod_ciiu2" nillable="true" type="xsd:string"/>
+          <element name="cod_ciiu3" nillable="true" type="xsd:string"/>
+          <element name="cod_correo1" nillable="true" type="xsd:string"/>
+          <element name="cod_correo2" nillable="true" type="xsd:string"/>
+          <element name="cod_depar1" nillable="true" type="xsd:string"/>
+          <element name="cod_depar2" nillable="true" type="xsd:string"/>
+          <element name="cod_depar3" nillable="true" type="xsd:string"/>
+          <element name="cod_depar4" nillable="true" type="xsd:string"/>
+          <element name="cod_depar5" nillable="true" type="xsd:string"/>
+          <element name="cod_paicap" nillable="true" type="xsd:string"/>
+          <element name="cod_paiori" nillable="true" type="xsd:string"/>
+          <element name="cod_userna" nillable="true" type="xsd:string"/>
+          <element name="des_asiento" nillable="true" type="xsd:string"/>
+          <element name="des_ciiu2" nillable="true" type="xsd:string"/>
+          <element name="des_ciiu3" nillable="true" type="xsd:string"/>
+          <element name="des_conleg" nillable="true" type="xsd:string"/>
+          <element name="des_depar1" nillable="true" type="xsd:string"/>
+          <element name="des_depar2" nillable="true" type="xsd:string"/>
+          <element name="des_depar3" nillable="true" type="xsd:string"/>
+          <element name="des_depar4" nillable="true" type="xsd:string"/>
+          <element name="des_depar5" nillable="true" type="xsd:string"/>
+          <element name="des_parreg" nillable="true" type="xsd:string"/>
+          <element name="des_proind" nillable="true" type="xsd:string"/>
+          <element name="des_refnot" nillable="true" type="xsd:string"/>
+          <element name="fec_act" nillable="true" type="xsd:string"/>
+          <element name="fec_confir1" nillable="true" type="xsd:string"/>
+          <element name="fec_confir2" nillable="true" type="xsd:string"/>
+          <element name="ind_conleg" nillable="true" type="xsd:string"/>
+          <element name="ind_correo1" nillable="true" type="xsd:string"/>
+          <element name="ind_correo2" nillable="true" type="xsd:string"/>
+          <element name="ind_notifi" nillable="true" type="xsd:string"/>
+          <element name="ind_proind" nillable="true" type="xsd:string"/>
+          <element name="num_depar" nillable="true" type="xsd:string"/>
+          <element name="num_fax" nillable="true" type="xsd:string"/>
+          <element name="num_kilom" nillable="true" type="xsd:string"/>
+          <element name="num_lote" nillable="true" type="xsd:string"/>
+          <element name="num_manza" nillable="true" type="xsd:string"/>
+          <element name="num_ruc" nillable="true" type="xsd:string"/>
+          <element name="num_telef1" nillable="true" type="xsd:string"/>
+          <element name="num_telef2" nillable="true" type="xsd:string"/>
+          <element name="num_telef3" nillable="true" type="xsd:string"/>
+          <element name="num_telef4" nillable="true" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="BeanRso">
+        <sequence>
+          <element name="cod_cargo" nillable="true" type="xsd:string"/>
+          <element name="cod_depar" nillable="true" type="xsd:string"/>
+          <element name="desc_docide" nillable="true" type="xsd:string"/>
+          <element name="num_ord_suce" type="xsd:short"/>
+          <element name="rso_cargoo" nillable="true" type="xsd:string"/>
+          <element name="rso_docide" nillable="true" type="xsd:string"/>
+          <element name="rso_fecact" nillable="true" type="xsd:string"/>
+          <element name="rso_fecnac" nillable="true" type="xsd:string"/>
+          <element name="rso_nombre" nillable="true" type="xsd:string"/>
+          <element name="rso_nrodoc" nillable="true" type="xsd:string"/>
+          <element name="rso_numruc" nillable="true" type="xsd:string"/>
+          <element name="rso_userna" nillable="true" type="xsd:string"/>
+          <element name="rso_vdesde" nillable="true" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="BeanSpr">
+        <sequence>
+          <element name="cod_dep" nillable="true" type="xsd:string"/>
+          <element name="cod_dist" nillable="true" type="xsd:string"/>
+          <element name="cod_prov" nillable="true" type="xsd:string"/>
+          <element name="desc_dep" nillable="true" type="xsd:string"/>
+          <element name="desc_dist" nillable="true" type="xsd:string"/>
+          <element name="desc_prov" nillable="true" type="xsd:string"/>
+          <element name="desc_tipest" nillable="true" type="xsd:string"/>
+          <element name="desc_tipvia" nillable="true" type="xsd:string"/>
+          <element name="desc_tipzon" nillable="true" type="xsd:string"/>
+          <element name="direccion" nillable="true" type="xsd:string"/>
+          <element name="spr_correl" type="xsd:int"/>
+          <element name="spr_fecact" nillable="true" type="xsd:string"/>
+          <element name="spr_inter1" nillable="true" type="xsd:string"/>
+          <element name="spr_licenc" nillable="true" type="xsd:string"/>
+          <element name="spr_nombre" nillable="true" type="xsd:string"/>
+          <element name="spr_nomvia" nillable="true" type="xsd:string"/>
+          <element name="spr_nomzon" nillable="true" type="xsd:string"/>
+          <element name="spr_numer1" nillable="true" type="xsd:string"/>
+          <element name="spr_numruc" nillable="true" type="xsd:string"/>
+          <element name="spr_refer1" nillable="true" type="xsd:string"/>
+          <element name="spr_tipest" nillable="true" type="xsd:string"/>
+          <element name="spr_tipvia" nillable="true" type="xsd:string"/>
+          <element name="spr_tipzon" nillable="true" type="xsd:string"/>
+          <element name="spr_ubigeo" nillable="true" type="xsd:string"/>
+          <element name="spr_userna" nillable="true" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="BeanT1150">
+        <sequence>
+          <element name="cod_userna" nillable="true" type="xsd:string"/>
+          <element name="fec_act" nillable="true" type="xsd:string"/>
+          <element name="ind_conleg" nillable="true" type="xsd:string"/>
+          <element name="num_correl" type="xsd:short"/>
+          <element name="num_depar" nillable="true" type="xsd:string"/>
+          <element name="num_kilom" nillable="true" type="xsd:string"/>
+          <element name="num_lote" nillable="true" type="xsd:string"/>
+          <element name="num_manza" nillable="true" type="xsd:string"/>
+          <element name="num_ruc" nillable="true" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="BeanT362">
+        <sequence>
+          <element name="desc_numreg" nillable="true" type="xsd:string"/>
+          <element name="t362_fecact" nillable="true" type="xsd:string"/>
+          <element name="t362_fecbaj" nillable="true" type="xsd:string"/>
+          <element name="t362_indice" type="xsd:int"/>
+          <element name="t362_nombre" nillable="true" type="xsd:string"/>
+          <element name="t362_numreg" nillable="true" type="xsd:string"/>
+          <element name="t362_numruc" nillable="true" type="xsd:string"/>
+          <element name="t362_userna" nillable="true" type="xsd:string"/>
+        </sequence>
+      </complexType>
+    </schema>
+    <schema targetNamespace="http://wscr.sunat.gob.pe:90/cl-ti-iaconsulruc-ws/services/ConsultaRuc" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://bean.consultaruc.registro.servicio2.sunat.gob.pe"/>
+      <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <complexType name="ArrayOf_tns1_BeanRso">
+        <complexContent>
+          <restriction base="soapenc:Array">
+            <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:BeanRso[]"/>
+          </restriction>
+        </complexContent>
+      </complexType>
+      <complexType name="ArrayOf_tns1_BeanSpr">
+        <complexContent>
+          <restriction base="soapenc:Array">
+            <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:BeanSpr[]"/>
+          </restriction>
+        </complexContent>
+      </complexType>
+      <complexType name="ArrayOf_tns1_BeanT1150">
+        <complexContent>
+          <restriction base="soapenc:Array">
+            <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:BeanT1150[]"/>
+          </restriction>
+        </complexContent>
+      </complexType>
+      <complexType name="ArrayOf_tns1_BeanDdp">
+        <complexContent>
+          <restriction base="soapenc:Array">
+            <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:BeanDdp[]"/>
+          </restriction>
+        </complexContent>
+      </complexType>
+      <complexType name="ArrayOf_tns1_BeanT362">
+        <complexContent>
+          <restriction base="soapenc:Array">
+            <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:BeanT362[]"/>
+          </restriction>
+        </complexContent>
+      </complexType>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="getEstAnexosT1150Response">
+    <wsdl:part name="getEstAnexosT1150Return" type="impl:ArrayOf_tns1_BeanT1150"/>
+  </wsdl:message>
+  <wsdl:message name="getDatosSecundariosResponse">
+    <wsdl:part name="getDatosSecundariosReturn" type="tns1:BeanDds"/>
+  </wsdl:message>
+  <wsdl:message name="getEstablecimientosAnexosRequest">
+    <wsdl:part name="numruc" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="getRepLegalesRequest">
+    <wsdl:part name="numruc" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="getEstablecimientosAnexosResponse">
+    <wsdl:part name="getEstablecimientosAnexosReturn" type="impl:ArrayOf_tns1_BeanSpr"/>
+  </wsdl:message>
+  <wsdl:message name="setServicioConsultaRucServiceRequest">
+    <wsdl:part name="servicioConsultaRucService" type="xsd:anyType"/>
+  </wsdl:message>
+  <wsdl:message name="buscaRazonSocialResponse">
+    <wsdl:part name="buscaRazonSocialReturn" type="impl:ArrayOf_tns1_BeanDdp"/>
+  </wsdl:message>
+  <wsdl:message name="getDatosT362Response">
+    <wsdl:part name="getDatosT362Return" type="impl:ArrayOf_tns1_BeanT362"/>
+  </wsdl:message>
+  <wsdl:message name="getDatosT1144Response">
+    <wsdl:part name="getDatosT1144Return" type="tns1:BeanT1144"/>
+  </wsdl:message>
+  <wsdl:message name="getEstAnexosT1150Request">
+    <wsdl:part name="numruc" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="getDomicilioLegalRequest">
+    <wsdl:part name="numruc" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="getRepLegalesResponse">
+    <wsdl:part name="getRepLegalesReturn" type="impl:ArrayOf_tns1_BeanRso"/>
+  </wsdl:message>
+  <wsdl:message name="getDomicilioLegalResponse">
+    <wsdl:part name="getDomicilioLegalReturn" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="getDatosPrincipalesRequest">
+    <wsdl:part name="numruc" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="getDatosT362Request">
+    <wsdl:part name="numruc" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="buscaRazonSocialRequest">
+    <wsdl:part name="numruc" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="setServicioConsultaRucServiceResponse"/>
+  <wsdl:message name="getDatosT1144Request">
+    <wsdl:part name="numruc" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="getDatosPrincipalesResponse">
+    <wsdl:part name="getDatosPrincipalesReturn" type="tns1:BeanDdp"/>
+  </wsdl:message>
+  <wsdl:message name="getDatosSecundariosRequest">
+    <wsdl:part name="numruc" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:portType name="ConsultaRucSoapBindingImpl">
+    <wsdl:operation name="getDatosPrincipales" parameterOrder="numruc">
+      <wsdl:input message="impl:getDatosPrincipalesRequest" name="getDatosPrincipalesRequest"/>
+      <wsdl:output message="impl:getDatosPrincipalesResponse" name="getDatosPrincipalesResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getDatosSecundarios" parameterOrder="numruc">
+      <wsdl:input message="impl:getDatosSecundariosRequest" name="getDatosSecundariosRequest"/>
+      <wsdl:output message="impl:getDatosSecundariosResponse" name="getDatosSecundariosResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getDatosT1144" parameterOrder="numruc">
+      <wsdl:input message="impl:getDatosT1144Request" name="getDatosT1144Request"/>
+      <wsdl:output message="impl:getDatosT1144Response" name="getDatosT1144Response"/>
+    </wsdl:operation>
+    <wsdl:operation name="getRepLegales" parameterOrder="numruc">
+      <wsdl:input message="impl:getRepLegalesRequest" name="getRepLegalesRequest"/>
+      <wsdl:output message="impl:getRepLegalesResponse" name="getRepLegalesResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getEstablecimientosAnexos" parameterOrder="numruc">
+      <wsdl:input message="impl:getEstablecimientosAnexosRequest" name="getEstablecimientosAnexosRequest"/>
+      <wsdl:output message="impl:getEstablecimientosAnexosResponse" name="getEstablecimientosAnexosResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getDomicilioLegal" parameterOrder="numruc">
+      <wsdl:input message="impl:getDomicilioLegalRequest" name="getDomicilioLegalRequest"/>
+      <wsdl:output message="impl:getDomicilioLegalResponse" name="getDomicilioLegalResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getEstAnexosT1150" parameterOrder="numruc">
+      <wsdl:input message="impl:getEstAnexosT1150Request" name="getEstAnexosT1150Request"/>
+      <wsdl:output message="impl:getEstAnexosT1150Response" name="getEstAnexosT1150Response"/>
+    </wsdl:operation>
+    <wsdl:operation name="buscaRazonSocial" parameterOrder="numruc">
+      <wsdl:input message="impl:buscaRazonSocialRequest" name="buscaRazonSocialRequest"/>
+      <wsdl:output message="impl:buscaRazonSocialResponse" name="buscaRazonSocialResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getDatosT362" parameterOrder="numruc">
+      <wsdl:input message="impl:getDatosT362Request" name="getDatosT362Request"/>
+      <wsdl:output message="impl:getDatosT362Response" name="getDatosT362Response"/>
+    </wsdl:operation>
+    <wsdl:operation name="setServicioConsultaRucService" parameterOrder="servicioConsultaRucService">
+      <wsdl:input message="impl:setServicioConsultaRucServiceRequest" name="setServicioConsultaRucServiceRequest"/>
+      <wsdl:output message="impl:setServicioConsultaRucServiceResponse" name="setServicioConsultaRucServiceResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConsultaRucSoapBinding" type="impl:ConsultaRucSoapBindingImpl">
+    <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getDatosPrincipales">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getDatosPrincipalesRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.consultaruc.registro.servicio2.sunat.gob.pe" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getDatosPrincipalesResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://wscr.sunat.gob.pe:90/cl-ti-iaconsulruc-ws/services/ConsultaRuc" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDatosSecundarios">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getDatosSecundariosRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.consultaruc.registro.servicio2.sunat.gob.pe" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getDatosSecundariosResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://wscr.sunat.gob.pe:90/cl-ti-iaconsulruc-ws/services/ConsultaRuc" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDatosT1144">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getDatosT1144Request">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.consultaruc.registro.servicio2.sunat.gob.pe" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getDatosT1144Response">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://wscr.sunat.gob.pe:90/cl-ti-iaconsulruc-ws/services/ConsultaRuc" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRepLegales">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getRepLegalesRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.consultaruc.registro.servicio2.sunat.gob.pe" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getRepLegalesResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://wscr.sunat.gob.pe:90/cl-ti-iaconsulruc-ws/services/ConsultaRuc" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEstablecimientosAnexos">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getEstablecimientosAnexosRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.consultaruc.registro.servicio2.sunat.gob.pe" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getEstablecimientosAnexosResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://wscr.sunat.gob.pe:90/cl-ti-iaconsulruc-ws/services/ConsultaRuc" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDomicilioLegal">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getDomicilioLegalRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.consultaruc.registro.servicio2.sunat.gob.pe" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getDomicilioLegalResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://wscr.sunat.gob.pe:90/cl-ti-iaconsulruc-ws/services/ConsultaRuc" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEstAnexosT1150">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getEstAnexosT1150Request">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.consultaruc.registro.servicio2.sunat.gob.pe" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getEstAnexosT1150Response">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://wscr.sunat.gob.pe:90/cl-ti-iaconsulruc-ws/services/ConsultaRuc" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscaRazonSocial">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="buscaRazonSocialRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.consultaruc.registro.servicio2.sunat.gob.pe" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="buscaRazonSocialResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://wscr.sunat.gob.pe:90/cl-ti-iaconsulruc-ws/services/ConsultaRuc" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDatosT362">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getDatosT362Request">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.consultaruc.registro.servicio2.sunat.gob.pe" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getDatosT362Response">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://wscr.sunat.gob.pe:90/cl-ti-iaconsulruc-ws/services/ConsultaRuc" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setServicioConsultaRucService">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="setServicioConsultaRucServiceRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.consultaruc.registro.servicio2.sunat.gob.pe" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="setServicioConsultaRucServiceResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://wscr.sunat.gob.pe:90/cl-ti-iaconsulruc-ws/services/ConsultaRuc" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConsultaRucSoapBindingImplService">
+    <wsdl:port binding="impl:ConsultaRucSoapBinding" name="ConsultaRuc">
+      <wsdlsoap:address location="http://wscr.sunat.gob.pe:90/cl-ti-iaconsulruc-ws/services/ConsultaRuc"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div class="tab-pane fade" id="contenidoObservaciones" role="tabpanel"
+		aria-labelledby="contact-tab-classic-orange" th:fragment="main">
+		<div id="cabeceraObservaciones">
+			<div class="form-row">
+				<div class="col-sm-12">
+					<span class="labelTextArea">Correlativo</span>
+					<div class="more textarea" th:text="${tarea.correlativo}"></div>
+					<div class="more textarea" th:text="${tipoCorrespondencia}"></div>
+				</div>
+			</div>
+		</div>
+		<div id="bodyObservaciones">
+			<div class="form-row">
+				<div class="col-sm-12">
+					<br />
+					<b> Lista de Observaciones </b><span th:if="${tipoCorrespondencia!='consulta-auditoria'}" class="agregarObservacion float-right" data-toggle="tooltip" title="Agregar observaci&oacute;n"><i class="fas fa-comment-dots" style="font-size: 20px;"></i></span>
+				</div>
+			</div>
+			<div class="div_observaciones">
+				<div th:each="obs,index : ${observaciones}" class="row" style="padding-top: 10px;">
+					<div class="col-sm-12">
+						<div class="card card_pendiente" style="padding-left: 0px!important;">
+							<div th:class="${index.index%2 == 0}? 'card-body' : 'card-body odd'">
+								<table border="0" style="width: 100%; table-layout: fixed;">
+									<tbody>
+										<tr>
+											<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 100px; padding-right: 5px;">Fecha: </td>
+											<td class="text-left" style="font-size: 16px; font-weight: 400;"> <span th:text="${obs.fechaSTR}">FECHA</span> </td>
+										</tr>
+										<tr>
+											<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 100px; padding-right: 5px;">Usuario: </td>
+											<td class="text-left" style="font-size: 16px; font-weight: 400;"> <span th:text="${obs.nomApeUsuario}"></span> </td>
+										</tr>
+										<tr>
+											<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 100px; padding-right: 5px;">Descripci&oacute;n: </td>
+											<td class="text-left" style="font-size: 16px; font-weight: 400;"> 
+												<div th:if="${obs.numCaract}"><span class="descripcion_traza" th:text="${obs.observacion}">DESCRIPCION</span> <br /></div>
+												<div class="visible" th:if="${!obs.numCaract}"><span class="descripcion_traza" th:text="${obs.observacion.substring(0,99)}">DESCRIPCION</span><span class="masTexto"> ... m&aacute;s</span> <br /></div>
+												<div class="no_visible" th:if="${!obs.numCaract}"><span class="descripcion_traza" th:text="${obs.observacion}">DESCRIPCION</span><span class="menosTexto"> menos</span></div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div th:if="${observaciones.isEmpty()}" class="row" style="padding-top: 10px;">
+					<div class="col-sm-12">
+						<div class="card promoting_card">
+							<div class="card-body">
+								<p>
+									No tiene observaciones.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

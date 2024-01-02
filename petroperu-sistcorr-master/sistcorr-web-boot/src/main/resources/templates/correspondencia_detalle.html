@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/plantilla_correspondencia_detalle">
+<head>
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid" id="principal">
+		<input type="hidden" id="tipoBandeja" th:value="${bandeja}"/>
+		<input type="hidden" id="correlativo" th:value="${correlativo}"/>
+		<input type="hidden" id="wobNum" th:value="${workflow}"/>
+		<input type="hidden" id="nuevaCorrespondencia" th:value="${NUEVA_CORRESPONDENCIA}"/>
+		<input type="hidden" id="porAceptar" th:value="${POR_ACEPTAR}"/>
+		
+		<div class="petro-tabs mx-2">
+			<ul class="nav tabs-petro" id="myClassicTabOrange" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link  waves-light active show" id="Datos-tab" data-toggle="tab" data-tab="datos"
+                            href="#contenidoDatos" role="tab" aria-controls="contenidoDatos" aria-selected="true">Datos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-light" id="Historico-tab" data-toggle="tab" data-tab="historial"
+                            href="#contenidoHistorialAsignaciones" role="tab"
+                            aria-controls="contenidoHistorialAsignaciones" aria-selected="false">Hist. Asignaciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-light" id="Documentos-tab" data-toggle="tab" data-tab="documentos"
+                            href="#contenidoDocumentos" role="tab" aria-controls="contenidoDocumentos"
+                            aria-selected="false">Documentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-light" id="Traza-tab" data-toggle="tab" data-tab="traza"
+                            href="#contenidoTraza" role="tab" aria-controls="contenidoTraza"
+                            aria-selected="false">Traza</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-light" id="Observaciones-tab" data-toggle="tab" data-tab="observaciones"
+                            href="#contenidoObservaciones" role="tab" aria-controls="contenidoObservaciones"
+                            aria-selected="false">Observaciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-light" id="Tracking-tab" data-toggle="tab" data-tab="tracking"
+                            href="#contenidoTracking" role="tab" aria-controls="contenidoTracking"
+                            aria-selected="false">Tracking F&iacute;sico</a>
+                    </li>
+            </ul>
+               
+        	<div class="tab-content card" id="myClassicTabContentOrange">
+            	<div th:replace="fragments/correspondencia_detalle/tab_datos :: main"></div>
+                <div th:replace="fragments/correspondencia_detalle/tab_asignaciones :: main"></div>
+                <div th:replace="fragments/correspondencia_detalle/tab_documentos :: main"></div>
+                <div th:replace="fragments/correspondencia_detalle/tab_traza :: main"></div>
+                <div th:replace="fragments/correspondencia_detalle/tab_observaciones :: main"></div>
+                <div th:replace="fragments/correspondencia_detalle/tab_tracking :: main"></div>
+            </div>
+		</div>
+		
+		<script th:inline="javascript">
+		/*<![CDATA[*/
+		    var CORRESPONDENCIA = /*[[${tarea}]]*/ 'default';
+		    var TAMANIO_MAX_ARCHIVO = /*[[${tamanioMaxArchivo}]]*/ '0';
+		    var BANDEJA =  /*[[${bandeja}]]*/ 'app';
+		    var ERRORES =  /*[[${errores}]]*/ '';
+		    var ES_JEFE = /*[[${esJefe}]]*/ 'false';
+		    var ES_GESTOR = /*[[${esGestor}]]*/ 'false';
+		/*]]>*/
+		</script>
+		
+	</div>
+	
+	<div layout:fragment="modals">	
+		<div th:replace="fragments/operaciones_correspondencias :: operaciones"></div>	
+	</div>
+	
+	<div layout:fragment="modulo_js">
+		<script type="text/javascript" th:src="@{/js/correspondencia_detalle/modulo.js?time=1112}" src="static/js/correspondencia_detalle/modulo.js"></script>
+    	<script type="text/javascript" th:src="@{/js/correspondencia_detalle/vista.js?time=1112}" src="static/js/correspondencia_detalle/vista.js?time=1111"></script>
+	</div>
+</body>
+</html>

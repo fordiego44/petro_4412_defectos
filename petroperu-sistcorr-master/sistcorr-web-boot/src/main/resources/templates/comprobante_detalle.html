@@ -1,0 +1,48 @@
+<!-- 9000004276 -->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/plantilla_comprobante_detalle">
+  <head></head>
+  <body>		
+    <div layout:fragment="content" class="container-fluid" id="principal">
+		  <input id="correlativo" type="hidden" th:value="${comprobante.correlativo!=null and #strings.length(comprobante.correlativo)!=0?comprobante.correlativo:''}"/>
+      <div class="petro-tabs mx-2">
+        <ul class="nav tabs-petro" id="myClassicTabOrange" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link  waves-light active show" id="Datos-tab" data-toggle="tab" data-tab="datos" href="#contenidoDatos" role="tab" aria-controls="contenidoDatos" aria-selected="true">Datos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" id="Tracking-tab" data-toggle="tab" data-tab="tracking" href="#contenidoTracking" role="tab" aria-controls="contenidoTracking" aria-selected="false">Tracking F&iacute;sico</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" id="Documentos-tab" data-toggle="tab" data-tab="documentos" href="#contenidoDocumentos" role="tab" aria-controls="contenidoDocumentos" aria-selected="false">Documentos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" id="Traza-tab" data-toggle="tab" data-tab="traza" href="#contenidoTraza" role="tab" aria-controls="contenidoTraza" aria-selected="false">Traza</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" id="Observaciones-tab" data-toggle="tab" data-tab="observaciones" href="#contenidoObservaciones" role="tab" aria-controls="contenidoObservaciones" aria-selected="false">Observaciones</a>
+          </li>
+        </ul>
+        <div class="tab-content card" id="myClassicTabContentOrange">
+          <div th:replace="fragments/comprobante_detalle/tab_datos :: main"></div>
+          <div th:replace="fragments/comprobante_detalle/tab_tracking :: main"></div>
+          <div th:replace="fragments/comprobante_detalle/tab_documentos :: main"></div>
+          <div th:replace="fragments/comprobante_detalle/tab_traza :: main"></div>
+          <div th:replace="fragments/comprobante_detalle/tab_observaciones :: main"></div>
+        </div>
+      </div>
+		<script th:inline="javascript">
+		/*<![CDATA[*/		   
+		    var ERRORES =  /*[[${errores}]]*/ '';
+		/*]]>*/
+		</script>
+    </div>
+    <div layout:fragment="modals">
+      <div th:replace="fragments/operaciones_comprobantes :: operaciones"></div>
+    </div>
+    <div layout:fragment="modulo_js">
+      <script type="text/javascript" th:src="@{/js/comprobante_detalle/modulo.js?time=1112}" src="static/js/comprobante_detalle/modulo.js"></script>
+      <script type="text/javascript" th:src="@{/js/comprobante_detalle/vista.js?time=1112}" src="static/js/comprobante_detalle/vista.js?time=1111"></script>
+    </div>
+  </body>
+</html>

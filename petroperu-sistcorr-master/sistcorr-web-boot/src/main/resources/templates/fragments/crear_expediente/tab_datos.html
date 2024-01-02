@@ -1,0 +1,17 @@
+<!-- 9000004412 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head></head>
+  <body>
+    <div id="contenidoDatos"   role="tabpanel" aria-labelledby="profile-tab-classic-orange" th:fragment="main">
+     
+          
+              <div th:replace="fragments/crear_expediente/tab_datos/datos_remitente :: datos_remitente"></div>
+         		<div th:replace="fragments/crear_expediente/tab_datos/datos_venta :: datos_ventaBases"></div>
+         		<div th:replace="fragments/crear_expediente/tab_datos/datos_consulta :: datos_consultaBases"></div>
+         		<div th:replace="fragments/crear_expediente/tab_datos/datos_recepcion :: datos_recepcion"></div>
+         		<div th:replace="fragments/crear_expediente/tab_datos/datos_impugnaciones :: datos_impugnaciones"></div>
+     
+    </div>
+  </body> 
+</html> 

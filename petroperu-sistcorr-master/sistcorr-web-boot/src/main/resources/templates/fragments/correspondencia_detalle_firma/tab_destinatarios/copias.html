@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div class="card mb-2" th:fragment="datos_copias" id="dest_datos_copias">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingListaCopias" data-form="ListaCopias">
+			<a data-toggle="collapse" data-parent="#acordionDestinatarios"
+				id="btnListaCopias"
+				href="#collapseListaCopias" aria-expanded="true"
+				aria-controls="contenidoListaCopias" data-form="ListaCopias">
+				<i class="fas fa-people-carry fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="ListaCopias"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="ListaCopias">COPIAS</h6>
+			</a>
+		</div>
+
+		<div id="collapseListaCopias" class="collapse show"
+			role="tabpanel" aria-labelledby="headingListaCopias"
+			data-parent="#contenidoListaCopias">
+			<div class="card" >
+				<div class="card-body">
+					<div id="listaCopias"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

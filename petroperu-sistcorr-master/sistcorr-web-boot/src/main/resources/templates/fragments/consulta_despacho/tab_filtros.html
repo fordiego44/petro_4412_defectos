@@ -1,0 +1,130 @@
+<!-- 9000004412 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div  class="card mb-2"	th:fragment="main">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosRemitente" data-form="datosFiltros">
+			<a data-toggle="collapse" data-parent="#acordionFiltros"
+				id="btnFiltros"
+				href="#collapseFiltros" aria-expanded="true"
+				aria-controls="contenidoFiltros" data-form="datosFiltros">
+				<i class="fas fa-filter fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosFiltros"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosFiltros">FILTROS</h6>
+			</a>
+		</div>
+		
+		<div id="collapseFiltros" class="collapse show"
+			role="tabpanel" aria-labelledby="headingFiltros"
+			data-parent="#contenidoFiltros">
+			<div class="card-body rgba-petro-strong  z-depth-1" style="padding-bottom: 0px !important;">
+				<br/>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" class="form-control validate" maxlength="20"
+								id="txtCorrelativo" /> <label for="txtCorrelativo" class="active">Correlativo</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+								<label for="rmt_estado" class="active">Estado</label>
+								<select class="form-control sistcorrAutocompleRemoto"
+									id="rmt_estado"  style="margin-top: 3px;"
+									data-msgerror="El campo tipo de correspondencia es obligatorio">
+									<option value="">[Seleccione]</option>
+					        		<option th:each="dep : ${estado}" th:value="${dep.codigoEstado}" th:text="${dep.estado}"></option>
+					        	</select>
+							</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+								<i class="far fa-calendar-alt float-right icon-date" id="btnFechaDocumentoDesde"></i>
+								<input type="text" class="form-control validate"
+									id="txtFechaDocumentoDesde" style="margin-top: 15px"/> <label
+									for="txtFechaDocumentoDesde">Fecha de Registro - Desde</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+								<i class="far fa-calendar-alt float-right icon-date" id="btnFechaDocumentoHasta"></i>
+								<input type="text" class="form-control validate"
+									id="txtFechaDocumentoHasta" style="margin-top: 15px"/> <label
+									for="txtFechaDocumentoHasta">Fecha del Registro - Hasta</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+								<label for="rmt_dependencia" class="active">Dependencia Remitente</label>
+								<select class="form-control sistcorrAutocompleRemoto"
+									id="rmt_dependencia"  style="margin-top: 3px;"
+									data-msgerror="El campo tipo de correspondencia es obligatorio">
+									<option value="">[Seleccione]</option>
+					        			<option th:each="dep : ${dependenciaRemitente}" th:value="${dep.codigo}" th:text="${dep.descripcion}"></option>
+					        	</select>
+							</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+								<label for="rmt_usuario" class="active">Usuario Remitente</label>
+								<select class="form-control sistcorrAutocompleRemoto"
+									id="rmt_usuario"  style="margin-top: 3px;"
+									data-msgerror="El campo tipo de correspondencia es obligatorio">
+									<option value="">[Seleccione]</option>
+					        			<option th:each="dep : ${usuarioRemitente}" th:value="${dep.id}" th:text="${dep.nombreApellido}"></option>
+					        	</select>
+							</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" class="form-control validate" maxlength="20"
+								id="txtNumero" /> <label for="txtNumero" class="active">N&uacute;mero de Documento</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" class="form-control validate" maxlength="20"
+								id="txtEntidad" /> <label for="txtEntidad" class="active">Entidad Externa</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" class="form-control validate" maxlength="20"
+								id="txtAsunto" /> <label for="txtAsunto" class="active">Asunto</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" class="form-control validate" maxlength="20"
+								id="txtGuia" /> <label for="txtGuia" class="active">Guia de Remisi&oacute;n</label>
+						</div>
+					</div>
+				</div>
+				  
+					 
+					<div class="form-row">
+						<div class="col-sm-12" align="right">
+							<button class="btn btn-petroperu-rojo" type="button" id="btnResetear">Limpiar</button>
+							<button class="btn btn-petroperu-verde" type="button" id="btnBuscar">Buscar</button>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

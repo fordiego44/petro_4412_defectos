@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/plantilla_menu_configuracion">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body style="background-color: white;">
+	<div layout:fragment="content" class="container-fluid" id="principal">
+		<input type="hidden" id="url" th:value="${url}" />
+
+
+		<div class="container pt-3">
+
+			<div class="row">
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/departamentoGeografico"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Departamentos
+							Geograficos</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/provincia"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Provincias</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/distrito"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Distritos</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/paises"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">País</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+				
+			</div>
+
+			<div class="row">
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/lugar-trabajo"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Lugares de Trabajo</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/jerarquias"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Jerarquías</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/ciudad"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Ciudades</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/couriers"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Courier</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/courier-lugar-trabajo"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Relación Courier - Lugar de Trabajo</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/provincia-lugar-trabajo"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Provincias Locales según Lugar de
+							Trabajo</span> <i class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/cgc"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Centro de Gestión de
+							correspondencia</span> <i class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/gestor-dependencia"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Relación Gestor - Dependencia</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/usuario-cgc"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Relación de Usuario CGC</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/tipo-unidad-matricial"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Tipo de Unidades Matriciales</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/tipo-comprobante"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Tipos de Comprobantes</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/tipo-correspondencia"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Tipo de Correspondencias</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/monedas"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Monedas</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/dependencia-externa"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Dependencias Externas</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/forma-envio"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Formas de envío</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/numeradores"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Numeradores</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/estados"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Estados</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/tipo-accion"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Tipo de Acción</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/motivos"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Motivos de Devolución</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/transacciones-cgc"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">Transacciones por CGC</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+
+			</div>
+
+			<div class="row">
+				<div class="col-sm-3 col-md-3 css_top">
+					<a href="configuracion/cgc-lugar-trabajo"
+						class="d-flex justify-content-between  fondo_div"> <span
+						class="m-2 p_configuracion">CGC Lugares de Trabajo</span> <i
+						class='m-2 fab fa-wpforms css_icono'></i>
+					</a>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+	<div layout:fragment="modulo_js">
+		<script type="text/javascript"
+			th:src="@{/js/menu_configuracion/modulo.js?time=1112}"
+			src="static/js/menu_configuracion/modulo.js"></script>
+		<script type="text/javascript"
+			th:src="@{/js/menu_configuracion/vista.js?time=1112}"
+			src="static/js/menu_configuracion/vista.js"></script>
+	</div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/plantilla_correspondencia_receptor">
+<head>
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid" id="principal">
+		<input type="hidden" id="tipoBandeja" th:value="${tipoCorrespondencia}"/>
+		<input type="hidden" id="url" th:value="${url}"/>
+		<input type="hidden" id="dependenciaDestino" th.value="${dependenciadestino}"/>
+		<input type="hidden" id="nuevaCorrespondencia" th:value="${NUEVA_CORRESPONDENCIA}"/>
+		<input type="hidden" id="porAceptar" th:value="${POR_ACEPTAR}"/>
+		<input type="hidden" id="correlativoDef" th:if="${correlativo == null}" value="" />
+		<input type="hidden" id="correlativoDef" th:if="${correlativo != null}" th:value="${correlativo}" />
+		<input type="hidden" id="cantidadBand" th:value="${TAMANIO_BAND_ENTR}"/>
+		<div class="row" id="filtrosBusqueda">
+		
+		</div>
+		<div id="listaCorrespondencias"></div>
+		<div id="listaAsignaciones"></div>
+		<div id="sinResultados"><p>No hay registros para mostrar</p></div>
+		<div class="totales float-right"></div>
+		<div id="verMas" style="cursor: pointer; font-weight: bolder;"><p>Ver M&aacute;s <i class="fas fa-plus-circle" style="font-size: 20px;"></i></p></div>
+		
+		<script type="text/x-handlebars-template" id="template-correspondencias-receptor">
+			{{#each correspondencias}}
+			<div class="row">
+				<div class="col-sm-12 col_tarea" data-workflowId="{{workflowId}}" data-tipoIcono="{{tipoIcono}}" data-idAsigancion="{{idAsignacion}}">
+					<div id="CORRESPONDENCIA_{{workflowId}}" data-tipoIcono="{{tipoIcono}}" data-correlativo="{{correlativo}}"  data-workflowId="{{workflowId}}" data-idAsigancion="{{idAsignacion}}" class="card promoting-card">
+						<div class="card-body d-flex flex-row compCorrespondencia" data-workflowId="{{workflowId}}" id="CORRESPONDENCIA_BODY_{{workflowId}}" data-esDeEmision="{{esDeEmision}}" data-nroDocumento="{{numeroDocumento}}" data-correlativo="{{correlativo}}">
+							<div class='circle_tipo_tarea icon_color_{{tipoIcono}}"'>{{tipoIcono}}</div>
+							
+						
+						<div style="width:95%">
+							<strong class="card-title font-weight-bold mb-2">{{dependenciaRemitente}}</strong>
+							<span class="card-text  float-right "><i class="far fa-clock pr-2"></i>{{fechaCreacionPRC}}</span>
+							 <br/>
+							 <p class="card-text card_texto_tarea" align="justify">{{asunto}}</p> 
+							 <p class="card-text card_texto_tarea">{{numeroDocumento}}<span class="card-text  float-right ">{{correlativo}}</span></p> 
+						</div>
+					</div>
+					<div class="card-footer footer_tarea" align="center" id="CORRESPONDENCIA_FOOTER_{{workflowId}}" style="display: none">
+						<div class="row" >
+							<div class="col">
+								<i style="{{estilo_opciones_SA_PA_descarga this}}" class="fas fa-eye icon_view icon_add_document btnVerificarDocPrincipal_Correspondencia"  data-correlativo="{{correlativo}}" data-toggle="tooltip" title="Ver documento principal"></i>
+								</div>
+							<div class="col">
+								<a style="{{estilo_opciones_SA_PA this}}" href="{{url_pagina_detalle_correspondencia_receptor this}}" data-toggle="tooltip" title="Abrir correspondencia"><i class="far fa-list-alt icon_view_detail"></i></a>
+							</div>
+							<div class="col" style="{{estilo_PA}}">
+								<i class="fas fa-building icon_view btnAsignarCorrespondencia" style="color: blue;" data-correlativo="{{correlativo}}" data-dependenciadestino="{{dependenciaDestino}}" data-toggle="tooltip" title="Asignar Destinatario"></i>
+							</div>
+							<div class="col" style="{{estilo_Rechazado this}}">
+								<i class="fas fa-times-circle icon_check btnRechazarCorrespondencia" data-correlativo="{{correlativo}}" data-toggle="tooltip" title="Rechazar"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			{{/each}}
+		</script>
+		<script type="text/x-handlebars-template" id="template-asignaciones">
+			
+		</script>
+		<script type="text/x-handlebars-template" id="template-filtros">
+			{{#each filtros}}
+				<span class="badge badge-primary badge-pill" id="filtro_{{fieldId}}" style="margin: 5px;">
+					{{text}}&emsp;
+					<i id="icon_filtro_{{fieldId}}" class="far fa-trash-alt icon_eliminar_filtro" data-field="{{fieldId}}" data-toggle="tooltip" title="Eliminar filtro"></i>
+				</span>
+			{{/each}}
+		</script>
+		
+		<script th:inline="javascript">
+		/*<![CDATA[*/
+		    var LISTA_DEPENDENCIAS = /*[[${dependenciasDestino}]]*/ 'default';
+			var LISTA_ACCIONES = /*[[${acciones}]]*/ 'default';
+			var LISTA_ESTADOS_CORRESPONDENCIA = /*[[${estadosCorr}]]*/ 'default';
+		    var TAMANIO_MAX_ARCHIVO = /*[[${tamanioMaxArchivo}]]*/ '0';
+		    var ES_JEFE = /*[[${esJefe}]]*/ 'false';
+		    var VERSION_BAND_ENTRADA_ASIG = /*[[${versionBandEntradaCorresAsignadas}]]*/ '0';<!-- TICKET 9000004273 -->
+		    var ES_GESTOR = /*[[${esGestor}]]*/ 'false';
+		/*]]>*/
+		</script>
+	</div>
+	
+	<div layout:fragment="modals">
+		<div class="modal fade" id="modalBuscar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		        <h4 class="modal-title w-100 font-weight-bold">Criterios de B&uacute;squeda</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      
+		      <div class="modal-body mx-3">
+		        <div class="md-form mb-3" style="margin-top: 20px !important">
+		          <select class="form-control sistcorrSelect" id="textDependenciaDestino"></select>
+		          <label data-error="error" data-success="correcto" for="textDependenciaDestino" class="active">Dependencia Destino</label>
+		        </div>
+		        <div class="md-form mb-3" style="margin-top: 20px !important">
+		          <input type="text" id="textAsuntoCorrespondencia"  class="form-control"/>
+		          <label data-error="error" data-success="correcto" for="textAsuntoCorrespondencia">Asunto</label>
+		        </div>
+		        <div class="md-form mb-3" style="margin-top: 20px !important">
+		        	<input type="text"  class="form-control" id="textRemitente"/>
+		            <label data-error="error" data-success="correcto" for="textRemitente">Remitente</label>
+		        </div>
+		        <div class="md-form mb-3" style="margin-top: 20px !important">
+		        	<input type="text"  class="form-control" id="textCorrelativo"/>
+		            <label data-error="error" data-success="correcto" for="textNumeroDoc">Correlativo</label>
+		        </div>
+		        <div class="md-form mb-3" style="margin-top: 20px !important">
+		        	<input type="text"  class="form-control" id="textNumeroDoc"/>
+		            <label data-error="error" data-success="correcto" for="textNumeroDoc">Nro. Documento</label>
+		        </div>
+		        <div class="md-form mb-3" style="margin-top: 20px !important">
+		            <i class="far fa-calendar-alt float-right icon-date" id="btnFechaDesde"></i>
+        			<input type="text" id="textFechaDesde" class="form-control" /> 
+					<label data-error="error" for="textFechaDesde">Desde</label>
+		        </div>
+		        <div class="md-form mb-3" style="margin-top: 20px !important">
+		            <i class="far fa-calendar-alt float-right icon-date" id="btnFechaHasta"></i>
+        			<input type="text" id="textFechaHasta" class="form-control" /> 
+					<label data-error="error" for="textFechaHasta">Hasta</label>
+		        </div>
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnBuscar">Buscar</button>
+		        <button class="btn btn-petroperu-rojo" type="button"  data-dismiss="modal">Cancelar</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<div th:replace="fragments/operaciones_correspondencias_receptor :: operaciones"></div>	
+	</div>
+	
+	<div layout:fragment="modulo_js">
+		<script type="text/javascript" th:src="@{/js/correspondencia_receptor/modulo.js?time=1117}" src="static/js/correspondencia_receptor/modulo.js"></script>
+    	<script type="text/javascript" th:src="@{/js/correspondencia_receptor/vista.js?time=1114}" src="static/js/correspondencia_receptor/vista.js"></script>
+	</div>
+</body>
+</html>

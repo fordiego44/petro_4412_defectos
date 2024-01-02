@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div id="contenidoRutaAprobacion" class="tab-pane" role="tabpanel" aria-labelledby="profile-tab-classic-orange" th:fragment="main">
+		<div id="bodyRutaAprobacion">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card" >
+						<div class="card-body">
+							<table style="border: 1px; width: 100%;" class="table" id="tblRutaAprobacion">
+								<thead>
+									<tr>
+										<th style="width: 65px; text-align: center;">Orden</th>
+										<th style="text-align: center;">Firmante</th>
+										<th style="text-align: center;">Estado</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="aprob : ${rutaAprobacion}">
+										<td style="text-align: center;"><span class="" th:text="${aprob.orden}"></span></td>
+										<td>
+											<span th:if="${aprob.tipoFirmante == '2'}" class="" th:text="${'Participante / ' + aprob.usuarioNombre}"></span>
+											<span th:if="${aprob.tipoFirmante == '1'}" class="" th:text="${'Jefe Dependencia / ' + aprob.dependenciaNombre + '(' + aprob.usuarioNombre + ')'}"></span>
+										</td>
+										<td style="text-align: center;"><span class="" th:text="${aprob.estado}"></span></td>
+									</tr>
+									<tr th:if="${rutaAprobacion == null or rutaAprobacion.isEmpty()}">
+										<td colspan="3">No hay firmantes registrados.</td>
+									</tr>
+								</tbody>
+							</table>
+							<!--div id="listaCopias">
+								<a href="#!" class="list-group-item list-group-item-action flex-column align-items-start" >No existen copias</a>
+							</div-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

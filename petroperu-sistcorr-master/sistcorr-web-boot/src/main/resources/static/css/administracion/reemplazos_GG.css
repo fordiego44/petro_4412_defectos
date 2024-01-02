@@ -1,0 +1,20 @@
+.fecha_oculta{
+	display: none;
+}
+
+table th {
+  font-size: 0.8rem!important;
+  font-weight: 400; }
+
+table td {
+  font-size: 0.8rem!important;
+  font-weight: 300; }
+ 
+input_text_admin_dep {
+  padding-bottom: 0.75rem!important;
+}
+
+.icon_view_edit {
+	color: #ad9242;
+	cursor: pointer;
+}

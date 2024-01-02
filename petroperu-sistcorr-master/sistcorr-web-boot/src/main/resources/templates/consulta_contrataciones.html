@@ -1,0 +1,55 @@
+<!-- 9000004276 -->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/plantilla_consulta_contrataciones">
+  <head></head>
+  <body>
+    <div layout:fragment="content" class="container-fluid" id="principal">
+      <input type="hidden" id="bandeja" th:value="${bandeja}" />
+      <input type="hidden" id="url" th:value="${url}" />
+      <div class="row" id="filtrosBusqueda">
+        <div class="col-sm-12">
+          <div class="rgba-petro-strong py-1" id="contenidoAccordionDatos">
+            <div class="row d-flex justify-content-center">
+              <div class="col-md-12 col-xl-12">
+                <div class="accordion md-accordion accordion-5" id="acordionFiltros" role="tablist" aria-multiselectable="false">
+                  <div th:replace="fragments/consulta_contrataciones/tab_filtros :: main"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card">
+            <div class="card-body">
+              <table id="tablaConsultaContrataciones" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" style="width: 100%;">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Nro de proceso</th>
+                    <th>Tipo de Proceso</th>
+                    <th>N&uacute;mero de Memo</th>
+                    <th>Dependencia</th>
+                    <th>Persona Contacto</th>
+                    <th>Cantidad de Bases</th>
+                    <th>Valor Base</th>
+                    <th>Venta Base: Fecha y hora Inicio</th>
+                    <th>Venta Base: Fecha y hora Fin</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div layout:fragment="modals"></div>
+    <div layout:fragment="modulo_js">
+      <script type="text/javascript" th:src="@{/js/consulta_contrataciones/modulo.js?time=427620211223}" src="static/js/consulta_contrataciones/modulo.js"></script>
+      <script type="text/javascript" th:src="@{/js/consulta_contrataciones/vista.js?time=427620211223}" src="static/js/consulta_contrataciones/vista.js"></script>
+    </div>
+  </body>
+</html>

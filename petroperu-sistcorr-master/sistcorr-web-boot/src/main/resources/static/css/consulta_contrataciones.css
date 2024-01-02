@@ -1,0 +1,30 @@
+/*9000004276*/
+.fecha_oculta {
+	display: none;
+}
+
+table th {
+	font-size: 0.8rem !important;
+	font-weight: 400;
+}
+
+table td {
+	font-size: 0.8rem !important;
+	font-weight: 300;
+}
+
+.select2-selection__rendered.select2-seleccionado-sistcorr {
+	height: 37px;
+}
+
+.select2-selection.select2-selection--single {
+	height: 36px;
+}
+
+.select2.select2-container.select2-container--default {
+	margin-bottom: 2.5rem;
+}
+
+.select2-container {
+	border-bottom: 1px solid #ced4da;
+}

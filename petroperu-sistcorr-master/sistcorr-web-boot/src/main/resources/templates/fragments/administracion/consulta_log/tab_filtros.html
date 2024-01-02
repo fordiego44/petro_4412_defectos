@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div  class="card mb-2"	th:fragment="main">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosRemitente" data-form="datosFiltros">
+			<a data-toggle="collapse" data-parent="#acordionFiltros"
+				id="btnFiltrosJG"
+				href="#collapseFiltros" aria-expanded="true"
+				aria-controls="contenidoFiltros" data-form="datosFiltros">
+				<i class="fas fa-filter fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosFiltros"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosFiltros">FILTROS</h6>
+			</a>
+		</div>
+		
+		<div id="collapseFiltros" class="collapse show"
+			role="tabpanel" aria-labelledby="headingFiltros"
+			data-parent="#contenidoFiltros">
+			<div class="card-body rgba-petro-strong  z-depth-1" style="padding-bottom: 0px !important;">
+				
+				<br/>
+				<div class="form-row">						
+						<div class="col-sm-3">
+							<div class="md-form mb-3">
+								 <label for="cmbTablaFiltro" class="active">Tabla</label>
+								<select class="form-control sistcorrAutocompleRemoto" id="cmbTablaFiltro">
+									<option value="">[Todos]</option>
+		        					<option th:each="tabla : ${tablas}" th:value="${tabla.codigo}" th:text="${tabla.descripcion}"></option>
+		        				</select>
+							</div>
+						</div>
+						<div class="col-sm-3">
+		          			<div class="md-form mb-3">
+			          			<label for="txtUsuarioFiltro" class="active">Usuario</label>
+			          			<input type="text" class="form-control validate" id="txtUsuarioFiltro"  maxlength="150"/>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="md-form mb-3">
+								<label for="cmbAccionFiltro" class="active">Accion</label>	
+								<select class="form-control sistcorrAutocompleRemoto" id="cmbAccionFiltro">
+									<option value="">[Todos]</option>
+		        					<option th:each="accion : ${acciones}"
+										th:value="${accion}" th:text="${accion}"></option>
+		        				</select>
+							</div>
+						</div>
+						<div class="col-sm-2" align="right">
+							<button class="btn btn-petroperu-rojo" type="button" id="btnResetearFiltroLog">Limpiar</button>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="col-sm-3">
+							<div class="md-form mb-3">
+								<i class="far fa-calendar-alt float-right icon-date" id="btnFechaDesde"></i>
+								<input type="text" class="form-control validate"
+									id="txtFechaIniRecepcion" style="margin-top: 15px"/> <label
+									for="txtFechaIniRecepcion">Fecha Recepci&oacute;n - Inicio</label>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="md-form mb-3">
+								<i class="far fa-calendar-alt float-right icon-date" id="btnFechaHasta"></i>
+								<input type="text" class="form-control validate"
+									id="txtFechaDocumentoHastaJG" style="margin-top: 15px"/> <label
+									for="txtFechaDocumentoHastaJG">Fecha Recepci&oacute;n - Fin</label>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="md-form mb-3">
+							&nbsp;
+							</div>
+						</div>
+						<div class="col-sm-2" align="right">
+							<button class="btn btn-petroperu-verde" type="button" id="btnBuscarFiltroLog">Buscar</button>
+						</div>	
+					</div>					
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

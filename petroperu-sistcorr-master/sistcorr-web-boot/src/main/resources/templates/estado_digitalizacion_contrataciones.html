@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/plantilla_estado_digitalizacion_contrataciones">
+<head>
+
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid" id="principal">  
+		
+		<div class="row" id="filtrosBusqueda">
+			<div class="col-sm-12">
+				<div class="rgba-petro-strong py-1" id="contenidoAccordionDatos">
+					<div class="row d-flex justify-content-center">
+						<div class="col-md-12 col-xl-12"> 
+							<div class="accordion md-accordion accordion-5" id="acordionFiltros" role="tablist" aria-multiselectable="false">
+								<div th:replace="fragments/estado_digitalizacion_contrataciones/tab_filtros :: main"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br/>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card">
+					<div class="card-body">
+						<table id="tablaEstadoDigitalizacion" class="table table-striped table-bordered dt-responsive nowrap"
+							cellspacing="0" style="width: 100%; ">
+								<thead>
+									<tr>
+										<th> </th> 
+										<th>Nro Proceso</th>
+										<th>Correlativo</th>
+										<th>RUC</th>
+										<th>Fecha</th>
+										<th>Digitalizado</th> 
+									</tr>
+								</thead>
+								<tbody></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<br/>
+		
+		<script th:inline="javascript">
+		/*<![CDATA[*/
+		    var DEPENDENCIAS_USUARIO = /*[[${dependenciasUsuario}]]*/ '';
+		    var ES_JEFE = /*[[${esJefe}]]*/ '';
+		/*]]>*/
+		</script>
+		
+	</div>
+	
+	<div layout:fragment="modals">
+		
+	</div>
+	
+	<div layout:fragment="modulo_js">
+		<script type="text/javascript" th:src="@{/js/estado_digitalizacion_contrataciones/modulo.js?time=1113}" src="static/js/estado_digitalizacion_contrataciones/modulo.js"></script>
+    	<script type="text/javascript" th:src="@{/js/estado_digitalizacion_contrataciones/vista.js?time=11131}" src="static/js/estado_digitalizacion_contrataciones/vista.js"></script>
+	</div>
+</body>
+</html>

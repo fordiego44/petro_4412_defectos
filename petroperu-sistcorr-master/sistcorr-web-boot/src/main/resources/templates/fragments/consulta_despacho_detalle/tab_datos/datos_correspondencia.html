@@ -1,0 +1,155 @@
+<!-- 9000004412 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div class="card mb-2" th:fragment="datos_correspondencia">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosCorrespondencia" data-form="datosCorrespondencia">
+			<a data-toggle="collapse" data-parent="#acordionDatos"
+				id="btnDatosCorrespondencia"
+				href="#collapseDatosCorrespondencia" aria-expanded="true"
+				aria-controls="contenidoDatosCorrespondencia"
+				data-form="datosCorrespondencia"> <i
+				class="fas fa-mail-bulk fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosCorrespondencia"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosCorrespondencia">DATOS DETALLE</h6>
+				<input type="hidden" id="proceso"  />
+			</a>
+		</div>
+
+		<div id="collapseDatosCorrespondencia" class="collapse"
+			role="tabpanel" aria-labelledby="headingDatosCorrespondencia"
+			data-parent="#contenidoDatosCorrespondencia">
+			<div class="card-body rgba-petro-strong z-depth-1">
+				<form action="">
+					<div class="md-form">
+						<span class="labelTextArea">Nro. Correlativo</span>
+						<div class="more textarea" ></div>
+					</div>
+					<div class="md-form">
+						<span class="labelTextArea">Correlativo de Referencia</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<div class="md-form">
+						<span class="labelTextArea">Estado</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<div class="md-form">
+						<span class="labelTextArea">Tipo Correspondencia</span>
+						<div class="more textarea" ></div>
+					</div>
+					<div class="md-form">
+						<span class="labelTextArea">Lugar de Trabajo Remitente</span>
+						<div class="more textarea" ></div>
+					</div>
+					<div class="md-form">
+						<span class="labelTextArea">Dependencia Remitente</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<!--
+					<div class="md-form">
+						<span class="card-text masFiltros" style="color: #3262BF; cursor: pointer;"><i class="icono_mas_filtros fa fa-plus-square"></i></span>
+						<span class="labelTextArea masFiltros verMas" style="color: #3262BF; cursor: pointer;"><b>Ver M&aacute;s</b></span>
+					</div>-->
+					<div class="md-form panel-2">
+						<span class="labelTextArea">Persona Remitente</span>
+						<div class="more textarea" ></div>
+					</div>
+					<div class="md-form panel-2">
+						<span class="labelTextArea">Asunto</span>
+						<div class="more textarea" ></div>
+					</div>
+					<div class="md-form panel-2">
+						<span class="labelTextArea">Forma de Env&iacute;o</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<div class="md-form panel-2">
+						<span class="labelTextArea">Gu&iacute;a de Remisi&oacute;n</span>
+						<div class="more textarea" ></div>
+					</div>
+					<div class="md-form panel-2">
+						<span class="labelTextArea">Autorizador Despacho</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<div class="md-form panel-2">
+						<span class="labelTextArea">Nro Documento</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<div class="md-form panel-2">
+						<span class="labelTextArea">TIpo de Transacci&oacute;n</span>
+						<div class="more textarea" ></div>
+					</div>
+					<div class="md-form panel-2">
+						<span class="labelTextArea">Nro Folios</span>
+						<div class="more textarea" ></div>
+					</div>
+					<div class="md-form panel-2">
+						<span class="labelTextArea">Fecha Creaci&oacute;n</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<div class="md-form panel-2">
+						<span class="labelTextArea">Nombre CGC</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<div class="md-form panel-2">
+						<span class="labelTextArea">Retorno de Cargo</span>
+						<div class="more textarea" ></div>
+					</div>
+					<div class="md-form panel-2"  >
+						<span class="labelTextArea">Urgente</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<div class="md-form panel-2"  >
+						<span class="labelTextArea">Confidencia</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<div class="md-form panel-2"  >
+						<span class="labelTextArea">Lugar de Trabajo destino</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<div class="md-form panel-2" >
+						<span class="labelTextArea">Dependencia Destino</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<div class="md-form panel-2" >
+						<span class="labelTextArea">Persona Destino</span>
+						<div class="more textarea" ></div>
+					</div>
+					<div class="md-form panel-2"  >
+						<span class="labelTextArea">Despacho F&iacute;sico</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<div class="md-form panel-2"  >
+						<span class="labelTextArea">Pa&iacute;s &minus; Ciudad}</span>
+						<div class="more textarea"  ></div>
+					</div>
+			 		<div class="md-form panel-2"  >
+						<span class="labelTextArea">Departamento</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<div class="md-form panel-2"  >
+						<span class="labelTextArea">Provincia</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<div class="md-form panel-2"  >
+						<span class="labelTextArea">Distrito</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<div class="md-form panel-2"  >
+						<span class="labelTextArea">Direcci&oacute;n</span>
+						<div class="more textarea"  ></div>
+					</div>
+					
+				</form>
+			</div>
+		</div>
+
+
+	</div>
+</body>
+</html>

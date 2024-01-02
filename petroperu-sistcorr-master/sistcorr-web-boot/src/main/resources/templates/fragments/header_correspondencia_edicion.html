@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<!-- inicio ticket 9000004403 comentado -->
+	<!-- <header th:fragment="header">
+        <nav class="navbar navbar-expand-lg navbar-light navbar-petroperu scrolling-navbar">
+            <div class="container-fluid">
+
+                <button id="btnAbrirMenu" class="btn-petroperu-icon sideMenu" type="button">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+                <a class="navbar-brand waves-effect" href="">
+                    <strong class="white-text" th:text="${titulo}" id="mainTitle">Correspondencias</strong>
+                </a>
+
+                <div class="navbar-nav">
+                    <ul class="navbar-nav nav-flex-icons">
+                        <li class="nav-item">
+                            <button class="btn-petroperu-icon" data-toggle="tooltip" title="Guardar correspondencia" type="button" id="btnGuardarCorrespondencia"><i class="fas fa-save"></i></button>
+                        </li>
+                         <li class="nav-item">
+                            <button class="btn-petroperu-icon" data-toggle="tooltip" title="Cancelar" type="button" id="btnCancelarCorrespondencia"><i class="fas fa-window-close"></i></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div th:replace="fragments/menu :: menu_lateral"></div>
+    </header> -->
+    <!-- fin ticket 9000004403 comentado -->
+    
+    <!-- inicio ticket 9000004403 -->
+    <header class="m-header-main-ptp m-header--ptp" th:fragment="header">
+		<div class="m-box-table m-box-table--middle">
+			<div class="m-header__block">
+				<button id="btnAbrirMenu" class="btn-petroperu-icon sideMenu"
+					type="button">
+					<i class="fas fa-align-justify"></i>
+				</button>
+			</div>
+			<div class="m-header__logo">
+				<img th:src="@{/img/logo_mobile@2x.png?time=20211234}" alt=""/><img
+					th:src="@{/img/logo_petroperu@2x.png?time=20211236}" alt=""/>
+			</div>
+			<h1 class="m-header__title" style="text-align: center;">
+				<span th:text="${titulo}">Titulo</span><span></span>
+			</h1>
+			<div class="m-header__block" style="width: 20px; text-align: right;">
+				<button class="btn-petroperu-icon" data-toggle="tooltip" title="Guardar correspondencia" type="button" id="btnGuardarCorrespondencia"><i class="fas fa-save"></i></button>
+			</div>
+			<div class="m-header__block" style="width: 20px; text-align: right;">
+				<button class="btn-petroperu-icon" data-toggle="tooltip" title="Cancelar" type="button" id="btnCancelarCorrespondencia"><i class="fas fa-window-close"></i></button>
+			</div>
+		</div>
+		<div th:replace="fragments/menu :: menu_lateral"></div>
+	</header>
+	<!-- fin ticket 9000004403 -->
+</body>
+</html>

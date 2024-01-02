@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+<div class="tab-pane fade" id="contenidoFlujo"	role="tabpanel" aria-labelledby="follow-tab-classic-orange"
+		th:fragment="main">
+	<div id="_contenidoFlujo"  class="tab-pane"  role="tabpanel" aria-labelledby="profile-tab-classic-orange" th:fragment="main">
+		<div id="_listaFlujo">
+			<div th:each="firmante : ${firmantes}" class='row' >
+				<div class='col-sm-12 col_firmante'>
+					<div th:class="${'card promoting-card card_firmante card_'+ firmante.color}">
+						<div class="card-body d-flex flex-row">
+							<div style='width: 100%'>
+								<strong class="card-title font-weight-bold mb-2" th:text="${firmante.nombreFirmante}">NOMBRE FIRMANTE</strong>
+							</div>
+						</div>
+						<div class="card-body card_body_firmante ">
+							<p class="parrafo_flujo" th:text="${'Remitente: '+firmante.dependenciaFirmante}">dependencia</p>
+							<p class="parrafo_flujo" th:text="${'Estado: '+firmante.estadoDescripcion}">descripcion</p>
+							<p class="parrafo_flujo" th:if="${firmante.motivoRechazo != null}" th:text="${'Motivo: '+firmante.motivoRechazo.descripcion}">descripcion</p>
+							<div class="parrafo_flujo descripcion_rechazo" th:if="${firmante.descripcionMotivoRechazo.length() > 0 and firmante.usuarioModifica == firmante.codFirmante}" th:text="${'Descripción o sustento: ' + firmante.descripcionMotivoRechazo}">Descripci&oacute;n:</div>
+							<div class="parrafo_flujo descripcion_rechazo" th:if="${firmante.descripcionMotivoRechazo.length() > 0 and firmante.usuarioModifica != firmante.codFirmante}" th:text="${'Descripción o sustento: ' + firmante.descripcionMotivoRechazo + ' (Rechazado por: ' + firmante.usuarioModifica + ')'}">Descripci&oacute;n:</div>
+							<p class="parrafo_flujo" th:text="${'Fecha: '+firmante.fecha}">descripcion</p>
+							<p class="parrafo_flujo" th:text="${'Solicitante: ' + firmante.solicitante}">descripcion</p>
+							<p class="parrafo_flujo" style="color: red;" th:if="${firmante.codFirmanteReemplazado != null}"
+								th:text="${'(*)En reemplazo de ' + firmante.nomFirmanteReemplazado}">descripcion</p>
+							<br/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div th:if="${firmantes.isEmpty()}" class="row">
+				<div class='col-sm-12 col_pendientes'>
+					No tiene asignaciones
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

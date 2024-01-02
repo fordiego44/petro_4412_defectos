@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div id="contenidoArchivos"  class="tab-pane"  role="tabpanel" aria-labelledby="profile-tab-classic-orange" th:fragment="main">
+		
+		
+		
+		<div class="card" >
+			<div class="card-header" th:if="${compartir}">
+				<div id="panelCompartir">
+					<div class="row col-12" style="padding-right: 0px!important; margin-left: -5px!important;">
+						<table width="100%" border="0">
+							<tr>
+								<td style="font-weight: 400px; width: 225px;">
+									<b>Modo de compartir documentos:</b>
+								</td>
+								<td width="150px;" align="center">
+									<select id="modoCompartir" class="form-control">
+										<option value="">[SELECCIONE]</option>
+										<option value="DIR">Direcci&oacute;n</option>
+										<option value="ADJ">Adjunto</option>
+										<option value="IMP">Impresi&oacute;n</option>
+									</select>
+								</td>
+								<td></td>
+								<td width="30px" class="td-check-compartir-all text-center" style="display:none;">
+									<input type="checkbox" value="1" class="check-compartir-all form-control-sm" />
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div id="firmaDocumento" class="firma-documento-detalle icon_emitir_firma icon_opcion" th:if="${permitidoFirma}">
+				<div class="row col-12">
+					<i class="fas fa-pen-alt icon_opcion icon_emitir_firma btnEmitirFirma" id="btnEmitirFirma" data-idcorrespondencia="" data-toggle="tooltip" title="" data-original-title="Emitir firma"></i>
+				</div>
+			</div>
+			<div class="card-body">		
+				<div id="listaArchivos"></div>
+			</div>
+			<div class="card-footer" th:if="${compartir}">
+				<div id="compartir">
+					<div class="row">
+						<div class="col-md-10 col-8"></div>
+						<a id="btnCompartir" class="col-md-1 col-2" style="text-align: right;">
+							<i title="Compartir" data-toggle="tooltip" class="fas fa-share-alt icon-share-file"></i> 
+						</a>
+						<a id="btnHistorialCompartir" class="col-md-1 col-2" style="padding-left: 0px; text-align: right;">
+							<i title="Historial" data-toggle="tooltip" class="fas fa-history icon-share-history"></i> 
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<script type="text/x-handlebars-template" id="template-archivosAdjuntos-old">
+		<li class="list-group-item" id="{{identificador}}">
+		<i class="fas {{icono_documento this}} mr-3 btnDescargarArchivo"  data-identificador="{{identificador}}"></i>
+		<span class="btnDescargarArchivo" data-identificador="{{identificador}}">{{nombre}}</span>
+		<span class="badge badge-primary badge-pill icon-archivo-firma" style="{{ver_principal this}}"><i	class="fas fa-pen-alt"></i></span>
+		</li>
+		</script>
+		<script type="text/x-handlebars-template" id="template-archivosAdjuntos">
+		<ul class="list-group">
+		{{#each adjuntos}}
+		<li class="list-group-item" id="{{identificador}}">
+			<div class="row">
+				<table width="100%" border="0" style="table-layout:fixed;">
+					<tr>
+						<td style="padding: 0.15rem 0.95rem;font-weight: 400;font-size: 1rem;;">
+							<i class="fas {{icono_documento this}} mr-3 btnDescargarArchivo"  data-identificador="{{identificador}}"></i>
+							<span class="btnDescargarArchivo" data-identificador="{{identificador}}">{{nombre}}</span>
+						</td>
+						<td width="40px" class="td-icon-archivo-firma">
+							<span class="badge badge-primary badge-pill" style="{{ver_principal this}}"><i	class="fas fa-pen-alt"></i></span>
+						</td>
+						<td width="70px" class="td-icon-archivo-tamanio text-right">
+							<span>{{tamanio this}} MB</span>
+						</td>
+						<td style="display:none;" class="td-check-compartir text-center" width="30px;">
+							<input style="{{ver_principal_check this}}" type="checkbox" value="1" class="check-compartir form-control-sm" size="{{tamanio this}}" id="{{identificador}}" />
+						</td>
+					</tr>
+				</table>
+			</div>
+		</li>
+		{{/each}}
+		</ul>
+		</script>
+	</div>
+
+</body>
+</html>

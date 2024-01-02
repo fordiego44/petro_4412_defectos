@@ -1,0 +1,33 @@
+<!-- 9000004412 -->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/plantilla_adjuntar_documento">
+  <head></head>
+  <body>		 
+    <div layout:fragment="content" class="container-fluid" id="principal"> 
+		 
+	
+          <div th:replace="fragments/adjuntar_documento/tab_datos :: main"></div>    
+    
+      
+		<script th:inline="javascript">
+		/*<![CDATA[*/
+		    var ERRORES =  /*[[${errores}]]*/ ''; 
+		    var TIPOS_CORRESPONDENCIA  = /*[[${tiposCorrespondencia}]]*/ '';
+		    var DEPENDENCIAS_USUARIO = /*[[${dependenciasUsuario}]]*/ '';
+		    var ctrlDown = false,
+	        ctrlKey = 17,
+	        cmdKey = 91,
+	        vKey = 86,
+	        cKey = 67;
+		/*]]>*/
+		</script>
+    </div>
+    <div layout:fragment="modals">
+      <div th:replace="fragments/operaciones_comprobantes :: operaciones"></div>
+    </div>
+    <div layout:fragment="modulo_js">
+      <script type="text/javascript" th:src="@{/js/adjuntar_documento/modulo.js?time=1112}" src="static/js/adjuntar_documento/modulo.js"></script>
+      <script type="text/javascript" th:src="@{/js/adjuntar_documento/vista.js?time=1112}" src="static/js/adjuntar_documento/vista.js?time=1111"></script>
+    </div>
+  </body>
+</html>

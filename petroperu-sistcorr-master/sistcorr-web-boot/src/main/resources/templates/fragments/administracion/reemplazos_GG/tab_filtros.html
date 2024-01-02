@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div  class="card mb-2"	th:fragment="main">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosRemitente" data-form="datosFiltros">
+			<a data-toggle="collapse" data-parent="#acordionFiltros"
+				id="btnFiltrosJG"
+				href="#collapseFiltros" aria-expanded="true"
+				aria-controls="contenidoFiltros" data-form="datosFiltros">
+				<i class="fas fa-filter fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosFiltros"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosFiltros">FILTROS</h6>
+			</a>
+		</div>
+		
+		<div id="collapseFiltros" class="collapse show"
+			role="tabpanel" aria-labelledby="headingFiltros"
+			data-parent="#contenidoFiltros">
+			<div class="card-body rgba-petro-strong  z-depth-1" style="padding-bottom: 0px !important;">
+				
+				<br/>
+				<div class="form-row">						
+						<div class="col-sm-3">
+							<div class="md-form mb-3">
+								<label for="cmbDependenciaFiltroGG" class="active">Dependencia</label>
+									 <select class="form-control sistcorrAutocompleRemoto"
+									id="cmbDependenciaFiltroGG" selected="selected">
+								<option  disabled="disabled"  selected="selected" value="0000">Seleccione</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="md-form mb-3">
+								<label for="cmbJefeDependenciaFiltroGG" class="active">Jefe Dependencia</label>
+									 <select class="form-control sistcorrAutocompleRemoto"
+									id="cmbJefeDependenciaFiltroGG" selected="selected">
+								<option  disabled="disabled"  selected="selected" value="0000">Seleccione</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="md-form mb-3">
+								<label for="cmbFuncionarioApoyoFiltroGG" class="active">Funcionario Apoyo</label>
+									 <select class="form-control sistcorrAutocompleRemoto"
+									id="cmbFuncionarioApoyoFiltroGG" selected="selected">
+								<option  disabled="disabled"  selected="selected" value="0000">Seleccione</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="md-form mb-3">
+								<button class="btn btn-petroperu-rojo" type="button" id="btnResetearGG">Limpiar</button>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="col-sm-3">
+							<div class="md-form mb-3">
+								<i class="far fa-calendar-alt float-right icon-date" id="btnFechaInicioFiltro"></i>
+								<input type="text" class="form-control validate"
+									id="txtFecInicioGGFiltro" style="margin-top: 15px"/> <label
+									for="txtFecInicioGGFiltro">Fecha Reemplazo - Inicio</label>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="md-form mb-3">
+								<i class="far fa-calendar-alt float-right icon-date" id="btnFechaFinFiltro"></i>
+								<input type="text" class="form-control validate"
+									id="txtFecFinGGFiltro" style="margin-top: 15px"/> <label
+									for="txtFecFinGGFiltro">Fecha Reemplazo - Fin</label>
+							</div>
+						</div>	
+						<div class="col-sm-3">
+							<div class="md-form mb-3">
+								&nbsp;
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="md-form mb-3">
+								<button class="btn btn-petroperu-verde" type="button" id="btnBuscarFiltroGG">Buscar</button>
+							</div>
+						</div>	
+					</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div class="card mb-2" th:fragment="datos_correspondencia">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosCorrespondencia" data-form="datosCorrespondencia">
+			<a data-toggle="collapse" data-parent="#acordionDatosReceptor"
+				id="btnDatosCorrespondencia"
+				href="#collapseDatosCorrespondencia" aria-expanded="true"
+				aria-controls="contenidoDatosCorrespondencia"
+				data-form="datosCorrespondencia"> <i
+				class="fas fa-mail-bulk fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosCorrespondencia"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosCorrespondencia">CORRESPONDENCIA</h6>
+				<input type="hidden" id="proceso" th:value="${tarea.proceso}" />
+			</a>
+		</div>
+
+		<div id="collapseDatosCorrespondencia" class="collapse"
+			role="tabpanel" aria-labelledby="headingDatosCorrespondenciaReceptor"
+			data-parent="#contenidoDatosCorrespondenciaReceptor">
+			<div class="card-body rgba-petro-strong z-depth-1">
+				<form action="">
+					<div class="md-form">
+						<span class="labelTextArea">Asunto</span>
+						&nbsp;
+						<div class="more textarea" th:text="${tarea.asunto}"></div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<span class="labelTextArea">Tipo de Correspondencia</span>
+							<div>&nbsp;</div>
+							<div class="more textarea" th:text="${tarea.tipoCorrespondencia}"></div>
+						</div>
+						<div class="col">
+							<span class="labelTextArea">N&uacute;mero de Documento</span>
+							<div>&nbsp;</div>
+							<div class="more textarea" th:text="${tarea.numeroDocumento}"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<span class="labelTextArea">Fecha Documento</span>
+							&nbsp;
+							<div class="more textarea" th:text="${tarea.fechaDocumento}"></div>
+						</div>
+						<div class="col">
+							<span class="labelTextArea">Nro. de Folios</span>
+							&nbsp;
+							<div class="more textarea" th:text="${tarea.numeroFolios}"></div>
+						</div>
+					</div>
+					<!-- <div class="md-form">
+						<span class="labelTextArea">Observaci&oacute;n</span>
+						<div>&nbsp;</div>
+						<div class="more textarea" th:text="${tarea.observacion}"></div>
+					</div> -->
+					<div class="row">
+						<div class="col">
+							<span class="labelTextArea">Centro de Gesti&oacute;n</span>
+							<div>&nbsp;</div>
+							<div class="more textarea" th:text="${tarea.cgc}"></div>
+						</div>
+						<div class="col">
+							<span class="labelTextArea">Dependencia Destino</span>
+							<div>&nbsp;</div>
+							<div class="more textarea" th:text="${tarea.dependenciaDestino}"></div>
+						</div>
+					</div>
+					<div class="md-form">
+						<span class="labelTextArea">Correlativo</span>
+						<div>&nbsp;</div>
+						<div class="more textarea" th:text="${tarea.correlativo}"></div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+
+	</div>
+</body>
+</html>

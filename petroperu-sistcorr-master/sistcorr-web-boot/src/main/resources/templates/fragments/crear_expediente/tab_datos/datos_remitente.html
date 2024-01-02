@@ -1,0 +1,136 @@
+<!-- 9000004412 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div class="card mb-2" th:fragment="datos_remitente">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosRemitente" data-form="datosRemitente">
+			<a data-toggle="collapse" data-parent="#acordionDatos"
+				id="btnDatosRemitente"
+				href="#collapseDatosRemitente" aria-expanded="true"
+				aria-controls="contenidoDatosRemitente" data-form="datosRemitente">
+				<i class="fas fa-building fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosRemitente"></i> 
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosRemitente">DATOS</h6>
+			</a>
+		</div>
+
+		<div id="collapseDatosRemitente" class="collapse show"
+			role="tabpanel" aria-labelledby="headingDatosRemitente"
+			data-parent="#contenidoDatosRemitente">
+			<div class="card-body rgba-petro-strong  z-depth-1" style="padding-bottom: 0px !important;">
+				 
+				 
+		
+				<br/>
+				<div class="form-row">
+					<div class="col-sm-6 d-flex align-items-center">
+						<div class="col-sm-8">
+							<div class="md-form mb-3">
+								<!-- 4412 defecto 23 --> 
+								<input type="text" id="rmt_proceso" class="form-control sistcorrInput"   /> 
+								<!-- 4412 defecto 23 fin -->
+								<label for="rmt_proceso" class="active">* N&uacute;mero de Proceso</label>
+							</div>
+						</div>
+						<div class="col-sm-4">
+						<!-- 4412 defecto 10 -->
+						 
+						<!-- 4412 defecto 10-->
+						
+						</div>
+					</div> 
+					 
+				</div>		 
+				 
+				<br/>
+				
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="mb-3">
+							<label for="rmt_tipo_proceso">* Tipo de proceso</label>
+							<select class="form-control sistcorrAutocompleRemoto" id="rmt_tipo_proceso" required="required" data-msgerror="El campo dependencia es obligatorio">
+								 <option value="0">[TODOS]</option>
+			        			<option th:each="dep : ${tipoProceso}" th:value="${dep.codigo}" th:text="${dep.descripcion}"></option> 	  
+							</select>
+						</div>
+					</div>
+					<div class="col-sm-6">
+							<div class="md-form mb-3">
+								<input type="text" id="rmt_memo" class="form-control sistcorrInput"   /> 
+								<label for="rmt_memo" class="active">* Nro. de Memo</label>
+							</div>
+						</div>
+					
+					
+				</div>
+				<br/>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="mb-3">
+							<label for="rmt_dependencia">* Dependencia</label>
+							<select class="form-control sistcorrAutocompleRemoto" id="rmt_rmt_dependenciaproceso" required="required" data-msgerror="El campo dependencia es obligatorio">
+								 <option selected="selected" value="0000">[TODAS]</option>
+								 <option th:each="dep : ${dependencias}" th:value="${dep.codigo}" th:text="${dep.descripcion}"></option>
+							</select>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="mb-3">
+							<label for="rmt_contacto">* Persona de contacto</label>
+							<select class="form-control sistcorrAutocompleRemoto" id="rmt_contacto" required="required" data-msgerror="El campo dependencia es obligatorio">
+								<option selected="selected" value="0">[TODAS]</option>
+								<option th:each="dep : ${personaContacto}" th:value="${dep.id}" th:text="${dep.nombreApellido}"></option>
+							</select>
+						</div>
+					</div>
+					
+				</div>
+				<br/>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+								<input type="text" id="rmt_anexo" class="form-control sistcorrInput"   /> 
+								<label for="rmt_anexo" class="active">Anexo</label>
+							</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+								<input type="text" id="rmt_bases" class="form-control sistcorrInput"   /> 
+								<label for="rmt_bases" class="active">Cantidad de Bases</label>
+							</div>
+					</div>
+					
+				</div>
+				<br/>
+				
+				<div class="form-row">
+					<div class="col-sm-6">
+							<div class="md-form mb-3">
+								<input type="text" id="rmt_valor_base" class="form-control sistcorrInput"   /> 
+								<label for="rmt_valor_base" class="active">Valor Bases</label>
+							</div>
+						</div>
+				</div>
+				<br/>
+				
+				<div class="form-row"> 
+					<div class="col-sm-12">
+							<div class="md-form mb-3">
+								<input type="text" id="rmt_objeto_proceso" class="form-control sistcorrInput"   /> 
+								<label for="rmt_objeto_proceso" class="active">Objeto del proceso</label>
+							</div>
+						</div>
+				</div>
+				<br/>
+				<br/>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

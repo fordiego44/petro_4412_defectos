@@ -1,0 +1,27 @@
+.fecha_oculta{
+	display: none;
+}
+
+table th {
+  font-size: 0.8rem!important;
+  font-weight: 400; }
+
+table td {
+  font-size: 0.8rem!important;
+  font-weight: 300; }
+  
+table.dataTable tbody > tr.selected,
+table.dataTable tbody > tr > .selected {
+  background-color: #f2f0d7;
+}
+
+.td-ajuste{
+	padding-left: 14px !important;
+    left: 0px;
+    /*border: 0px solid #dee2e6 !important;*/
+}
+
+.icon_add_document {
+    color: black;
+    font-size: 24px;
+}

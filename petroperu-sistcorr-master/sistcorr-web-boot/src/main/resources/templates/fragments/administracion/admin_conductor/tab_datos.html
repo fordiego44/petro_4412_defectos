@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+	<div id="contenidoDatos" class="tab-pane fade active show"
+		role="tabpanel" aria-labelledby="profile-tab-classic-orange"
+		th:fragment="main">
+		<div class="bodyDatos">
+			<form action="">
+				<div class="form-row">
+
+					<div class="col-sm-3">
+						<div class="md-form mb-3">
+							<input id="txtProceso" type="text" class="form-control" value=""
+								readonly="readonly" /> <input type="hidden" value=""
+								id="workflowId" /> <label for="txtProceso" class="active">Proceso</label>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="md-form mb-3">
+							<input id="txtVersion" type="text" class="form-control" value=""
+								readonly="readonly" /> <label for="txtVersion" class="active">Vers&oacute;n</label>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="md-form mb-3">
+							<input id="txtReferenciaPrincipal" type="text"
+								class="form-control" value="" readonly="readonly" /> <label
+								for="txtReferenciaPrincipal" class="active">Referencia 1</label>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="md-form mb-3">
+							<input id="txtReferenciaAlternativa" type="text"
+								class="form-control" value="" readonly="readonly" /> <label
+								for="txtReferenciaAlternativa" class="active">Referencia 2</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="col-sm-3">
+						<div class="md-form mb-3">&nbsp;</div>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="col-sm-12">
+						<div class="md-form mb-3">
+							<span class="labelTextArea">Mensaje de Error</span>
+							<textarea id="txtMensajeError" maxlength="1000"
+								class="md-textarea form-control" readonly="readonly"
+								style="width: 100%; height: 50px; text-align: justify; display: inline-block !important;"></textarea>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

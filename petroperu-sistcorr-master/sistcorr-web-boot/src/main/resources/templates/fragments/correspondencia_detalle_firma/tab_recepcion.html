@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div id="contenidoRecepcion"  class="tab-pane"  role="tabpanel" aria-labelledby="profile-tab-classic-orange" th:fragment="main">
+		<div id="listaSinRecepcion">
+			<div id="sinResultados"><p>No hay registros para mostrar</p></div>
+		</div>
+		<div id="listaRecepcion" style="display: none;">
+			<div class="row col-6">
+				<select class="select2" id="nroEnvio">
+					<option th:each="envio : ${nroEnvios}" th:value="${envio.codigo}" th:text="${'Env&iacute;o ' + envio.descripcion}"></option>
+				</select>
+			</div>
+			<br/>
+			<div id="datosRecepcion"><p></p></div>	
+			<script type="text/x-handlebars-template" id="template-recepcion">
+				{{#each recepcion}}
+				<div class='row' >
+					<div class='col-sm-12 col_firmante'>
+						<div class="card promoting-card card_firmante card_{{color}}">
+							<div class="card-body card_body_firmante ">
+								<br/>
+								<p class="parrafo_flujo">Correlativo: <a class="abrirHistorialAsignacion" data-id="{{correlativo}}">{{correlativo}}</a></p>
+								<p class="parrafo_flujo">Dependencia Destino: {{nombreDependencia}}</p>
+								<p class="parrafo_flujo">Estado: {{estado}}</p>
+								<p style="{{estilo_opciones_aceptada this}}" class="parrafo_flujo">Usuario Recepci&oacute;n: {{nombreUsuario}}</p>
+								<p style="{{estilo_opciones_rechazada this}}" class="parrafo_flujo">Usuario Rechazo: {{nombreUsuario}}</p>
+								<p style="{{estilo_opciones_rechazada this}}" class="parrafo_flujo">Descripci&oacute;n Rechazo: {{descripcionRechazo}}</p>
+								<br/>
+							</div>
+						</div>
+					</div>
+				</div>
+				{{/each}}
+			</script>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div id="contenidoFlujo"  class="tab-pane fade active show"  role="tabpanel" aria-labelledby="profile-tab-classic-orange" th:fragment="main">
+		<div id="listaFlujo">
+			
+		</div>
+		
+		<script type="text/x-handlebars-template" id="template-flujo">
+		{{#each firmantes}}
+		<div class='col-sm-12 col_firmante'>
+			<div class="card promoting-card card_firmante card_{{color}}">
+				<div class="card-body d-flex flex-row">
+					<div style='width: 100%'>
+						<strong class="card-title font-weight-bold mb-2">{{nombreFirmante}}</strong>
+					</div>
+				</div>
+				<div class="card-body card_body_firmante ">
+					<p>
+						<span>{{dependenciaFirmante}}</span><br /> 
+						Estado: <span>{{estadoDescripcion}}</span><br /> 
+						Fecha: <span>{{fecha}}</span><br/>
+						Solicitante: <span>{{solicitante}}</span><br /> 
+
+						{{#if codFirmanteReemplazado}}
+    						 <span style="color: red;">(*)En reemplazo de {{nomFirmanteReemplazado}}</span>
+
+						{{/if}}
+					</p>
+				</div>
+			</div>
+		</div>
+		{{/each}}
+		</script>
+	</div>
+
+</body>
+</html>

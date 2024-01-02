@@ -1,0 +1,11 @@
+.fecha_oculta{
+	display: none;
+}
+
+table th {
+  font-size: 0.8rem!important;
+  font-weight: 400; }
+
+table td {
+  font-size: 0.8rem!important;
+  font-weight: 300; }

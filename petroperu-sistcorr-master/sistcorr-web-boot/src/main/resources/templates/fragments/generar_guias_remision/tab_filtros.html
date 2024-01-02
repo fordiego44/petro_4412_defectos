@@ -1,0 +1,92 @@
+<!-- 9000004412 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div  class="card mb-2"	th:fragment="main">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosRemitente" data-form="datosFiltros">
+			<a data-toggle="collapse" data-parent="#acordionFiltros"
+				id="btnFiltros"
+				href="#collapseFiltros" aria-expanded="true"
+				aria-controls="contenidoFiltros" data-form="datosFiltros">
+				<i class="fas fa-filter fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosFiltros"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosFiltros">DATOS</h6>
+			</a>
+		</div>
+		
+		<div id="collapseFiltros" class="collapse show"
+			role="tabpanel" aria-labelledby="headingFiltros"
+			data-parent="#contenidoFiltros">
+			<div class="card-body rgba-petro-strong  z-depth-1" style="padding-bottom: 0px !important;">
+				 
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+								<label for="rmt_trabajo" class="active">Lugar de Trabajo</label>
+								<select class="form-control sistcorrAutocompleRemoto"
+									id="rmt_trabajo"  style="margin-top: 3px;" data-msgerror="El campo tipo de correspondencia es obligatorio">
+									<option value="0">[TODOS]</option>
+									<option th:each="dep : ${listaLugarTrabajo}" th:value="${dep.codigo}" th:text="${dep.descripcion}"></option>
+								</select>
+							</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+								<label for="rmt_alcance" class="active">Alcance</label>
+								<select class="form-control sistcorrAutocompleRemoto"
+									id="rmt_alcance"  style="margin-top: 3px;"
+									data-msgerror="El campo tipo de correspondencia es obligatorio">
+									<option value="">[Seleccione]</option>
+									<option value="LOCAL">LOCAL</option>
+									<option value="NACIONAL">NACIONAL</option>
+								</select>
+							</div>
+					</div>
+				</div>
+				 
+				 <div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+								<label for="rmt_courier" class="active">Courier</label>
+								<select class="form-control sistcorrAutocompleRemoto"
+									id="rmt_courier"  style="margin-top: 3px;"
+									data-msgerror="El campo tipo de correspondencia es obligatorio">
+									<option value="0">[TODOS]</option>
+									<option th:each="dep : ${listaCourier}" th:value="${dep.codigo}" th:text="${dep.descripcion}"></option>
+								</select>
+							</div>
+					</div>
+					<div class="col-sm-6">
+						 
+					</div>
+				</div> 
+			  	<div class="form-row">
+					<div class="col-sm-12">
+						<div class="md-form mb-3">
+							<textarea id="rmt_respuesta" class="md-textarea form-control sistcorrTextArea validate" required="required" data-msgerror="El campo asunto es obligatorio" rows="2" maxlength="254"></textarea>
+							<label for="rmt_respuesta" style="margin-top: -8px;">Respuesta</label>
+						</div>
+					</div>
+				</div>	
+				
+				<div class="form-row">
+						<div class="col-sm-12" align="right">
+							<button class="btn btn-petroperu-rojo" type="button" id="btnResetear">Limpiar</button>
+							<button class="btn btn-petroperu-verde" type="button" id="btnGenerar">Generar Gu&iacute;a</button>
+							<button class="btn btn-petroperu-verde" type="button" id="btnVer">Ver Gu&iacute;a</button>
+						</div>
+					</div>
+					<br/>
+					
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

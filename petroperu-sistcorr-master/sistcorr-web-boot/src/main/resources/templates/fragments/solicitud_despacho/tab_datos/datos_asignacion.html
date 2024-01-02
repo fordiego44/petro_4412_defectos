@@ -1,0 +1,93 @@
+<!-- 9000004412 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div class="card mb-2" th:fragment="datos_asignacion">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosAsigancion" data-form="datosAsignacion">
+			<a data-toggle="collapse" data-parent="#acordionDatos"
+				id="btnDatosAsignacion"
+				href="#collapseDatosAsignacion" aria-expanded="true"
+				aria-controls="contenidoDatosAsignacion" data-form="datosAsignacion">
+				<i class="fas fa-people-carry fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosAsignacion"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosAsignacion">DATOS ASIGNACI&Oacute;N</h6>
+				<input type="hidden" id="proceso"  />
+				<input type="hidden" id="codigoTraza" value="171" />
+			</a>
+		</div>
+
+		<div id="collapseDatosAsignacion" class="collapse show"
+			role="tabpanel" aria-labelledby="headingDatosAsigancion"
+			data-parent="#contenidoDatosAsignacion">
+			<div class="card-body rgba-petro-strong  z-depth-1">
+				<form action="">
+					<div class="md-form">						
+						<span class="labelTextArea">Estado de Asignaci&oacute;n</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<div class="md-form">
+						<span class="labelTextArea">Tipo de Asignaci&oacute;n</span>
+						<div class="more textarea" ></div>
+					</div>
+					<div class="md-form">
+						<span class="labelTextArea">Dependencia Asignante</span>
+						<div class="more textarea" ></div>
+					</div>
+					<div class="md-form">
+						<span class="labelTextArea">Asignado Por</span>
+						<div class="more textarea" ></div>
+					</div>
+					<div class="md-form">
+						<span class="labelTextArea">Responsable</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<div class="md-form">
+						<span class="labelTextArea">Fecha de Asignaci&oacute;n</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<div class="md-form">
+						<span class="labelTextArea">Fecha Tope</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<div class="md-form">
+						<span class="labelTextArea">Detalle de Requerimiento</span>
+						<div class="more textarea" id="textDatosAsignacionDetalleRequerimiento"  >Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. 
+						Lorem Ipsum ha sido el texto de relleno estde las industrias desde el a1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) 
+						desconocido usuna galerde textos y los mezclde tal manera que logrhacer un libro de textos especimen. No ssobrevivi500 asino que 
+						tambien ingrescomo texto de relleno en documentos electrquedando esencialmente igual al original. Fue popularizado en los 60s con la creaci
+						 de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y mrecientemente con software de autoedicicomo por ejemplo Aldus PageMaker,
+						  el cual incluye versiones de Lorem Ipsum.</div>
+					</div>
+					<div class="md-form">
+						<span class="labelTextArea">% Avance</span>
+						<div class="more textarea"  ></div>
+					</div>
+					<div class="md-form">
+						<span class="labelTextArea">Texto Respuesta</span>
+						<div class="more textarea" id="textDatosAsignacionTextoRespuesta"  >Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. 
+						Lorem Ipsum ha sido el texto de relleno estde las industrias desde el a1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) 
+						desconocido usuna galerde textos y los mezclde tal manera que logrhacer un libro de textos especimen. No ssobrevivi500 asino que 
+						tambien ingrescomo texto de relleno en documentos electrquedando esencialmente igual al original. Fue popularizado en los 60s con la creaci
+						 de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y mrecientemente con software de autoedicicomo por ejemplo Aldus PageMaker,
+						  el cual incluye versiones de Lorem Ipsum.</div>
+					</div>
+					<div class="md-form">
+						<span class="labelTextArea">Nro. Correlativo</span>
+						<div class="more textarea" ></div>
+					</div>
+					<div class="md-form">
+						<span class="labelTextArea">Urgente</span>
+						<div class="more textarea" ></div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

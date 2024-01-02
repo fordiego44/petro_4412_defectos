@@ -1,0 +1,64 @@
+<!-- 9000004276 -->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/plantilla_consulta_comprobantes">
+  <head></head>
+  <body>
+    <div layout:fragment="content" class="container-fluid" id="principal">
+      <input type="hidden" id="bandeja" th:value="${bandeja}" />
+      <input type="hidden" id="url" th:value="${url}" />
+      <div class="row" id="filtrosBusqueda">
+        <div class="col-sm-12">
+          <div class="rgba-petro-strong py-1" id="contenidoAccordionDatos">
+            <div class="row d-flex justify-content-center">
+              <div class="col-md-12 col-xl-12">
+                <div class="accordion md-accordion accordion-5" id="acordionFiltros" role="tablist" aria-multiselectable="false">
+                  <div th:replace="fragments/consulta_comprobantes/tab_filtros :: main"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card">
+            <div class="card-body">
+              <table id="tablaConsultaComprobantes" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" style="width: 100%;">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Fecha Recepci&oacute;n</th>
+                    <th>Correlativo</th>
+                    <th>Nro Batch</th>
+                    <th>RUC</th>
+                    <th>Razon Social</th>
+                    <th>Tipo de Comprobante</th>
+                    <th>Nro Comprobante</th>
+                    <th>Fecha Comprobante</th>
+                    <th>Moneda</th>
+                    <th>Estado</th>
+                    <th>Dependencia</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script th:inline="javascript">
+        /*
+				<![CDATA[*/
+        var DEPENDENCIAS_USUARIO = /*[[${dependenciasUsuario}]]*/ '';
+        var ES_JEFE = /*[[${esJefe}]]*/ '';
+        /*]]>*/
+      </script>
+    </div>
+    <div layout:fragment="modals"></div>
+    <div layout:fragment="modulo_js">
+      <script type="text/javascript" th:src="@{/js/consulta_comprobantes/modulo.js?time=427620211223}" src="static/js/consulta_comprobantes/modulo.js"></script>
+      <script type="text/javascript" th:src="@{/js/consulta_comprobantes/vista.js?time=427620211223}" src="static/js/consulta_comprobantes/vista.js"></script>
+    </div>
+  </body>
+</html>

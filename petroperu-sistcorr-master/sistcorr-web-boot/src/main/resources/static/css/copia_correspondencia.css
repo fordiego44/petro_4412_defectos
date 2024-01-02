@@ -1,0 +1,23 @@
+.icon-copy-contact {
+    color: #0B1B79;
+    font-size: 20px;
+}
+
+.icon-copy-contact:hover {
+    color: #0B1B79;
+    font-size: 20px;
+}
+
+.icon-send-copy {
+    color: #27D2D2;
+    font-size: 28px;
+}
+
+.icon-send-copy:hover {
+    color: #27D2D2;
+    font-size: 28px;
+}
+
+#corrTexto{
+	overflow: auto;
+}

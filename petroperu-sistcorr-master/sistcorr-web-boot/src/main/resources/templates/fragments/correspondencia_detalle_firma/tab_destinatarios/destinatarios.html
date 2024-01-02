@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div class="card mb-2" th:fragment="datos_destinatarios">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingListaDestinatarios" data-form="ListaDestinatarios">
+			<a data-toggle="collapse" data-parent="#acordionDestinatarios"
+				id="btnListaDestinatarios"
+				href="#collapseListaDestinatarios" aria-expanded="true"
+				aria-controls="contenidoListaDestinatarios" data-form="ListaDestinatarios">
+				<i class="fas fa-people-carry fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="ListaDestinatarios"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="ListaDestinatarios">DESTINATARIOS</h6>
+			</a>
+		</div>
+
+		<div id="collapseListaDestinatarios" class="collapse show"
+			role="tabpanel" aria-labelledby="headingListaDestinatarios"
+			data-parent="#contenidoListaDestinatarios">
+			<div class="card" >
+				<div class="card-body">
+					<div id="listaDestinatarios"></div>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/x-handlebars-template" id="template-destinatariosInternos">
+		{{#each destinatarios}}
+		<a href="#!" id="{{identificador}}" class="list-group-item list-group-item-action flex-column align-items-start">
+			<div class="d-flex w-100 justify-content-between">
+				<h5 class="mb-2 h5">{{dependencia}}</h5>
+			</div>
+ 			<p class="mb-2">{{lugarTrabajo}}</p>
+		</a>
+		{{/each}}
+		</script>
+		
+		<!-- < script type = " text / x-handlebars-template" id=" template-destinatariosExterno" >
+		{ { # each destinatarios } }
+		<a href=" #!" id=" { { identificador } }" class="list-group-item list-group-item-action flex-column align-items-start">
+			<div class="d-flex w-100 justify-content-between">
+				<h5 class="mb-2 h5"> { { dependencia } }</h5>
+			</div>
+ 			<p class="mb-2"> { { lugar } }</p>
+ 			<p class="mb-2"> { { direccion } }</p>
+			<p class="mb-2"> { { nombreDestinatario } }</p>
+		< / a>
+		{ { / each } }
+		< / script > -->
+		
+		<script type="text/x-handlebars-template"
+			id="template-destinatariosExterno">
+		{{#each destinatarios}}
+		<div id="destinatarioExterno_{{identificador}}" class="list-group-item list-group-item-action flex-column align-items-start">
+			<div class="row pl-1">
+				<div class="col-md-11 col-9">
+					{{#if (eq tipoDestinatario 'X')}}
+						<h5 class="mb-2 h5">Entidad Externa: {{dependencia}}</h5>
+					{{else}}
+						<h5 class="mb-2 h5">Persona Natural: {{dependencia}}</h5>
+					{{/if}}
+				</div>
+				
+			</div>
+			<div class="row ml-1">
+				<div class="mr-4">
+					<div class="custom-control custom-checkbox">
+						{{#if esDespachoFisicoDestExterno}}
+						<input type="checkbox" id="desFisicoExternoReadOnly"
+								class="custom-control-input" value="DF" disabled="disabled" checked="checked" /> 
+						<label class="custom-control-label text-muted" for="desFisicoExternoReadOnly">Despacho f&iacute;sico</label>
+						{{else}}
+						<input type="checkbox" id="desFisicoExternoReadOnly"
+								class="custom-control-input" value="DF" disabled="disabled" /> 
+						<label class="custom-control-label text-muted" for="desFisicoExternoReadOnly">Despacho f&iacute;sico</label>
+						{{/if}}
+					</div>
+				</div>
+				<div>
+					<div class="custom-control custom-checkbox">
+						{{#if esCorreoElectronicoDestExterno}}
+						<input type="checkbox" id="desCorreoElectronicoExternoReadOnly"
+								class="custom-control-input" value="CE" disabled="disabled" checked="checked" /> 
+						<label class="custom-control-label text-muted" for="desCorreoElectronicoExternoReadOnly">Por correo electr&oacute;nico al enviar la correspondencia</label>
+						{{else}}
+						<input type="checkbox" id="desCorreoElectronicoExternoReadOnly"
+								class="custom-control-input" value="CE" disabled="disabled" /> 
+						<label class="custom-control-label text-muted" for="desCorreoElectronicoExternoReadOnly">Por correo electr&oacute;nico al enviar la correspondencia</label>
+						{{/if}}
+					</div>
+				</div>
+			</div>
+			<div class="row ml-1">
+				<div>
+					<p class="mb-2">{{lugar}}</p>
+				</div>
+			</div>
+			<div class="row ml-1">
+				<div>
+					<p class="mb-2">{{direccion}}</p>
+				</div>
+			</div>
+			<div class="row ml-1">
+				<div>
+					<p class="mb-2">{{nombreDestinatario}}</p>
+				</div>
+			</div>
+			<div class="row ml-1">
+				<div>
+				</div>
+			</div>
+ 			<div class="row pl-1">
+				<div class="col-md-12 col-12">
+					<div id="divCorreoDestinatarioReadOnly_{{identificador}}"><p class="mb-2"><span id="spanCorreoDestinatarioTexto_{{identificador}}">{{correoDestinatario}}</span> <i class="fas fa-edit iconEditarCorreoDestinatario" style="{{esMostrarEditCorreoElect this}}" title="Editar Correo Destinatario" id="iconEditarCorreoDestinatario_{{identificador}}"></i></p></div>
+				</div>
+				<div class="col-md-12 md-form">
+					<div id="divCorreoDestinatarioEditar_{{identificador}}" style="display: none;">
+						<input type="text" value="{{correoDestinatario}}" maxlength="250" id="correoDestinatarioEditar_{{identificador}}"
+							class="form-control correoDestinatarioEditar" placeHolder="Correo Destinatario" />
+						
+					</div>
+				</div>
+			</div>
+			<div class="row ml-1" style="{{esMostrarReferenciaDest this}}">
+				<div>
+					<p class="mb-2"><b>Referencia: {{fileNetCorrelativo}}</b></p>
+				</div>
+			</div>
+		</div>
+		{{/each}}
+		</script>
+		
+		<script type="text/x-handlebars-template" id="template-copias">
+		{{#each copias}}
+		<a href="#!" id="{{identificador}}" class="list-group-item list-group-item-action flex-column align-items-start">
+			<div class="d-flex w-100 justify-content-between">
+				<h5 class="mb-2 h5">{{dependencia}}</h5>
+			</div>
+ 			<p class="mb-2">{{lugarTrabajo}}</p>
+		</a>
+		{{/each}}
+		</script>
+	</div>
+</body>
+</html>

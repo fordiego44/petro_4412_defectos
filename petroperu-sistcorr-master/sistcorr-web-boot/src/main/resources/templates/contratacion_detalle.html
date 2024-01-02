@@ -1,0 +1,52 @@
+<!-- 9000004276 -->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/plantilla_contratacion_detalle">
+  <head></head>
+  <body>
+    <div layout:fragment="content" class="container-fluid" id="principal">
+      <div class="petro-tabs mx-2">
+        <ul class="nav tabs-petro" id="myClassicTabOrange" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link  waves-light active show" id="Datos-tab" data-toggle="tab" data-tab="datos" href="#contenidoDatos" role="tab" aria-controls="contenidoDatos" aria-selected="true">Datos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" id="basesVendidas-tab" data-toggle="tab" data-tab="basesVendidas" href="#contenidoBasesVendidas" role="tab" aria-controls="contenidoBasesVendidas" aria-selected="false">Bases Vendidas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" id="Consultas-tab" data-toggle="tab" data-tab="consultas" href="#contenidoConsultas" role="tab" aria-controls="contenidoConsultas" aria-selected="false">Consultas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" id="Propuestas-tab" data-toggle="tab" data-tab="propuestas" href="#contenidoPropuestas" role="tab" aria-controls="contenidoPropuestas" aria-selected="false">Propuestas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" id="Impugnaciones-tab" data-toggle="tab" data-tab="impugnaciones" href="#contenidoImpugnaciones" role="tab" aria-controls="contenidoImpugnaciones" aria-selected="false">Impugnaciones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" id="Documentos-tab" data-toggle="tab" data-tab="documentos" href="#contenidoDocumentos" role="tab" aria-controls="contenidoDocumentos" aria-selected="false">Documentos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" id="Traza-tab" data-toggle="tab" data-tab="traza" href="#contenidoTraza" role="tab" aria-controls="contenidoTraza" aria-selected="false">Traza</a>
+          </li>
+        </ul>
+        <div class="tab-content card" id="myClassicTabContentOrange">
+          <div th:replace="fragments/contratacion_detalle/tab_datos :: main"></div>
+          <div th:replace="fragments/contratacion_detalle/tab_basesVendidas :: main"></div>
+          <div th:replace="fragments/contratacion_detalle/tab_consultas :: main"></div>
+					<div th:replace="fragments/contratacion_detalle/tab_propuestas :: main"></div>
+					<div th:replace="fragments/contratacion_detalle/tab_impugnaciones :: main"></div>
+          <div th:replace="fragments/contratacion_detalle/tab_documentos :: main"></div>
+          <div th:replace="fragments/contratacion_detalle/tab_traza :: main"></div>
+        </div>
+      </div>
+		<script th:inline="javascript">
+		/*<![CDATA[*/		   
+		    var ERRORES =  /*[[${errores}]]*/ '';
+		/*]]>*/
+		</script>
+    </div>
+    <div layout:fragment="modulo_js">
+      <script type="text/javascript" th:src="@{/js/contratacion_detalle/modulo.js?time=1112}" src="static/js/contratacion_detalle/modulo.js"></script>
+      <script type="text/javascript" th:src="@{/js/contratacion_detalle/vista.js?time=1112}" src="static/js/contratacion_detalle/vista.js?time=1111"></script>
+    </div>
+  </body>
+</html>

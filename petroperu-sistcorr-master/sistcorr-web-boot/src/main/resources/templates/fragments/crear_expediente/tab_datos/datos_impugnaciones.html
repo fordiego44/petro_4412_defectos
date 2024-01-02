@@ -1,0 +1,59 @@
+<!-- 9000004412 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div class="card mb-2" th:fragment="datos_impugnaciones">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosImpugnaciones" data-form="datosImpugaciones">
+			<a data-toggle="collapse" data-parent="#acordionDatos"
+				id="btnDatosRemitente"
+				href="#collapseDatosImpugnaciones" aria-expanded="true"
+				aria-controls="contenidoDatosImpugnaciones" data-form="datosImpugnaciones">
+				<i class="fas fa-building fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosRemitente"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosRemitente">IMPUGNACIONES</h6>
+			</a>
+		</div>
+
+		<div id="collapseDatosImpugnaciones" class="collapse show"
+			role="tabpanel" aria-labelledby="headingDatosImpugnaciones"
+			data-parent="#contenidoDatosImpugnaciones">
+			<div class="card-body rgba-petro-strong  z-depth-1" style="padding-bottom: 0px !important;">
+				 
+				 
+		
+				<br/>
+				<div class="form-row">
+					<div class="col-sm-6" >
+						<br/>
+						<div class="md-form  mb-3" >
+							<i class="far fa-calendar-alt float-right icon-date" id="btnRmt_FechaInicioImpugnaciones"></i>
+							<input type="text" id="rmt_fechaInicioImpugnaciones" class="form-control " required="required" data-msgerror="El campo fecha de documento es obligatorio" readonly="readonly"/> 
+							<label for="rmt_fechaInicioImpugnaciones" class="active" style="margin-top: -0px !important">Fecha Inicio</label>
+							
+						</div>
+					</div>
+					<div class="col-sm-6" >
+						<br/>
+						<div class="md-form  mb-3" >
+							<i class="far fa-calendar-alt float-right icon-date" id="btnRmt_FechaDesdeImpugnaciones"></i>
+							<input type="text" id="rmt_fechaDesdeImpugnaciones" class="form-control " required="required" data-msgerror="El campo fecha de documento es obligatorio" readonly="readonly"/> 
+							<label for="rmt_fechaDesdeImpugnaciones" class="active" style="margin-top: -0px !important">Fecha Cierre</label>
+							
+						</div>
+					</div>
+					
+				</div>	 
+				 
+				<br/> 
+				<br/>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

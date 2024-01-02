@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div class="card mb-2" th:fragment="datos_remitente">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosRemitente" data-form="datosRemitente">
+			<a data-toggle="collapse" data-parent="#acordionDatos"
+				id="btnDatosRemitente"
+				href="#collapseDatosRemitente" aria-expanded="true"
+				aria-controls="contenidoDatosRemitente" data-form="datosRemitente">
+				<i class="fas fa-people-carry fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosRemitente"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosRemitente">REMITENTE</h6>
+			</a>
+		</div>
+
+		<div id="collapseDatosRemitente" class="collapse show"
+			role="tabpanel" aria-labelledby="headingDatosRemitente"
+			data-parent="#contenidoDatosRemitente">
+			<div class="card-body rgba-petro-strong  z-depth-1">
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="rmtCorrelativo" class="form-control" readonly="readonly" /> 
+							<label for="rmtCorrelativo">Nro. Documento</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="rmtCorrelativoExterno" class="form-control" readonly="readonly" /> 
+							<label for="rmtCorrelativo">Referencia</label>
+						</div>					
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="rmt_dependencia_originadora" class="form-control" readonly="readonly" /> 
+							<label for="rmt_dependencia_originadora">Dependencia Originadora</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="rmt_originador" class="form-control" readonly="readonly" /> 
+							<label for="rmt_originador">Nombre del Originador</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="rmtJerarquia" class="form-control" readonly="readonly" /> 
+							<label for="rmtJerarquia">Elegir Dependencia fuera de L&iacute;nea Jer&aacute;rquica</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="rmtRutaAprobacion" class="form-control" readonly="readonly" /> 
+							<label for="rmtRutaAprobacion">&iquest;Indicar&aacute; ruta de aprobaci&oacute;n?</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="rmtDependencia" class="form-control" readonly="readonly" /> 
+							<label for="rmtDependencia">Dependencia Remitente Aprobadora</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="rmtLugar" class="form-control" readonly="readonly" /> 
+							<label for="rmtLugar">Centro de Gesti&oacute;n de Correspondencia</label>
+						</div>					
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="rmtNombreRemitente" class="form-control" readonly="readonly" /> 
+							<label for="rmtNombreRemitente">Jefe Dependencia Remitente</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="rmtTipoCorrespondencia" class="form-control" disabled="disabled" /> 
+							<label for="rmtTipoCorrespondencia">Tipo Correspondencia</label>
+						</div>					
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3" style="display: none">
+							<input type="text" id="rmtTipoCorrespondenciaOtros" class="form-control sistcorrInput validate" maxlength="30" readonly="readonly"/> 
+							<label for="rmtTipoCorrespondenciaOtros" class="active">Otros</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-12">
+						<div class="md-form mb-3">
+							<span class="labelTextArea">Asunto</span>
+							<div class="more textarea" id="rmtAsunto"></div>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-4">
+						<div class="md-form mb-3">
+							<input type="text" id="rmtEsDocumentoRespuesta" class="form-control sistcorrInput" maxlength="30" readonly="readonly" /> 
+							<label for="rmtEsDocumentoRespuesta" class="active">&iquest;Es documento respuesta?</label>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="md-form mb-3">
+							<input type="text" id="rmtCorrelativoEntrada" class="form-control sistcorrInput" maxlength="30" readonly="readonly" /> 
+							<label for="rmtCorrelativoEntrada" class="active">Correlativo</label>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="md-form mb-3">
+							<input type="text" id="rmtTipoAccion" class="form-control sistcorrInput" readonly="readonly" /> 
+							<label for="rmtTipoAccion" class="active">Tipo de acci&oacute;n</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-12">
+						<div class="md-form mb-3">
+							<input type="text" id="rmtRespuesta" class="form-control sistcorrInput" readonly="readonly" /> 
+							<label for="rmtRespuesta" class="active">Respuesta</label>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+</body>
+</html>

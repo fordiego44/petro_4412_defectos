@@ -1,0 +1,129 @@
+<!-- 9000004412 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div class="card mb-2" th:fragment="datos_recepcion">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosRecepcion" data-form="datosRecepcion">
+			<a data-toggle="collapse" data-parent="#acordionDatos"
+				id="btnDatosRecepcion"
+				href="#collapseDatosRecepcion" aria-expanded="true"
+				aria-controls="contenidoDatosRecepcion" data-form="datosRecepcion">
+				<i class="fas fa-building fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosRecepcion"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosRecepcion">recepci&oacute;n DE PROPUESTAS</h6>
+			</a>
+		</div>
+
+		<div id="collapseDatosRecepcion" class="collapse show"
+			role="tabpanel" aria-labelledby="headingDatosRecepcion"
+			data-parent="#contenidoDatosRecepcion">
+			<div class="card-body rgba-petro-strong  z-depth-1" style="padding-bottom: 0px !important;">
+				 
+				 
+		
+				<br/>
+				<div class="form-row">
+					<div class="col-sm-6" >
+						<br/>
+						<div class="md-form  mb-3" >
+							<i class="far fa-calendar-alt float-right icon-date" id="btnRmt_FechaInicioRecepcion"></i>
+							<input type="text" id="rmt_fechaInicioRecepcion" class="form-control " required="required" data-msgerror="El campo fecha de documento es obligatorio" readonly="readonly"/> 
+							<label for="rmt_fechaInicioRecepcion" class="active" style="margin-top: -0px !important">Fecha Inicio</label>
+							
+						</div>
+					</div>
+					<div class="col-sm-6" >
+						<br/>
+						<div class="md-form  mb-3" >
+							<i class="far fa-calendar-alt float-right icon-date" id="btnRmt_FechaDesdeRecepcion"></i>
+							<input type="text" id="rmt_fechaDesdeRecepcion" class="form-control " required="required" data-msgerror="El campo fecha de documento es obligatorio" readonly="readonly"/> 
+							<label for="rmt_fechaDesdeRecepcion" class="active" style="margin-top: -0px !important">Fecha Cierre</label>
+							
+						</div>
+					</div>
+					
+				</div>	 
+				 
+				<br/>
+				<!-- 4412 defecto 10 -->
+				<div class="form-row">
+										<div class="col-sm-6">
+							<div class="md-form mb-3"> 
+								<label for="rmt_inicioP" class="active">Hora Inicio</label>
+								<select class="form-control sistcorrAutocompleRemoto" id="rmt_inicioP" >    
+										<option value="12:00 AM">12:00 AM</option>
+									    <option value="1:00 AM">1:00 AM</option>
+									    <option value="2:00 AM">2:00 AM</option>
+									    <option value="3:00 AM">3:00 AM</option>
+									    <option value="4:00 AM">4:00 AM</option>
+									    <option value="5:00 AM">5:00 AM</option>
+									    <option value="6:00 AM">6:00 AM</option>
+									    <option value="7:00 AM">7:00 AM</option>
+									    <option selected="selected" value="8:00 AM">8:00 AM</option>
+									    <option value="9:00 AM">9:00 AM</option>
+									    <option value="10:00 AM">10:00 AM</option>
+									    <option value="11:00 AM">11:00 AM</option>
+									    <option value="12:00 PM">12:00 PM</option>
+									    <option value="1:00 PM">1:00 PM</option>
+									    <option value="2:00 PM">2:00 PM</option>
+									    <option value="3:00 PM">3:00 PM</option>
+									    <option value="4:00 PM">4:00 PM</option>
+									    <option value="5:00 PM">5:00 PM</option>
+									    <option value="6:00 PM">6:00 PM</option>
+									    <option value="7:00 PM">7:00 PM</option>
+									    <option value="8:00 PM">8:00 PM</option>
+									    <option value="9:00 PM">9:00 PM</option>
+									    <option value="10:00 PM">10:00 PM</option>
+									    <option value="11:00 PM">11:00 PM</option>
+								</select>
+							</div>
+						</div>
+
+					<div class="col-sm-6">
+							<div class="md-form mb-3"> 
+								<label for="rmt_cierreP" class="active">Hora Cierre</label>
+								<select class="form-control sistcorrAutocompleRemoto" id="rmt_cierreP" >    
+										<option value="12:00 AM">12:00 AM</option>
+									    <option value="1:00 AM">1:00 AM</option>
+									    <option value="2:00 AM">2:00 AM</option>
+									    <option value="3:00 AM">3:00 AM</option>
+									    <option value="4:00 AM">4:00 AM</option>
+									    <option value="5:00 AM">5:00 AM</option>
+									    <option value="6:00 AM">6:00 AM</option>
+									    <option value="7:00 AM">7:00 AM</option>
+									    <option value="8:00 AM">8:00 AM</option>
+									    <option value="9:00 AM">9:00 AM</option>
+									    <option value="10:00 AM">10:00 AM</option>
+									    <option value="11:00 AM">11:00 AM</option>
+									    <option value="12:00 PM">12:00 PM</option>
+									    <option value="1:00 PM">1:00 PM</option>
+									    <option value="2:00 PM">2:00 PM</option>
+									    <option value="3:00 PM">3:00 PM</option>
+									    <option value="4:00 PM">4:00 PM</option>
+									    <option value="5:00 PM">5:00 PM</option>
+									    <option  selected="selected" value="6:00 PM">6:00 PM</option>
+									    <option value="7:00 PM">7:00 PM</option>
+									    <option value="8:00 PM">8:00 PM</option>
+									    <option value="9:00 PM">9:00 PM</option>
+									    <option value="10:00 PM">10:00 PM</option>
+									    <option value="11:00 PM">11:00 PM</option>
+								</select>
+							</div>
+						</div>
+					
+					
+				</div>
+				<!-- 4412 defecto 10 fin -->
+				<br/> 
+				<br/>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

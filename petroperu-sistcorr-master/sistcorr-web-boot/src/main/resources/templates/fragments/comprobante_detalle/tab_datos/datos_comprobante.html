@@ -1,0 +1,99 @@
+<!-- 9000004276 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head></head>
+  <body>
+    <div class="card mb-2" th:fragment="datos_comprobante">
+      <div class="card-header p-0 z-depth-1 plomo_relleno" role="tab" id="headingDatosComprobante" data-form="datosComprobante">
+        <a data-toggle="collapse" data-parent="#acordionDatos" id="btnDatosCorrespondencia" href="#collapseDatosCorrespondencia" aria-expanded="true" aria-controls="contenidoDatosComprobante" data-form="datosComprobante">
+          <i class="fas fa-mail-bulk fa-1x p-3 mr-4 float-left black-text" aria-hidden="true" data-form="datosComprobante"></i>
+          <h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title" data-form="datosComprobante">Datos Comprobante</h6>
+        </a>
+      </div>
+      <div id="collapseDatosCorrespondencia" class="collapse show" role="tabpanel" aria-labelledby="headingDatosComprobante" data-parent="#contenidoDatosComprobante">
+        <div class="card-body rgba-petro-strong z-depth-1">
+          <form action="">
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="md-form">
+                  <span class="labelTextArea">Correlativo</span>
+                  <div class="more textarea" th:text="${comprobante.correlativo!=null and #strings.length(comprobante.correlativo)!=0?comprobante.correlativo:'&nbsp;'}"></div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="md-form">
+                  <span class="labelTextArea">Fecha de Recepci&oacute;n</span>
+                  <div class="more textarea" th:text="${comprobante.fechaRecepcion != null ? (#dates.format(comprobante.fechaRecepcion, formatoFecha) ==  '01/01/1900 00:00' ? '&nbsp;' :  #dates.format(comprobante.fechaRecepcion, formatoFecha)) : '&nbsp;'}"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="md-form">
+                  <span class="labelTextArea">Nro Batch</span>
+                  <div class="more textarea" th:text="${comprobante.nroBatch!=null and #strings.length(comprobante.nroBatch)!=0?comprobante.nroBatch:'&nbsp;'}"></div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="md-form">
+                  <span class="labelTextArea">RUC</span>
+                  <div class="more textarea" th:text="${comprobante.ruc!=null and #strings.length(comprobante.ruc)!=0?comprobante.ruc:'&nbsp;'}"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="md-form">
+                  <span class="labelTextArea">Raz&oacute;n Social</span>
+                  <div class="more textarea" th:text="${comprobante.razonSocial!=null and #strings.length(comprobante.razonSocial)!=0?comprobante.razonSocial:'&nbsp;'}"></div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="md-form">
+                  <span class="labelTextArea">Tipo de Comprobante</span>
+                  <div class="more textarea" th:text="${comprobante.descComprobante!=null and #strings.length(comprobante.descComprobante)!=0?comprobante.descComprobante:'&nbsp;'}"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="md-form">
+                  <span class="labelTextArea">Nro de Comprobante</span>
+                  <div class="more textarea" th:text="${comprobante.nroComprobante!=null and #strings.length(comprobante.nroComprobante)!=0?comprobante.nroComprobante:'&nbsp;'}"></div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="md-form">
+                  <span class="labelTextArea">Fecha Comprobante</span>
+                  <div class="more textarea" th:text="${comprobante.fechaComprobante != null ? (#dates.format(comprobante.fechaComprobante, 'dd/MM/yyyy') ==  '01/01/1900' ? '&nbsp;' :  #dates.format(comprobante.fechaComprobante, 'dd/MM/yyyy')) : '&nbsp;'}"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="md-form">
+                  <span class="labelTextArea">Moneda</span>
+                  <div class="more textarea" th:text="${comprobante.moneda!=null and #strings.length(comprobante.moneda)!=0?comprobante.moneda:'&nbsp;'}"></div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="md-form">
+                  <span class="labelTextArea">Estado</span>
+                  <div class="more textarea" th:text="${comprobante.estado!=null and #strings.length(comprobante.estado)!=0?comprobante.estado:'&nbsp;'}"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="md-form">
+                  <span class="labelTextArea">Dependencia</span>
+                  <div class="more textarea" th:text="${comprobante.dependencia!=null and #strings.length(comprobante.dependencia)!=0?comprobante.dependencia:'&nbsp;'}"></div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

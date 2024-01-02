@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.3" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <enumeration id="1" language="java" name="pe.com.petroperu.cliente.util.SistcorrBandeja" 
+    project="sistcorr-module-cliente-rest" 
+    file="/sistcorr-module-cliente-rest/src/main/java/pe/com/petroperu/cliente/util/SistcorrBandeja.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="201" x="53" y="-30"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="2" language="java" name="pe.com.petroperu.cliente.util.Operador" 
+    project="sistcorr-module-cliente-rest" 
+    file="/sistcorr-module-cliente-rest/src/main/java/pe/com/petroperu/cliente/util/Operador.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="128" x="294" y="-30"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="3" language="java" name="pe.com.petroperu.cliente.util.Constante" project="sistcorr-module-cliente-rest" 
+    file="/sistcorr-module-cliente-rest/src/main/java/pe/com/petroperu/cliente/util/Constante.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="190" x="462" y="-30"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="pe.com.petroperu.cliente.model.RespuestaApi" 
+    project="sistcorr-module-cliente-rest" 
+    file="/sistcorr-module-cliente-rest/src/main/java/pe/com/petroperu/cliente/model/RespuestaApi.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="124" y="280"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="pe.com.petroperu.cliente.model.CompletarCorrespondenciaParametro" 
+    project="sistcorr-module-cliente-rest" 
+    file="/sistcorr-module-cliente-rest/src/main/java/pe/com/petroperu/cliente/model/CompletarCorrespondenciaParametro.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="150" y="477"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="pe.com.petroperu.cliente.model.InformacionDocumento" 
+    project="sistcorr-module-cliente-rest" 
+    file="/sistcorr-module-cliente-rest/src/main/java/pe/com/petroperu/cliente/model/InformacionDocumento.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="379" y="351"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="pe.com.petroperu.cliente.model.CerrarCorrespondenciaParametro" 
+    project="sistcorr-module-cliente-rest" 
+    file="/sistcorr-module-cliente-rest/src/main/java/pe/com/petroperu/cliente/model/CerrarCorrespondenciaParametro.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="875" y="76"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="pe.com.petroperu.cliente.model.CerrarCorrespondencia" 
+    project="sistcorr-module-cliente-rest" 
+    file="/sistcorr-module-cliente-rest/src/main/java/pe/com/petroperu/cliente/model/CerrarCorrespondencia.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="863" y="305"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="pe.com.petroperu.cliente.model.ContadorBandeja" 
+    project="sistcorr-module-cliente-rest" 
+    file="/sistcorr-module-cliente-rest/src/main/java/pe/com/petroperu/cliente/model/ContadorBandeja.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1071" y="69"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="pe.com.petroperu.cliente.model.AgregarAsignacionParametro" 
+    project="sistcorr-module-cliente-rest" 
+    file="/sistcorr-module-cliente-rest/src/main/java/pe/com/petroperu/cliente/model/AgregarAsignacionParametro.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1064" y="384"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="pe.com.petroperu.cliente.model.Bandeja" project="sistcorr-module-cliente-rest" 
+    file="/sistcorr-module-cliente-rest/src/main/java/pe/com/petroperu/cliente/model/Bandeja.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1303" y="107"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="pe.com.petroperu.cliente.model.ListaFiltroCorrespondencia" 
+    project="sistcorr-module-cliente-rest" 
+    file="/sistcorr-module-cliente-rest/src/main/java/pe/com/petroperu/cliente/model/ListaFiltroCorrespondencia.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="615" y="210"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="pe.com.petroperu.cliente.model.ErrorResponse" 
+    project="sistcorr-module-cliente-rest" 
+    file="/sistcorr-module-cliente-rest/src/main/java/pe/com/petroperu/cliente/model/ErrorResponse.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1319" y="478"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="pe.com.petroperu.cliente.model.FiltroCorrespondencia" 
+    project="sistcorr-module-cliente-rest" 
+    file="/sistcorr-module-cliente-rest/src/main/java/pe/com/petroperu/cliente/model/FiltroCorrespondencia.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="580" y="466"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="pe.com.petroperu.cliente.model.AgregarAsignacionMasivaParametro" 
+    project="sistcorr-module-cliente-rest" 
+    file="/sistcorr-module-cliente-rest/src/main/java/pe/com/petroperu/cliente/model/AgregarAsignacionMasivaParametro.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1598" y="172"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="pe.com.petroperu.cliente.model.RespuestaError" 
+    project="sistcorr-module-cliente-rest" 
+    file="/sistcorr-module-cliente-rest/src/main/java/pe/com/petroperu/cliente/model/RespuestaError.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1558" y="597"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="17" language="java" name="pe.com.petroperu.cliente.ISistcorrCliente" 
+    project="sistcorr-module-cliente-rest" 
+    file="/sistcorr-module-cliente-rest/src/main/java/pe/com/petroperu/cliente/ISistcorrCliente.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1138" y="1018"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="18" language="java" name="pe.com.petroperu.cliente.SistcorrClienteImpl" 
+    project="sistcorr-module-cliente-rest" 
+    file="/sistcorr-module-cliente-rest/src/main/java/pe/com/petroperu/cliente/SistcorrClienteImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="309" y="1060"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <realization id="19">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="17"/>  
+  </realization>  
+  <association id="20">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="21" name="searchFilter"/>      
+      <multiplicity id="22" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

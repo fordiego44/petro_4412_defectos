@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<!-- <header th:fragment="header">
+        <nav class="navbar navbar-expand-lg navbar-light navbar-petroperu scrolling-navbar">
+            <div class="container-fluid">
+
+                <button class="btn-petroperu-icon" type="button" id="btnRetroceder" data-toggle="tooltip" title="Regresar">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+
+                <a class="navbar-brand waves-effect" href="">
+                    <strong class="white-text" th:text="${tituloGrupal}">TITULO</strong>
+                </a>
+
+                <div class="navbar-nav">
+                    <ul class="navbar-nav nav-flex-icons">  
+                    	<li class="nav-item">
+                    		<button class="btn-petroperu-icon" type="button" data-toggle="tooltip" title="Enviar asignaciones" id="btnEnviarAsignacionGrupal"><i class="fas fa-paper-plane"></i></button>
+                    	</li>         
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <input id="csrfToken" type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+		<input id="csrfHeader" type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.headerName}" />
+    </header> -->
+    
+    <!-- inicio ticket 9000004403 -->
+    <header class="m-header-main-ptp m-header--ptp" th:fragment="header">
+		<div class="m-box-table m-box-table--middle">
+			<div class="m-header__block">
+				<button class="btn-petroperu-icon" type="button" id="btnRetroceder" data-toggle="tooltip" title="Regresar">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+			</div>
+			<div class="m-header__logo">
+				<img th:src="@{/img/logo_mobile@2x.png?time=20211234}" alt=""/><img
+					th:src="@{/img/logo_petroperu@2x.png?time=20211236}" alt=""/>
+			</div>
+			<h1 class="m-header__title" style="text-align: center;">
+				<span th:text="${tituloGrupal}">Titulo</span><span></span>
+			</h1>
+			
+			<div class="m-header__block" style="width: 20px; text-align: right;">
+				<button class="btn-petroperu-icon" type="button" data-toggle="tooltip" title="Enviar asignaciones" id="btnEnviarAsignacionGrupal"><i class="fas fa-paper-plane"></i></button>
+			</div>
+		</div>
+		<input id="csrfToken" type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+		<input id="csrfHeader" type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.headerName}" />
+	</header>
+	<!-- fin ticket 9000004403 -->
+</body>
+</html>

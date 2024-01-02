@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div class="card mb-2" th:fragment="datos_correspondencia">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosCorrespondencia" data-form="datosCorrespondencia">
+			<a data-toggle="collapse" data-parent="#acordionDatos"
+				id="btnDatosCorrespondencia"
+				href="#collapseDatosCorrespondencia" aria-expanded="true"
+				aria-controls="contenidoDatosCorrespondencia" data-form="datosCorrespondencia">
+				<i class="fas fa-address-card fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosCorrespondencia"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosCorrespondencia">CORRESPONDENCIA</h6>
+			</a>
+		</div>
+
+		<div id="collapseDatosCorrespondencia" class="collapse show"
+			role="tabpanel" aria-labelledby="headingDatosCorrespondencia"
+			data-parent="#contenidoDatosCorrespondencia">
+			<div class="card-body rgba-petro-strong  z-depth-1" style="padding-bottom: 0px !important;">
+				<div class="form-row">
+					<div class="col-sm-12">
+						<div class="md-form mb-3">
+							<label>Tipo de emisi&oacute;n</label>
+							<br/>
+							<div th:each="tipo : ${listaTipoEmision}" class="custom-control custom-radio custom-control-inline" style="margin-right: 60px; margin-top: 10px">
+							  <input type="radio" class="custom-control-input" th:attr="id=${'corr_tipoemision' + tipo.nombre}" name="corr_tipoEmision" th:value="${tipo.id}"/>
+							  <label class="custom-control-label label_switch" th:attr="for=${'corr_tipoemision' + tipo.nombre}" th:text="${tipo.nombre}">Option 1</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+				<br/>
+				
+				<div class="form-row">
+					<div class="col-sm-12">
+						<div class="md-form mb-9">
+							<label>Flujo</label>
+							<br/>
+							<div class="custom-control custom-radio custom-control-inline" style="margin-right: 30px; margin-top: 10px; width: 200px;">
+							  <input type="radio" class="custom-control-input" id="corr_flujo_firma_manual"   name="corr_firmaDigital" value="false"/>
+							  <label class="custom-control-label label_switch" for="corr_flujo_firma_manual">Flujo firma manual</label>
+							</div>
+							<div class="custom-control custom-radio custom-control-inline" style="margin-right: 30px; margin-top: 10px; width: 150px;">
+							  <input type="radio" class="custom-control-input" id="corr_flujo_firma_digital" name="corr_firmaDigital" value="true" checked="checked" />
+							  <label class="custom-control-label label_switch" for="corr_flujo_firma_digital" >Flujo firma digital</label>
+							</div>
+							<div class="custom-control custom-switch custom-control-inline" style="width: 200px">
+							  <input type="checkbox" class="custom-control-input" id="corr_primerFirmante" name="corr_primerFirmante"/>
+							  <label class="custom-control-label label_switch" for="corr_primerFirmante">Soy el primer firmante</label>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				
+				<br/>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3" style="margin-bottom: 10px !important;">
+								<label id="lblCaractCorr">Caracter&iacute;sticas de la correspondencia</label>
+						</div>
+					</div>
+				</div>
+				
+			
+				<br/>
+				<div class="form-row">
+					<div class="col-sm-4">
+						<div class="md-form mb-3">
+							<div class="custom-control custom-switch">
+							  <input type="checkbox" class="custom-control-input" id="corr_confidencial" name="corr_confidencial"/>
+							  <label class="custom-control-label label_switch" for="corr_confidencial">Confidencial</label>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="md-form mb-3">
+							<div class="custom-control custom-switch">
+							  <input type="checkbox" class="custom-control-input" id="corr_urgente" name="corr_urgente"/>
+							  <label class="custom-control-label label_switch" for="corr_urgente">&iquest;Es urgente?</label>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<div id="despachoFisico">
+				<br/>
+				<div class="form-row">
+					<div class="col-sm-4">
+						<div class="md-form mb-3 lblSoloExcepciones" style="margin-bottom: 10px !important;">
+								<label id="lblCaractCorr">S&oacute;lo excepciones</label>
+						</div>
+					</div>
+				</div>
+				<br/>
+				<div class="form-row">
+					<div class="col-sm-4">
+						<div class="md-form mb-3">
+							<div class="custom-control custom-switch">
+							  <input type="checkbox" class="custom-control-input" id="corr_despachoFisico" name="corr_despachoFisico" />
+							  <label class="custom-control-label label_switch" for="corr_despachoFisico">Despacho f&iacute;sico</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			
+			
+				
+				<br/>
+				<br/>
+				
+				<div class="form-row">
+					<div class="col-sm-12">
+						<div class="md-form mb-3">
+							<textarea id="corr_observacion" class="md-textarea form-control sistcorrTextArea validate" rows="2" maxlength="254"></textarea>
+							<label for="corr_observacion" style="margin-top: -8px;">Observaci&oacute;n</label>
+						</div>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>

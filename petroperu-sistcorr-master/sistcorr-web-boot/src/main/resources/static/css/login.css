@@ -1,0 +1,70 @@
+html,
+body,
+header,
+.view {
+    height: 100%;
+    background: #eeeeee;
+}
+
+@media (max-width: 740px) {
+    html,
+    body,
+    header,
+    .view {
+        height: 1000px;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 850px) {
+    html,
+    body,
+    header,
+    .view {
+        height: 650px;
+    }
+}
+@media (min-width: 800px) and (max-width: 850px) {
+    .navbar:not(.top-nav-collapse) {
+        background: #1C2331!important;
+    }
+}
+
+.side-nav .logo-sn {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.side-nav .logo-sn img {
+    height: 38px;
+}
+
+.side-nav .search-form input[type=text] {
+    margin-top: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+.accordion .card {
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.accordion .card .card-body {
+    border-top: 1px solid #eee;
+}
+
+.brand_petro {
+	margin-left: 10px;
+    font-size: 25px;
+}
+
+.logoPetro{
+	    margin-bottom: 15px;
+}
+
+#captcha{
+	text-transform: uppercase;
+}

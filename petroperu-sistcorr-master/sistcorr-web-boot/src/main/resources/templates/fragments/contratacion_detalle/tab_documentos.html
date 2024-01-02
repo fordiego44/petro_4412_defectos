@@ -1,0 +1,32 @@
+<!-- 9000004276 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head></head>
+  <body>
+    <div class="tab-pane fade" id="contenidoDocumentos" role="tabpanel" aria-labelledby="contact-tab-classic-orange" th:fragment="main">
+      <div id="bodyDocumentos">
+        <ul class="list-group" id="listaDocumentos">
+          <li th:each="doc : ${documentos}" class="list-group-item" th:id="${'li_' + doc.id}">
+            <div class="row">
+              <table width="100%" border="0" style="table-layout:fixed;">
+                <tr>
+                  <td style="padding: 0.15rem 0.95rem;">
+                    <a class="documentoDescarga" th:attr="data-id=${doc.id}, data-size=${doc.tamano},href=${'../correspondencias/descargar/documento/' + doc.id}">
+                      <i th:if="${doc.mimeType.contains('pdf')}" class="fas fa-file-pdf icon_pdf mr-3"></i>
+                      <i th:if="${doc.mimeType.contains('excel')}" class="fas fa-file-excel icon_excel mr-3"></i>
+                      <i th:if="${doc.mimeType.contains('word')}" class="fas fa-file-word icon_word mr-3"></i>
+                      <i th:if="${doc.mimeType.contains('image')}" class="fas fa-file-image icon_image mr-3"></i>
+                      <i th:if="${!doc.mimeType.contains('pdf') and !doc.mimeType.contains('excel') and !doc.mimeType.contains('word') and !doc.mimeType.contains('image')}" class="fas fa-file icon_otro mr-3"></i>
+                      <span th:text="${doc.documentTitle}">CR-IP 0001</span>
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </li>
+          <li th:if="${documentos.isEmpty()}" class="list-group-item"> No tiene documentos asociados </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

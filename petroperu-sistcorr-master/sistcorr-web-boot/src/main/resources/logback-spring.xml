@@ -1,0 +1,19 @@
+<configuration>
+	<property name="LOG_HOME" value="/logs/sistcorr/" />
+
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}app-sirtcorr.%d{yyyy-MM-dd}_.%i.log</fileNamePattern>
+			<maxFileSize>400MB</maxFileSize>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<root level="info">
+		<appender-ref ref="FILE" />
+	</root>
+</configuration>

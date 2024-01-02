@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div  class="card mb-2"	th:fragment="main">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosRemitente" data-form="datosFiltros">
+			<a data-toggle="collapse" data-parent="#acordionFiltros"
+				id="btnFiltros"
+				href="#collapseFiltros" aria-expanded="true"
+				aria-controls="contenidoFiltros" data-form="datosFiltros">
+				<i class="fas fa-filter fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosFiltros"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosFiltros">FILTROS</h6>
+			</a>
+		</div>
+		
+		<div id="collapseFiltros" class="collapse show"
+			role="tabpanel" aria-labelledby="headingFiltros"
+			data-parent="#contenidoFiltros">
+			<div class="card-body rgba-petro-strong  z-depth-1" style="padding-bottom: 0px !important;">
+				<div class="form-row">
+					<div class="col-sm-4">
+						<div class="md-form mb-3">
+							<input type="text" id="textFiltroNombre" class="form-control" /> 
+							<label data-error="error" data-success="correcto" for="textFiltroNombre" id="lblFiltroNombre">Nombre</label>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="md-form mb-3">
+							<label for="selFiltroLugar" class="active">Lugar de Trabajo</label>
+							<select class="form-control sistcorrSelect" id="selFiltroLugar">
+								<option value="0">Todos</option>
+			        			<option th:each="lugar : ${lugares}" th:value="${lugar.codigo}" th:text="${lugar.descripcion}"></option>
+			        		</select>
+						</div>
+					</div>
+					<div class="col-sm-4" align="right">
+						<button class="btn btn-petroperu-rojo" type="button" id="btnLimpiar">Limpiar</button>
+						<button class="btn btn-petroperu-verde" type="button" id="btnBuscar">Buscar</button>
+					</div>
+				</div>
+				
+				<div class="form-row">
+					<div class="col-sm-12" align="right">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!-- 9000004412 -->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/plantilla_venta_bases">
+  <head></head>
+  <body>		 
+    <div layout:fragment="content" class="container-fluid" id="principal">
+		 
+	
+          <div th:replace="fragments/venta_bases/tab_datos :: main"></div>   
+    
+      
+		<script th:inline="javascript">
+		/*<![CDATA[*/
+		    var ERRORES =  /*[[${errores}]]*/ ''; 
+		    var TIPOS_CORRESPONDENCIA  = /*[[${tiposCorrespondencia}]]*/ '';
+		    var DEPENDENCIAS_USUARIO = /*[[${dependenciasUsuario}]]*/ '';
+		    var ctrlDown = false,
+	        ctrlKey = 17,
+	        cmdKey = 91,
+	        vKey = 86,
+	        cKey = 67;
+		/*]]>*/
+		</script>
+    </div>
+    <div layout:fragment="modals">
+      <div class="modal fade" id="modalConfirmarRegistro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header text-center">
+			        <h4 class="modal-title w-100 font-weight-bold">Imprimir R&oacute;tulo</h4>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+		      </div>
+		      <div class="modal-body mx-3">
+		      	<br/>
+				
+				<div class="form-row">
+					<div class="col-sm-12">
+							<div class="md-form mb-3">
+								<input type="text" id="rmt_nro_correlativo" class="form-control sistcorrInput"   /> 
+								<label for="rmt_nro_correlativo" class="active">Nro. Correlativo</label>
+							</div>
+						</div>   
+				</div>
+				<br/> 
+				<div class="form-row">
+					<div class="col-sm-12">
+							<div class="md-form mb-3">
+								<input type="text" id="rmt_rotulo" class="form-control sistcorrInput"   /> 
+								<label for="rmt_rotulo" class="active">R&oacute;tulo</label>
+							</div>
+						</div>   
+				</div>
+				<br/> 
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnImprimirEtiqueta">IMPRIMIR EN ETIQUETA</button>
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnImprimirDocOriginal">IMPRIMIR DOC ORIGINAL</button>
+		        <button class="btn btn-petroperu-rojo" type="button"  data-dismiss="modal">CANCELAR</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+    </div>
+    <div layout:fragment="modulo_js">
+      <script type="text/javascript" th:src="@{/js/venta_bases/modulo.js?time=1112}" src="static/js/venta_bases/modulo.js"></script>
+      <script type="text/javascript" th:src="@{/js/venta_bases/vista.js?time=1112}" src="static/js/venta_bases/vista.js?time=1111"></script>
+    </div>
+  </body>
+</html>

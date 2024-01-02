@@ -1,0 +1,93 @@
+.menusup{
+	text-align: left;
+}
+.menuinf{
+	display:none!important;
+}
+.sidebar-fixed {
+    height: 100vh;
+    width: 305px;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    z-index: 100;
+    background-color: #fff;
+    padding-top: 0; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #222d32;
+    overflow-y: auto;
+}
+.sidebar-fixed .list-group .active {
+      -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+}
+
+.sidebar-fixed .usuario_info{
+    background: #29373e;
+    color: white;
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.sidebar-fixed .menu{
+    padding-left: 10px;
+    padding-top: 30px;
+}
+
+.sidebar-fixed .cerrar_session{
+    bottom: 0;
+    left: 0px;
+    right: 0;
+    position: absolute;
+    height: 80px;
+    background: #29373e;
+    color: white;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.nombreUsuario{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 2px;
+    margin-top: 9px;
+}
+
+.sidebar-fixed .logo-wrapper {
+     padding: 2.5rem; 
+}
+.sidebar-fixed .logo-wrapper img {
+    max-height: 50px; 
+}
+
+.closeSession{
+    color: white;
+    cursor: pointer;
+}
+
+#butonClose{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.sidebar-fixed h1{
+    color: white;
+    font-size: 18px;
+}
+
+.menuItem{
+    background: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+.menuItem:hover{
+    font-size: 17px;
+    background: #29373e;
+}

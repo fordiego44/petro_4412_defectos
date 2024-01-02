@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+
+	<div class="tab-pane fade" id="contenidoHistorialAsignaciones"	role="tabpanel" aria-labelledby="follow-tab-classic-orange"
+		th:fragment="main">
+		<div id="bodyHistorialAsignaciones">
+			<div th:each="asignacion : ${historicoAsignaciones}" class='row' >
+				<div class='col-sm-12 col_pendientes'>
+					<div th:class="${'card promoting-card card_pendiente card_'+ asignacion.color}">
+						<div class="card-body d-flex flex-row">
+							<div style='width: 100%'>
+								<strong class="card-title font-weight-bold mb-2" th:text="${asignacion.accion}">INFORMARME</strong>
+								<!-- TICKET 9000004271 <i class="far fa-clock pr-2"></i> --><span class="card-text  float-right "><span style="color: #212529;font-size: 16px;">Fec. de Asignaci&oacute;n:</span> <span th:text="${asignacion.fechaAsignacionSTR != null ? #dates.format(asignacion.fechaAsignacionSTR, formatoFecha) : 'Sin Fecha'}">01/01/2019</span></span>
+							</div>
+						</div>
+						<div class="card-body card_body_pendiente ">
+							<table border="0" style="width: 100%; table-layout: fixed;">
+								<tbody>
+									<tr>
+										<td class="text-left" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 120px; padding-right: 0px;">Asignado por </td>
+										<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 5px; padding-right: 5px;">:</td>
+										<td class="text-left" style="font-size: 16px; font-weight: 400;"> <span th:utext="${asignacion.nombreApellidoAsignador}">FECHA</span> </td>
+									</tr>
+									<tr>
+										<td class="text-left" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 120px; padding-right: 0px;">Asignado a </td>
+										<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 5px; padding-right: 5px;">:</td>
+										<td class="text-left" style="font-size: 16px; font-weight: 400;"> <span th:utext="${asignacion.nombreApellidoAsignado}"></span></td>
+									</tr>
+									<tr>
+										<td class="text-left" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 120px; padding-right: 0px;">Atendido </td>
+										<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 5px; padding-right: 5px;">:</td>
+										<td class="text-left" style="font-size: 16px; font-weight: 400;"> <span th:text="${asignacion.atendida}">TIPO EVENTO</span> </td>
+									</tr>
+									<tr>
+										<td class="text-left" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 120px; padding-right: 0px;">Requerimiento </td>
+										<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 5px; padding-right: 5px;">:</td>
+										<td class="text-left" style="font-size: 16px; font-weight: 400;"> <span th:text="${asignacion.detalleSolicitud}">TIPO EVENTO</span> </td>
+									</tr>
+									<tr>
+										<td class="text-left" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 120px; padding-right: 0px;">Respuesta </td>
+										<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 5px; padding-right: 5px;">:</td>
+										<td class="text-left" style="font-size: 16px; font-weight: 400;"> <span th:text="${asignacion.respuesta}">TIPO EVENTO</span> </td>
+									</tr>
+									<tr th:if="${asignacion.numeroDocumentoEnlace != ''}">
+										<td class="text-left" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 120px; padding-right: 0px;">Doc. Respuesta</td>
+										<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 5px; padding-right: 5px;">:</td>
+										<td class="text-left" style="font-size: 16px; font-weight: 400;"> <span class="abrirDocumentoEnlaceAsignacion" th:attr="data-id=${asignacion.idDocumentoEnlace}" th:text="${asignacion.numeroDocumentoEnlace}"></span> </td>
+									</tr>
+									<tr><!-- TICKET 9000004271 ADD FECHA TOPE -->
+										<td class="text-left" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 120px; padding-right: 0px;">Fecha Tope</td>
+										<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 5px; padding-right: 5px;">:</td>
+										<td class="text-left" style="font-size: 16px; font-weight: 400;"> <span th:text="${asignacion.fechaLimite != null ? asignacion.fechaLimite.trim() : ''}">FECHA TOPE</span> </td>
+									</tr>
+								</tbody>
+							</table>
+							<p></p>
+							<!--p>
+								Asignado por: <span th:text="${asignacion.nombreApellidoAsignador}">Perez Huerta Asucion</span><br /> 
+								Asignado a: <span th:text="${asignacion.nombreApellidoAsignado}">Martin garcia Rufino</span><br /> 
+								Atendido: <span th:text="${asignacion.atendida}">Si</span><br /> 
+								Requerimiento: <span th:text="${asignacion.detalleSolicitud}">Detalle de respuesta</span><br /> 
+								Respuesta: <span th:text="${asignacion.respuesta}">Detalle de requerimientos</span>
+							</p-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div th:if="${historicoAsignaciones.isEmpty()}" class="row">
+				<div class='col-sm-12 col_pendientes'>
+					No tiene asignaciones registradas
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

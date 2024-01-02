@@ -1,0 +1,121 @@
+.textarea{
+    border-bottom: 1px solid #ced4da;
+    color: #495057;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.labelTextArea{
+	font-size: .8rem;
+	font-weight: 300;
+	cursor: text;
+    color: #757575;
+}
+
+.header_tab{
+	padding: 0px !important;
+	cursor: pointer !important;
+}
+
+
+
+.tabs-petro{
+	margin-top:15px;
+    background: #15B78E;
+    color: white !important;
+    border-radius: .3rem .3rem 0 0;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    padding-left: 10px;
+    padding-top: 10px;
+    opacity: 0.98;
+}
+
+.petro-tabs .nav li:hover{
+    background: #5f5f5f;
+    opacity: 0.50;
+}
+
+.petro-tabs .nav li a:hover{
+    color:whitesmoke;
+}
+
+.petro-tabs .nav li a:active{
+    background: #5f5f5f;
+}
+
+.petro-tabs-activo{
+	background: #5f5f5f;
+}
+
+
+.petro-tabs .nav li a {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-align: center;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    font-weight: bold;
+}
+
+.tab-content{
+    padding: 1rem;
+    padding-top: 2rem;
+}
+
+.rgba-petro-strong{
+    background: #ffffff !important;
+}
+
+.plomo_relleno{
+    background: #f7f7f7 !important;
+    color: black !important;
+}
+
+h6{
+    font-size: 13px;
+}
+
+.col_firmante{
+	padding-bottom: 10px;
+}
+.card_firmante{
+	padding-left: 20px !important;
+}
+
+.card_red{
+	background: red !important;
+}
+
+.card_green{
+	background: green !important;
+}
+
+.card_yellow{
+	background: yellow !important;
+}
+
+.card_ROJO{
+	background: red !important;
+}
+
+.card_VERDE{
+	background: green !important;
+}
+
+.card_AMARILLO{
+	background: yellow !important;
+}
+
+.card_body_firmante {
+    padding-top: 1px !important;
+    padding-bottom: 1px !important;
+}
+
+.card-body {
+    background: white;
+}

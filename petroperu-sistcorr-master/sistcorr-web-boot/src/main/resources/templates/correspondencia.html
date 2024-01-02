@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/plantilla_correspondencia">
+<head>
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid" id="principal">
+		<input type="hidden" id="tipoBandeja" th:value="${tipoCorrespondencia}"/>
+		<input type="hidden" id="url" th:value="${url}"/>
+		<input type="hidden" id="nuevaCorrespondencia" th:value="${NUEVA_CORRESPONDENCIA}"/>
+		<input type="hidden" id="porAceptar" th:value="${POR_ACEPTAR}"/>
+		<input type="hidden" id="correlativoDef" th:if="${correlativo == null}" value="" />
+		<input type="hidden" id="correlativoDef" th:if="${correlativo != null}" th:value="${correlativo}" />
+		<input type="hidden" id="cantidadBand" th:value="${TAMANIO_BAND_ENTR}"/>
+		<input type="hidden" id="correspondenciaMPV" th:value="${CORRESPONDENCIA_MPV}"/>
+		<div class="row" id="filtrosBusqueda">
+		
+		</div>
+		<div id="listaCorrespondencias"></div>
+		<div id="listaAsignaciones"></div>
+		<div id="sinResultados"><p>No hay registros para mostrar</p></div>
+		<div class="totales float-right"></div>
+		<div id="verMas" style="cursor: pointer; font-weight: bolder;"><p>Ver M&aacute;s <i class="fas fa-plus-circle" style="font-size: 20px;"></i></p></div>
+		
+		<script type="text/x-handlebars-template" id="template-correspondencias">
+			{{#each correspondencias}}
+			<div class="row">
+				<div class="col-sm-12 col_tarea" data-workflowId="{{workflowId}}" data-tipoIcono="{{tipoIcono}}" data-idAsigancion="{{idAsignacion}}">
+					<div id="CORRESPONDENCIA_{{workflowId}}" data-tipoIcono="{{tipoIcono}}" data-correlativo="{{correlativo}}"  data-workflowId="{{workflowId}}" data-idAsigancion="{{idAsignacion}}" class="card promoting-card">
+						<div class="card-body d-flex flex-row compCorrespondencia" data-workflowId="{{workflowId}}" id="CORRESPONDENCIA_BODY_{{workflowId}}" data-esDeEmision="{{esDeEmision}}" data-nroDocumento="{{numeroDocumento}}" data-correlativo="{{correlativo}}">
+							<div>
+							<div class='circle_tipo_tarea icon_color_{{tipoIcono}}"'>{{tipoIcono}}</div>
+							 <div style="{{estilo_NoPA}};" class='check_grupal'>
+                               <input type="checkbox" name="correspondencia" value="{{correlativo}}" data-sectWorkflowId="{{workflowId}}" data-sectId="{{idAsignacion}}" class="check_asignacion_grupal" style=" {{esJefe tipoIcono}}; width: 18px;height: 18px;"/></div>
+							</div>
+						
+						<div style="width:95%">
+							<strong class="card-title font-weight-bold mb-2">{{dependenciaRemitente}}</strong>
+							<span class="card-text  float-right "><i class="far fa-clock pr-2"></i>{{fechaCreacionPRC}}</span>
+							 <br/>
+							 <p class="card-text card_texto_tarea" align="justify">{{asunto}}</p> 
+							 <p class="card-text card_texto_tarea">{{numeroDocumento}}<span class="card-text  float-right ">{{correlativo}}</span></p>
+							 <p class="card-text card_texto_tarea">{{checkDetalleSolcitud this}}</p>
+						</div>
+					</div>
+					<div class="card-footer footer_tarea" align="center" id="CORRESPONDENCIA_FOOTER_{{workflowId}}" style="display: none">
+						<div class="row" >
+							<div class="col">
+								<i style="{{estilo_opciones_SA_PA_descarga this}}" class="fas fa-eye icon_view icon_add_document btnVerificarDocPrincipal_Correspondencia"  data-correlativo="{{correlativo}}" data-toggle="tooltip" title="Ver documento principal"></i>
+								<i style="{{estilo_opciones_NoSA_PA_descarga this}}" class="fas fa-eye icon_view icon_add_document btnVerificarDocPrincipal_Asignacion"  data-idAsigancion="{{idAsignacion}}" data-correlativo="{{correlativo}}" data-toggle="tooltip" title="Ver documento principal"></i>
+							</div>
+							<div class="col">
+								<a style="{{estilo_opciones_SA_PA this}}" href="{{url_pagina_detalle_correspondencia this}}" data-toggle="tooltip" title="Abrir correspondencia"><i class="far fa-list-alt icon_view_detail"></i></a>
+								<a style="{{estilo_opciones_NoSA_PA this}}" href="{{url_pagina_detalle_asignacion this}}" data-toggle="tooltip" title="Abrir correspondencia"><i class="far fa-list-alt icon_view_detail"></i></a>
+							</div>
+							<div class="col">
+								<a style="{{estilo_opciones_SA_PA_copia this}}" href="{{url_pagina_enviar_copia_correspondencia this}}" data-toggle="tooltip" title="Enviar copia correspondencia"><i class="far fa-envelope-open icon_view_detail"></i></a>
+								<a style="{{estilo_opciones_NoSA_PA_copia this}}" href="{{url_pagina_enviar_copia_asignacion this}}" data-toggle="tooltip" title="Enviar copia asignacion"><i class="far fa-envelope-open icon_view_detail"></i></a>
+							</div>
+							<div class="col" style="{{estilo_NoPA}}">
+								<a style="{{estilo_opciones_SA this}}; {{esJefe tipoIcono}}" href="{{url_pagina_asignar_correspondencia this}}" data-toggle="tooltip" title="Asignar"><i class="fas fa-user-plus icon_add_people"></i></a>
+								<a style="{{estilo_opciones_NoSA this}}; {{esJefe tipoIcono}}" href="{{url_pagina_asignar_asignacion this}}" data-toggle="tooltip" title="Asignar"><i class="fas fa-user-plus icon_add_people"></i></a>
+							</div>
+							<div class="col" style="{{estilo_NoPA}}">
+								<i style="{{estilo_opciones_SA this}}; {{esJefe tipoIcono}}" class="fas fa-lock icon_check  btnCerrarCorrespondencia" data-correlativo="{{correlativo}}" data-workflowId="{{workflowId}}" data-toggle="tooltip" title="Terminar proceso"></i>
+								<i style="{{estilo_opciones_NoSA this}}; {{estilo_GestorCompletar this}}" class="fas fa-check-circle icon_check btnCompletarCorrespondencia" data-workflowId="{{workflowId}}" data-idAsigancion="{{idAsignacion}}" data-correlativo="{{correlativo}}" data-tipoaccion="{{tipo}}" data-accion="{{codigoAccion}}" data-toggle="tooltip" title="Completar correspondencia"></i>
+							</div>
+							<div class="col" style="{{estilo_NoPA_RHZASIG this}}"><!-- TICKET 9000004273 -->
+								<i style="{{estilo_opciones_NoSAR this}}; {{estilo_GestorRechazarAsig this}}" class="fas fa-times-circle icon_check btnRechazarAsignacionCorresp" data-workflowId="{{workflowId}}" data-idAsigancion="{{idAsignacion}}" data-correlativo="{{correlativo}}" data-tipoaccion="{{tipo}}" data-accion="{{codigoAccion}}" data-toggle="tooltip" title="Rechazar asignaci&oacute;n"></i>
+							</div>
+							<div class="col" style="{{estilo_PA}}">
+								<i class="fas fa-check-circle icon_add_people btnAceptarCorrespondencia" data-workflowId="{{workflowId}}" data-correlativo="{{correlativo}}" data-toggle="tooltip" title="Aceptar"></i>
+							</div>
+							<div class="col" style="{{estilo_PA}}">
+								<i class="fas fa-times-circle icon_check btnRechazarCorrespondencia" data-correlativo="{{correlativo}}" data-toggle="tooltip" title="Rechazar"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			{{/each}}
+		</script>
+		<script type="text/x-handlebars-template" id="template-asignaciones">
+			
+		</script>
+		<script type="text/x-handlebars-template" id="template-filtros">
+			{{#each filtros}}
+				<span class="badge badge-primary badge-pill" id="filtro_{{fieldId}}" style="margin: 5px;">
+					{{text}}&emsp;
+					<i id="icon_filtro_{{fieldId}}" class="far fa-trash-alt icon_eliminar_filtro" data-field="{{fieldId}}" data-toggle="tooltip" title="Eliminar filtro"></i>
+				</span>
+			{{/each}}
+		</script>
+		
+		<script th:inline="javascript">
+		/*<![CDATA[*/
+		    var LISTA_DEPENDENCIAS = /*[[${dependenciasDestino}]]*/ 'default';
+			var LISTA_ACCIONES = /*[[${acciones}]]*/ 'default';
+			var LISTA_ESTADOS_CORRESPONDENCIA = /*[[${estadosCorr}]]*/ 'default';
+		    var TAMANIO_MAX_ARCHIVO = /*[[${tamanioMaxArchivo}]]*/ '0';
+		    var VALOR_LIM_MOSTRAR_MSJ_EXPORT_BE = /*[[${limit_export_be_advert}]]*/ '1000';<!-- TICKET 9000004807 -->
+		    var ES_JEFE = /*[[${esJefe}]]*/ 'false';
+		    var VERSION_BAND_ENTRADA_ASIG = /*[[${versionBandEntradaCorresAsignadas}]]*/ '0';<!-- TICKET 9000004273 -->
+		    var ES_GESTOR = /*[[${esGestor}]]*/ 'false';
+		    var LISTA_DEPENDENCIAS_BPAC = /*[[${dependenciasDestinoBPAC}]]*/ 'default';//TICKET 9000003866
+		/*]]>*/
+		</script>
+	</div>
+	
+	<div layout:fragment="modals">
+		<div class="modal fade" id="modalBuscar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		        <h4 class="modal-title w-100 font-weight-bold">Criterios de B&uacute;squeda</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      
+		      <div class="modal-body mx-3">
+		        <div class="md-form mb-3" style="margin-top: 20px !important">
+		          <select class="form-control sistcorrSelect" id="textDependenciaDestino"></select>
+		          <label data-error="error" data-success="correcto" for="textDependenciaDestino" class="active">Dependencia Destino</label>
+		        </div>
+		        <div class="md-form mb-3" style="margin-top: 20px !important" th:if="${(esJefe or esGestor) and (tipoCorrespondencia.equals('Pendientes') or tipoCorrespondencia.equals('EnAtencion') or tipoCorrespondencia.equals('Completadas'))}">
+		        	<label data-error="error" data-success="correcto" for="textDependenciaDestinoBPAC" class="active">Dependencia Destino</label>
+			          <select class="form-control sistcorrSelect" id="textDependenciaDestinoBPAC">
+			          		<option selected="selected" value="">Seleccione</option>
+			          		<option th:each="dependencia : ${dependenciasDestinoBPAC}" th:value="${dependencia.codigo}" th:text="${dependencia.descripcion}"></option>
+			          </select>
+		        </div>
+		        <div class="md-form mb-3" style="margin-top: 20px !important">
+		          <input type="text" id="textAsuntoCorrespondencia"  class="form-control"/>
+		          <label data-error="error" data-success="correcto" for="textAsuntoCorrespondencia">Asunto</label>
+		        </div>
+		        <div class="md-form mb-3" style="margin-top: 20px !important">
+		        	<select class="form-control sistcorrSelect" id="textTipoAccion"></select>
+		            <label data-error="error" data-success="correcto" for="textTipoAccion" class="active">Tipo de Acci&oacute;n</label>
+		        </div>
+		        <div class="md-form mb-3" style="margin-top: 20px !important">
+		        	<input type="text"  class="form-control" id="textRemitente"/>
+		            <label data-error="error" data-success="correcto" for="textRemitente">Remitente</label>
+		        </div>
+		        <div class="md-form mb-3" style="margin-top: 20px !important">
+		        	<input type="text"  class="form-control" id="textCorrelativo"/>
+		            <label data-error="error" data-success="correcto" for="textNumeroDoc">Correlativo</label>
+		        </div>
+		        <div class="md-form mb-3" style="margin-top: 20px !important">
+		        	<input type="text"  class="form-control" id="textNumeroDoc"/>
+		            <label data-error="error" data-success="correcto" for="textNumeroDoc">Nro. Documento</label>
+		        </div>
+		        <div class="md-form mb-3" style="margin-top: 20px !important">
+		            <i class="far fa-calendar-alt float-right icon-date" id="btnFechaDesde"></i>
+        			<input type="text" id="textFechaDesde" class="form-control" /> 
+					<label data-error="error" for="textFechaDesde">Desde</label>
+		        </div>
+		        <div class="md-form mb-3" style="margin-top: 20px !important">
+		            <i class="far fa-calendar-alt float-right icon-date" id="btnFechaHasta"></i>
+        			<input type="text" id="textFechaHasta" class="form-control" /> 
+					<label data-error="error" for="textFechaHasta">Hasta</label>
+		        </div>
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnBuscar">Buscar</button>
+		        <button class="btn btn-petroperu-rojo" type="button"  data-dismiss="modal">Cancelar</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<div class="modal fade" id="modalAdvertenciaExportar" tabindex="-1"
+			role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header text-center">
+						<h4 class="modal-title w-100 font-weight-bold">Exportar</h4>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body mx-3">
+						<p align="justify" class="texto_modal">El proceso de exportar podr&iacute;a demorar, se recomienda realizarlo en horario fuera de oficina. &#191;desea continuar&#63;</p>
+					</div>
+					<div class="modal-footer d-flex justify-content-center">
+						<button class="btn btn-petroperu-verde" type="button"
+							id="btnContinuarExportarCA">Continuar</button>
+						<button class="btn btn-petroperu-rojo" type="button"
+							data-dismiss="modal">Cancelar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div th:replace="fragments/operaciones_correspondencias :: operaciones"></div>	
+	</div>
+
+	<div layout:fragment="modulo_js">
+		<script type="text/javascript" th:src="@{/js/correspondencia/modulo.js?time=15112021102912}" src="static/js/correspondencia/correspondencia_modulo.js"></script>
+    	<script type="text/javascript" th:src="@{/js/correspondencia/vista.js?time=15112021102933}" src="static/js/correspondencia/correspondencia_vista.js"></script>
+	</div>
+</body>
+</html>

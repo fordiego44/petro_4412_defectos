@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div id="contenidoPreload" style="height: 100vh" th:fragment="preload">
+		<div class="flex-center flex-column">
+
+			<h1 class="text-hide animated fadeIn mb-4"
+				style="width: 250px; height: 90px;">SISTCORR</h1>
+			<h5 class="animated fadeIn mb-3">Cargando...</h5>
+
+			<p class="animated fadeIn text-muted" th:text="${version}">SISTCORR</p>
+		</div>
+	</div>
+
+</body>
+</html>

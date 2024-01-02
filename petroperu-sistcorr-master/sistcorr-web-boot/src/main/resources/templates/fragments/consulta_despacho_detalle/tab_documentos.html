@@ -1,0 +1,88 @@
+<!-- 9000004412 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div class="tab-pane fade" id="contenidoDocumentos" role="tabpanel"
+		aria-labelledby="contact-tab-classic-orange" th:fragment="main">
+		<div id="bodyDocumentos">
+			<form  id="subirAdjuntos">
+				<div class="row">
+					<span class="labelTextArea col-md-12">Seleccione Archivo</span>
+				</div>
+				<div class="row md-form">
+					<table width="100%" border="0">
+						<tr>
+							<td style="padding-left: 15px;padding-right: 15px;">
+								<input id="text_documento" type="text" class="form-control" readonly="readonly" placeholder="Haga clic aqu&iacute; para seleccionar un archivo" />
+								<input id="arc_file" type="file" class="form-control" style="border:none !important; display: none;" name="file" required="required"  />
+							</td>
+							<td width="60px;">
+								<a class="text-center"><i class="fa fa-upload subir_documento" data-toggle="tooltip" title="Subir archivo"></i></a>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</form>
+			<ul class="list-group" id="listaDocumentos">
+				<li  class="list-group-item" >
+					<div class="row">
+						<table width="100%" border="0" style="table-layout:fixed;">
+							<tr>
+								<td style="padding: 0.15rem 0.95rem;">
+									<a class="documentoDescarga"   >
+										<i  class="fas fa-file-pdf icon_pdf mr-3"></i>
+										<i   class="fas fa-file-excel icon_excel mr-3"></i>
+										<i   class="fas fa-file-word icon_word mr-3"></i>	
+										<i   class="fas fa-file-image icon_image mr-3"></i>	
+										<i class="fas fa-file icon_otro mr-3"></i>					
+										<span  >CR-IP 0001</span>
+									</a>
+								</td>
+								<td   width="30px;">
+									<span class="badge badge-primary badge-pill"><i
+										class="fas fa-star"></i></span>
+								</td>
+								<td width="25px">
+									<a class="documentoEliminar" title="Eliminar archivo" data-toggle="tooltip"   >
+										<i class="fas fa-trash-alt"></i>
+									</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</li>
+				<li  class="list-group-item">
+					No tiene documentos asociados
+				</li>
+			</ul>
+		</div>
+		
+		<script type="text/x-handlebars-template" id="template-lista-documento">
+		<li class="list-group-item" id="li_{{docId}}">
+			<div class="row">
+				<table width="100%" border="0" style="table-layout:fixed;">
+					<tr>
+						<td style="padding: 0.15rem 0.95rem;">
+							<a class="documentoDescarga" data-id="{{docId}}" data-size="{{docTamano}}" >
+								<i class="{{docClass}}"></i>
+								<span>{{docDocumentTitle}}</span>
+							</a>
+						</td>
+						<td width="25px">
+							<a class="documentoEliminar" title="Eliminar archivo" data-toggle="tooltip" data-id="{{docId}}" >
+								<i class="fas fa-trash-alt"></i>
+							</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</li>
+		</script>
+		
+	</div>
+</body>
+</html>

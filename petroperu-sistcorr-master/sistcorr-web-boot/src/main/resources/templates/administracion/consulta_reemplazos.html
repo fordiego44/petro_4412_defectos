@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/administracion/plantilla_consulta_reemplazos">
+<head>
+
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid" id="principal">
+		<input type="hidden" id="bandeja" th:value="${bandeja}"/>
+		<input type="hidden" id="url" th:value="${url}"/>
+		
+		<div class="row" id="filtrosBusqueda">
+			<div class="col-sm-12">
+				<div class="rgba-petro-strong py-1" id="contenidoAccordionDatos">
+					<div class="row d-flex justify-content-center">
+						<div class="col-md-12 col-xl-12">
+							<div class="accordion md-accordion accordion-5" id="acordionFiltros" role="tablist" aria-multiselectable="false">
+								<div th:replace="fragments/administracion/consulta_reemplazos/tab_filtros :: main"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br/>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card">
+					<div class="card-body">
+						<table id="tablaCorrespondenciasGeneral" class="table table-striped table-bordered dt-responsive nowrap"
+							cellspacing="0" style="width: 100%; display:none">
+								<thead>
+									<tr>
+										<th>Ver</th>
+										<th>Correlativo</th>
+										<th>Nro. Documento</th>
+										<th>Asunto</th>
+										<th>Fecha Recepcion</th>
+										<th>Remitente</th>
+										<th>Destino</th>
+										<th>Estado</th>
+										<th>Tipo Correspondencia</th>
+										<th>Rol</th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<br/>
+		
+		<script th:inline="javascript">
+		/*<![CDATA[*/
+		    var DEPENDENCIAS_USUARIO = /*[[${dependenciasUsuario}]]*/ '';
+		    var ES_JEFE = /*[[${esJefe}]]*/ '';
+		/*]]>*/
+		</script>
+		
+	</div>
+	
+	<div layout:fragment="modals">
+		
+	</div>
+	
+	<div layout:fragment="modulo_js">
+		<script type="text/javascript" th:src="@{/js/administracion/consulta_reemplazos/modulo.js?time=1116}" src="static/js/administracion/consulta_reemplazos/modulo.js"></script>
+    	<script type="text/javascript" th:src="@{/js/administracion/consulta_reemplazos/vista.js?time=11118}" src="static/js/administracion/consulta_reemplazos/vista.js"></script>
+	</div>
+</body>
+</html>

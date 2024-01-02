@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/plantilla_error">
+<head>
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid" id="principal">
+		<div class="flex-center flex-column">
+
+			<h1 class="text-hide animated fadeIn mb-4"
+				style="width: 250px; height: 90px;">SISTCORR</h1>
+			<h5 class="animated fadeIn mb-3">P&aacute;gina no encontrada</h5>
+
+			<p class="animated fadeIn text-muted">SISTCORR 2.0</p>
+		</div>
+		
+	</div>
+	
+	<div layout:fragment="modals">
+	
+	</div>
+	
+	<div layout:fragment="modulo_js">
+		<script type="text/javascript" th:src="@{/js/403/modulo.js}" src="static/js/403/modulo.js"></script>
+    	<script type="text/javascript" th:src="@{/js/403/vista.js}" src="static/js/403/vista.js"></script>
+	</div>
+</body>
+</html>

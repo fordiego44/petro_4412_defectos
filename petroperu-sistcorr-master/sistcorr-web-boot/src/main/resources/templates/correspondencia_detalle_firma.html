@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/plantilla_correspondencia_detalle_firma">
+<head>
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid" id="principal">
+		<input type="hidden" th:value="${correspondencia}" id="main_correspondencia"/>
+		<input type="hidden" th:value="${permiso}" id="visualizar_archivo" />
+		<input type="hidden" th:value="${usuario.username}" id="usuario" />
+		<div class="petro-tabs mx-2">
+			<ul class="nav tabs-petro" id="myClassicTabOrange" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link  waves-light active show petro-tabs-activo" id="Datos-tab" data-toggle="tab" data-tab="datos"
+                            href="#contenidoDatos" role="tab" aria-controls="contenidoDatos" aria-selected="true">Datos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-light" id="Destinatario-tab" data-toggle="tab" data-tab="destinatario"
+                            href="#contenidoDestinatario" role="tab"
+                            aria-controls="contenidoDestinatario" aria-selected="false">Destinatario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-light" id="Archivos-tab" data-toggle="tab" data-tab="archivos"
+                            href="#contenidoArchivos" role="tab" aria-controls="contenidoArchivos"
+                            aria-selected="false">Archivos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-light" id="RutaAprobacion-tab" data-toggle="tab" data-tab="rutaAprobacion"
+                            href="#contenidoRutaAprobacion" role="tab" aria-controls="contenidoRutaAprobacion"
+                            aria-selected="false">Ruta Aprobaci&oacute;n</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-light" id="Flujo-tab" data-toggle="tab" data-tab="flujo"
+                            href="#contenidoFlujo" role="tab" aria-controls="contenidoFlujo"
+                            aria-selected="false">Flujo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-light" id="Recepcion-tab" data-toggle="tab" data-tab="recepcion"
+                            href="#contenidoRecepcion" role="tab" aria-controls="contenidoRecepcion"
+                            aria-selected="false">Recepcion</a>
+                    </li>
+            </ul>
+               
+        	<div class="tab-content card" id="myClassicTabContentOrange">
+            	<div th:replace="fragments/correspondencia_detalle_firma/tab_datos :: main"></div>
+                <div th:replace="fragments/correspondencia_detalle_firma/tab_destinatario :: main"></div>
+                <div th:replace="fragments/correspondencia_detalle_firma/tab_archivos :: main"></div>
+                <div th:replace="fragments/correspondencia_detalle_firma/tab_rutaaprobacion :: main"></div>
+                <div th:replace="fragments/correspondencia_detalle_firma/tab_flujo :: main"></div>
+                <div th:replace="fragments/correspondencia_detalle_firma/tab_recepcion :: main"></div>
+            </div>
+		</div>
+		
+		<script th:inline="javascript">
+		/*<![CDATA[*/
+		    var ERRORES =  /*[[${errores}]]*/ '';
+		    var EDICION = /*[[${edicion}]]*/ 'true';
+		    var esUserResponsable = /*[[${esUserResponsable}]]*/ '';
+		/*]]>*/
+		</script>
+		
+	</div>
+	
+	<div layout:fragment="modals">	
+		<div class="modal fade" id="modalHistorialAsignaciones" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document" style="max-width: 750px;">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		        <h4 class="modal-title w-100 font-weight-bold">Historial de Asignaciones</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      
+		      <div class="modal-body mx-3">
+		        <div class="md-form mb-3" style="margin-top: 20px !important">
+		          <input type="text" id="textCorrelativo"  class="form-control"/>
+		          <label data-error="error" data-success="correcto" for="textCorrelativo">Correlativo</label>
+		        </div>
+		        <div class="md-form mb-3" style="margin-top: 20px !important">
+			        <div id="bodyHistorialAsignaciones">
+			        	<div id="asignaciones">
+				        	<div class='row' >
+								<div class='col-sm-12 col_pendientes'>
+									<div class="card promoting-card card_pendiente card_ROJO">
+										<div class="card-body d-flex flex-row">
+											<div style='width: 100%'>
+												<strong class="card-title font-weight-bold mb-2">INFORMARME</strong>
+												<span class="card-text  float-right "><i
+													class="far fa-clock pr-2"></i><span>01/01/2019</span></span>
+											</div>
+										</div>
+										<div class="card-body card_body_pendiente ">
+											<table border="0" style="width: 100%; table-layout: fixed;">
+												<tbody>
+													<tr>
+														<td class="text-left" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 109px; padding-right: 0px;">Asignado por </td>
+														<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 5px; padding-right: 5px;">:</td>
+														<td class="text-left" style="font-size: 16px; font-weight: 400;"> <span th:utext="${'nombreApellidoAsignador'}"></span> </td>
+													</tr>
+													<tr>
+														<td class="text-left" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 109px; padding-right: 0px;">Asignado a </td>
+														<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 5px; padding-right: 5px;">:</td>
+														<td class="text-left" style="font-size: 16px; font-weight: 400;"> <span th:utext="${'nombreApellidoAsignado'}"></span></td>
+													</tr>
+													<tr>
+														<td class="text-left" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 109px; padding-right: 0px;">Atendido </td>
+														<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 5px; padding-right: 5px;">:</td>
+														<td class="text-left" style="font-size: 16px; font-weight: 400;"> <span th:text="${'atendida'}">TIPO EVENTO</span> </td>
+													</tr>
+													<tr>
+														<td class="text-left" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 109px; padding-right: 0px;">Requerimiento </td>
+														<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 5px; padding-right: 5px;">:</td>
+														<td class="text-left" style="font-size: 16px; font-weight: 400;"> <span th:text="${'detalleSolicitud'}">TIPO EVENTO</span> </td>
+													</tr>
+													<tr>
+														<td class="text-left" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 109px; padding-right: 0px;">Respuesta </td>
+														<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 5px; padding-right: 5px;">:</td>
+														<td class="text-left" style="font-size: 16px; font-weight: 400;"> <span th:text="${'respuesta'}">TIPO EVENTO</span> </td>
+													</tr>
+												</tbody>
+											</table>
+											<p></p>
+											<!--p>
+												Asignado por: <span th:text="${asignacion.nombreApellidoAsignador}">Perez Huerta Asucion</span><br /> 
+												Asignado a: <span th:text="${asignacion.nombreApellidoAsignado}">Martin garcia Rufino</span><br /> 
+												Atendido: <span th:text="${asignacion.atendida}">Si</span><br /> 
+												Requerimiento: <span th:text="${asignacion.detalleSolicitud}">Detalle de respuesta</span><br /> 
+												Respuesta: <span th:text="${asignacion.respuesta}">Detalle de requerimientos</span>
+											</p-->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row" id="sinAsignaciones">
+							<div class='col-sm-12 col_pendientes'>
+								No tiene asignaciones registradas
+							</div>
+						</div>
+						<!-- TICKET 9000004271 <i class="far fa-clock pr-2"></i> -->
+						<!-- TICKET 9000004271 ADD FECHA TOPE -->
+						<script type="text/x-handlebars-template" id="template-asignaciones">
+							{{#each asignacion}}
+							<div class='row' >
+								<div class='col-sm-12 col_pendientes'>
+									<div class="card promoting-card card_pendiente card_{{color}}">
+										<div class="card-body d-flex flex-row">
+											<div style='width: 100%'>
+												<strong class="card-title font-weight-bold mb-2">{{accion}}</strong>
+												<span class="card-text  float-right "><span style="color: #212529;font-size: 16px;">Fec. de Asignaci&oacute;n:</span> <span>{{fechaAsignacionSTR}}</span></span>
+											</div>
+										</div>
+										<div class="card-body card_body_pendiente ">
+											<table border="0" style="width: 100%; table-layout: fixed;">
+												<tbody>
+													<tr>
+														<td class="text-left" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 109px; padding-right: 0px;">Asignado por </td>
+														<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 5px; padding-right: 5px;">:</td>
+														<td class="text-left" style="font-size: 16px; font-weight: 400;"> <span>{{{nombreApellidoAsignador}}}</span> </td>
+													</tr>
+													<tr>
+														<td class="text-left" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 109px; padding-right: 0px;">Asignado a </td>
+														<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 5px; padding-right: 5px;">:</td>
+														<td class="text-left" style="font-size: 16px; font-weight: 400;"> <span>{{{nombreApellidoAsignado}}}</span></td>
+													</tr>
+													<tr>
+														<td class="text-left" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 109px; padding-right: 0px;">Atendido </td>
+														<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 5px; padding-right: 5px;">:</td>
+														<td class="text-left" style="font-size: 16px; font-weight: 400;"> <span>{{atendida}}</span> </td>
+													</tr>
+													<tr>
+														<td class="text-left" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 109px; padding-right: 0px;">Requerimiento </td>
+														<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 5px; padding-right: 5px;">:</td>
+														<td class="text-left" style="font-size: 16px; font-weight: 400;"> <span>{{detalleSolicitud}}</span> </td>
+													</tr>
+													<tr>
+														<td class="text-left" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 109px; padding-right: 0px;">Respuesta </td>
+														<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 5px; padding-right: 5px;">:</td>
+														<td class="text-left" style="font-size: 16px; font-weight: 400;"> <span>{{respuesta}}</span> </td>
+													</tr>
+													<tr>
+														<td class="text-left" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 109px; padding-right: 0px;">Fecha Tope </td>
+														<td class="text-right" style="vertical-align: top; font-size: 16px; font-weight: 400; width: 5px; padding-right: 5px;">:</td>
+														<td class="text-left" style="font-size: 16px; font-weight: 400;"> <span>{{fechaLimite}}</span> </td>
+													</tr>
+												</tbody>
+											</table>
+											<p></p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<br/>
+							{{/each}}
+						</script>
+					</div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+			
+	</div>
+	
+	<div layout:fragment="modulo_js">
+		<script type="text/javascript" th:src="@{/js/correspondencia_detalle_firma/modulo.js?time=1113}" src="static/js/correspondencia_edicion/modulo.js"></script>
+		<script type="text/javascript" th:src="@{/js/firma-digital/modulo.js?time=1111}" src="static/js/firma-digital/modulo.js"></script>
+    	<script type="text/javascript" th:src="@{/js/correspondencia_detalle_firma/vista.js?time=1123}" src="static/js/correspondencia_edicion/vista.js"></script>
+	</div>
+</body>
+</html>

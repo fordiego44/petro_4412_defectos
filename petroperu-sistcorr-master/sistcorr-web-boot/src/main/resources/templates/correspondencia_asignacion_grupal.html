@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/plantilla_correspondencia_asignacion_grupal">
+<head>
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid" id="principal">
+		<input type="hidden" id="tipoBandeja" th:value="${bandeja}"/>
+		<input type="hidden" id="correlativo" th:value="${correlativo}"/>
+		<input type="hidden" id="wobNum" th:value="${workflow}"/>
+		<input type="hidden" id="nuevaCorrespondencia" th:value="${NUEVA_CORRESPONDENCIA}"/>
+		
+		<div class="row">
+			<div class="col-sm-6 mb-4 mb-md-0">
+				<div class="card">
+					<div class="card-body">
+						<br/>
+						<div class="md-form mb-3">
+							<select class="form-control sistcorrSelect" id="compAccion"></select> 
+							<label for="compAccion">Seleccione un acci&oacute;n</label>
+						</div>
+						<br/>
+						<div class="md-form mb-3">
+							<label for="compAquienSeDirige" class="active">A quien se dirige</label>
+							<select class="form-control sistcorrAutocompleRemoto" id="compAquienSeDirige">
+								 <option  disabled="disabled"  selected="selected">Seleccione</option>
+							</select>
+						</div>
+						<br/>
+						<div class="md-form mb-3">
+							<i class="far fa-calendar-alt float-right icon-date" id="btnFechaTope"></i>
+							<input type="text" id="compFechaTope" class="form-control" /> 
+							<label for="compFechaTope" style="margin-top: -0px !important;">Fecha Tope (opcional)</label>
+						</div>
+						
+							
+							
+						<br/>
+						<div class="md-form mb-3">
+							<textarea id="compDetalleReq" class="md-textarea form-control validate" rows="2" maxlength="1000"></textarea>
+							<label for="compDetalleReq" style="margin-top: -8px;">Detalle de Requerimiento</label>
+						</div>
+						
+						
+					</div>
+					<div class="card-footer text-muted text-left">
+						<div class="row">
+							<div class="col-1">
+								<div id="opcion_asignar" data-toggle="tooltip" title="Asignar" align="center" >
+									<i class="fas fa-user-plus opcion" id="btnAsignar" ></i>
+								</div>
+							</div>
+							<div  class="col-1">
+							
+							</div>
+							<div class="col-10">
+								<div id="opcion_Enviar_datos" class="text-right">
+									<i class="fas fa-paper-plane opcion" id="btnEnviarss" data-toggle="tooltip" title="Enviar Asignaci&oacute;n"></i><!-- style="color: #17a2b8;"  -->
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="card">
+					<div class="card-body">
+						<div class="list-group" id="listaAsignacionesVacia">
+							<a href="#!" class="list-group-item list-group-item-action flex-column align-items-start" >No existen asignaciones</a>
+						</div>
+						<div class="list-group" id="listaAsignaciones"></div>
+					</div>
+					<div class="card-footer text-muted text-right"  id="opcionesListaAsignaciones">
+						<div id="opcion_Enviar" class=""><i class="fas fa-paper-plane opcion" id="btnEnviar" data-toggle="tooltip" title="Enviar asignaciones"></i></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<br/>
+		
+		<script type="text/x-handlebars-template" id="template-asignaciones">
+		{{#each asignaciones}}
+		<a href="#!" id="{{idAsignacion}}" class="list-group-item list-group-item-action flex-column align-items-start">
+			<div class="d-flex w-100 justify-content-between">
+				<h5 class="mb-2 h5">{{nombreApellidoAsignado}}</h5>
+				<i class="fas fa-trash-alt btnEliminarAsignacion" data-asignacion="{{idAsignacion}}" data-toggle="tooltip" title="Borrar asignación"></i>
+			</div>
+			<p class="mb-2">Correlativo: {{correlativo}}</p>
+ 			<p class="mb-2">Tipo de accion: {{accion}}</p>
+			<p class="mb-2">Fecha Tope: {{fechaLimite}}</p>
+			<p class="mb-2 more">Detalle: {{detalleSolicitud}}
+			</p>
+		</a>
+		{{/each}}
+		</script>
+		
+		<script th:inline="javascript">
+		/*<![CDATA[*/
+		    var CORRESPONDENCIA = /*[[${tarea}]]*/ 'default';
+		    var ERRORES = /*[[${errores}]]*/ '[]';
+		/*]]>*/
+		</script>
+		
+	</div>
+	
+	<div layout:fragment="modals">	
+		<div class="modal fade" id="modalBorraAsignacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		        <h4 class="modal-title w-100 font-weight-bold">Borrar asignaci&oacute;n</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body mx-3">
+		         <p align="justify" class="texto_modal">&iquest;Est&aacute; seguro de eliminar la asignaci&oacute;n seleccionada? </p>
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-default" type="button" id="btnBorrarAsignacionSi">Si</button>
+		        <button class="btn btn-danger" type="button"  data-dismiss="modal">No</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	
+	<div layout:fragment="modulo_js">
+		<script type="text/javascript" th:src="@{/js/correspondencia_asignacion_grupal/modulo.js?time=11113}" src="static/js/correspondencia_asignacion_grupal/modulo.js"></script>
+    	<script type="text/javascript" th:src="@{/js/correspondencia_asignacion_grupal/vista.js?time=11113}" src="static/js/correspondencia_asignacion_grupal/vista.js"></script>
+	</div>
+</body>
+</html>

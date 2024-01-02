@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/administracion/plantilla_reemplazos_total">
+<head>
+
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid" id="principal">
+		<input type="hidden" id="bandeja" th:value="${bandeja}"/>
+		<input type="hidden" id="url" th:value="${url}"/>
+		
+		<div class="row" id="filtrosBusqueda">
+			<div class="col-sm-12">
+				<div class="rgba-petro-strong py-1" id="contenidoAccordionDatos">
+					<div class="row d-flex justify-content-center">
+						<div class="col-md-12 col-xl-12">
+							<div class="accordion md-accordion accordion-5" id="acordionFiltros" role="tablist" aria-multiselectable="false">
+								<div th:replace="fragments/administracion/reemplazos_total/tab_filtros :: main"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br/>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card">
+					<div class="card-body">
+						<table id="tablaConsultaCorrespondenciasJG" class="table table-striped table-bordered dt-responsive nowrap"
+							cellspacing="0" style="width: 100%; display:none">
+								<thead>
+									<tr>
+										<th>Eliminar</th>
+										<th>Modificar</th>
+										<th>Usuario Saliente</th>
+										<th>Usuario Entrante</th>
+										<th>Rol</th>
+										<th>Dependencia</th>
+										<th>Fecha Inicio</th>
+										<th>Fecha Termino</th>
+										<th>Estado</th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script th:inline="javascript">
+		/*<![CDATA[*/
+		    var DEPENDENCIAS_USUARIO = /*[[${dependenciasUsuario}]]*/ '';
+		    var ES_JEFE = /*[[${esJefe}]]*/ '';
+		/*]]>*/
+		</script>
+		
+	</div>
+	
+	<div layout:fragment="modals">
+		<div class="modal fade" id="modalRegReemTotal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		    	<div class="modal-header text-center">
+				      	<h4 class="modal-title w-100 font-weight-bold">Reemplazo Total</h4>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+		        		</button>
+		      	</div>
+		      	<div class="text-left" style="padding-left:20px">
+				      	<strong>Datos del Rol a ocupar</strong>
+		      	</div>
+		      	<div class="modal-body mx-3">
+			        	  <div class="md-form mb-2">
+							<label for="cmbDependenciaReempTotal">Dependencia</label>
+							<select class="form-control sistcorrAutocompleRemoto" id="cmbDependenciaReempTotal"></select>
+						  </div>
+					</div>
+				    <div class="modal-body mx-3">
+					  <div class="md-form mb-2">
+						 <label for="cmbRolReempTotal">Rol</label>
+						 <select class="form-control sistcorrAutocompleRemoto" id="cmbRolReempTotal"></select>
+					  </div>
+				    </div>
+				    <div class="modal-body mx-3">
+					  <div class="md-form mb-2">
+						 <label for="cmbFuncionarioReempTotal">Funcionario a ser reemplazado</label>
+						 <select class="form-control sistcorrAutocompleRemoto" id="cmbFuncionarioReempTotal"></select>
+					  </div>
+				    </div>
+				    <div class="text-left" style="padding-left:20px">
+				      	<strong>Datos de Reemplazo</strong>
+		      		</div>
+				    <div class="modal-body mx-3">
+					  <div class="md-form mb-2">
+						 <label for="cmbFuncReempTotal">Funcionario que realizar&aacute; el reemplazo</label>
+						 <select class="form-control sistcorrAutocompleRemoto" id="cmbFuncReempTotal"></select>
+					  </div>
+				    </div>
+				     <div class="form-row">
+						    <div class="modal-body mx-2">
+								<div class="md-form mb-2">
+									<i class="far fa-calendar-alt float-right icon-date" id="btnFechaDesdeTotal"></i>
+									<input type="text" class="form-control"
+										id="txtFechaReemplazoTotalInicio" style="margin-top: 15px"/> <label
+										for="txtFechaReemplazoTotalInicio">Fecha Reemplazo - Inicio</label>
+								</div>							
+							</div>
+							<div class="modal-body mx-2">
+								<div class="md-form mb-2">
+									<i class="far fa-calendar-alt float-right icon-date" id="btnFechaHastTotal"></i>
+									<input type="text" class="form-control"
+										id="txtFechaReemplazoTotalHasta" style="margin-top: 15px"/> <label
+										for="txtFechaReemplazoTotalHasta">Fecha Reemplazo - Fin</label>
+								</div>							
+							</div>
+						</div>
+					<div class="modal-body mx-3">
+		          		<div class="md-form mb-2">
+		          			<label for="txtReferencia" class="active">Referencia</label>
+		          			<input type="text" class="form-control" id="txtReferencia"  maxlength="20"/>
+						</div>
+					</div>
+					<div class="modal-footer d-flex justify-content-center">
+		      			<button class="btn btn-petroperu-verde" type="button" id="btnGuardarTotal">Guardar</button>
+		        		<button class="btn btn-petroperu-rojo"  data-dismiss="modal">Cancelar</button>
+		      	    </div>
+		    </div>
+		   </div>
+		  </div>
+		  
+		   <div class="modal fade" id="modalElimReemTotal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  		<div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header text-center">
+			        <h4 class="modal-title w-100 font-weight-bold">Eliminar Reemplazo Total</h4>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body mx-3">
+			      	<br/>
+			      	<input type="hidden" id="idCorrespondenciaDeclinar"/>
+			      	 <p align="justify" class="texto_modal">&iquest;Est&aacute; seguro de eliminar el Registro de Reemplazo?</p>
+			      </div>
+			      <div class="modal-footer d-flex justify-content-center">
+			      	<button class="btn btn-petroperu-verde" type="button" id="btnEliminarReemplazoTotal">Si</button>
+			        <button class="btn btn-petroperu-rojo" type="button"  data-dismiss="modal">No</button>
+			      </div>
+			    </div>
+			  </div>
+		  </div>
+		  
+		  <div class="modal fade" id="modalMensajeEliminarReemplazosAdicionAgregarTotal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  		<div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header text-center">
+			        <h4 class="modal-title w-100 font-weight-bold">Advertencia</h4>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body mx-3">
+			      	 <p align="justify" class="texto_modal" id="mensajeEliminarReemplazosAdicionAgregarTotal">SE ELIMINARON EL/LOS REEMPLAZO(S) DE TIPO ADICI&Oacute;N Y SE AGREG&Oacute; EL REEMPLAZO DE TIPO TOTAL CORRECTAMENTE.</p>
+			      </div>
+			      <div class="modal-footer d-flex justify-content-center">
+			      	<button class="btn btn-petroperu-verde" type="button" id="btnAceptarMensajeEliminarReemplazosAdicionAgregarTotal">Aceptar</button>
+			      </div>
+			    </div>
+			  </div>
+		  </div>
+		  
+		  <div class="modal fade" id="modalPopUpConfirmacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  		<div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header text-center">
+			        <h4 class="modal-title w-100 font-weight-bold">Advertencia</h4>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body mx-3" id="msjConfirmacion">
+			      </div>
+			      <div class="modal-footer d-flex justify-content-center">
+			      	<button class="btn btn-petroperu-verde" type="button" id="btnAceptarConfirmacion">Aceptar</button>
+			        <button class="btn btn-petroperu-rojo" type="button"  data-dismiss="modal">Cancelar</button>
+			      </div>
+			    </div>
+			  </div>
+		  </div>
+		  
+		  <div class="modal fade" id="modalMensajeRolMenorReemplazo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  		<div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header text-center">
+			        <h4 class="modal-title w-100 font-weight-bold">Advertencia</h4>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body mx-3">
+			      	 <p align="justify" class="texto_modal" id="mensajeRolMenorReemplazo"></p>
+			      </div>
+			      <div class="modal-footer d-flex justify-content-center">
+			      	<button class="btn btn-petroperu-verde" type="button" id="btnAceptarMensajeRolMenorReemplazo">Aceptar</button>
+			      </div>
+			    </div>
+			  </div>
+		  </div>
+		  
+		  <div class="modal fade" id="modalListaReemplazosTotal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  		<div class="modal-dialog modal-lg" role="document" style="max-width: 50% !important;">
+			    <div class="modal-content">
+			      <div class="modal-header text-center">
+			        <h4 class="modal-title w-100 font-weight-bold">Reemplazos en Adici&oacute;n</h4>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body mx-3">
+			      	 	<table id="tablaReemplazosTotal" class="table table-striped table-bordered dt-responsive nowrap"
+							cellspacing="0" style="width: 100%; display:none">
+								<thead>
+									<tr>
+										<th>Usuario Saliente</th>
+										<th>Usuario Entrante</th>
+										<th>Rol</th>
+										<th>Dependencia</th>
+										<th>Fecha Inicio</th>
+										<th>Fecha Termino</th>
+										<th>Estado</th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+						</table>
+			      </div>
+			      <div class="modal-footer d-flex justify-content-center">
+			      	<button class="btn btn-petroperu-verde" type="button" id="btnPreAceptarBorrarReemplazosTotal">Aceptar</button>
+			      	<button class="btn btn-petroperu-rojo" type="button"  data-dismiss="modal">Cancelar</button>
+			      </div>
+			    </div>
+			  </div>
+		  </div>
+		  
+		  <div class="modal fade" id="modalConfirmacionBorrarReemplazosTotal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  		<div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header text-center">
+			        <h4 class="modal-title w-100 font-weight-bold">Advertencia</h4>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body mx-3">
+			      	 <p align="justify" class="texto_modal">&#191;Deseas borrar todos los reemplazos en adici&oacute;n de la lista&#63;</p>
+			      </div>
+			      <div class="modal-footer d-flex justify-content-center">
+			      	<button class="btn btn-petroperu-verde" type="button" id="btnAceptarBorrarReemplazosTotal">Aceptar</button>
+			      	<button class="btn btn-petroperu-rojo" type="button"  data-dismiss="modal">Cancelar</button>
+			      </div>
+			    </div>
+			  </div>
+		  </div>
+	</div>
+	
+	<div layout:fragment="modulo_js">
+		<script type="text/javascript" th:src="@{/js/administracion/reemplazos_total/modulo.js?time=1114}" src="static/js/administracion/reemplazos_total/modulo.js"></script>
+    	<script type="text/javascript" th:src="@{/js/administracion/reemplazos_total/vista.js?time=111226}" src="static/js/administracion/reemplazos_total/vista.js"></script>
+	</div>
+</body>
+</html>

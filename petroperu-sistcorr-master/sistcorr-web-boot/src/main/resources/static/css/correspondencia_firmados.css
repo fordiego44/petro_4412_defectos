@@ -1,0 +1,34 @@
+.icon_pdf {
+	color: red;
+	font-size: 25px;
+}
+
+.icon_excel {
+	color: green;
+	font-size: 25px;
+}
+
+.icon_word {
+	color: blue;
+	font-size: 25px;
+}
+
+.icon_ppt {
+	color: red;
+	font-size: 25px;
+}
+
+.icon_otro{
+	color: grey;
+	font-size: 25px;
+}
+
+.icon_image{
+	color: purple;
+	font-size: 25px;
+}
+
+.icon_note{
+	color: yellow;
+	font-size: 25px;
+}

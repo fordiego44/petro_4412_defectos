@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+
+<body>
+	
+	
+	<div class="sidebar-fixed oculto" id="menuLateral" th:fragment="menu_lateral">
+            <div class="usuario_info" sec:authorize="isAuthenticated()" style="text-align: left;"><!-- TICKET 9000004403 ADICIONAR STYLE -->
+                <button class="btn-petroperu-icon closeMenu" id="butonClose" data-toggle="tooltip" title="Cerrar menú">
+                    <i class="fas fa-times"></i>
+                </button>
+                <p class="nombreUsuario" th:text="${usuario.nombreCompleto}">Juan Perez</p>
+                <p th:text="${usuario.email}">jparez@gmail.com</p>
+            </div>
+            <div class="menu">
+            	
+                <!-- h1>Correspondencia</h1>
+                <ul class="list-group">
+                	<li th:each="itemMenu : ${menu}" class="list-group-item d-flex justify-content-between align-items-center menuItem" th:attr="data-url=${itemMenu.url}">
+                		<span th:text="${itemMenu.texto}">texto</span><span class="badge badge-primary badge-pill" th:text="${itemMenu.cantidad > 99 ? '99+' : itemMenu.cantidad}" data-toggle="tooltip" th:title="${itemMenu.cantidad+' correspondencias'}">99+</span>
+                	</li>
+                </ul-->
+                <div class="col-xs-12" th:each="menu : ${listaMenu}">
+                	<h2 class="accordion" th:attr="data-id=${menu.idMenu}, data-padre=${menu.idMenuSuperior}" style="color: white;font-size: 18px;text-align: left;"><span th:text="${menu.nombre}"></span></h2><!-- TICKET 9000004403 H1 POR H2 Y ADICIONAR STYLE-->
+                	<ul class="list-group">
+                		<li th:each="subMenu : ${menu.subMenu}" class="list-group-item d-flex justify-content-between align-items-center menuItem menusup" th:attr="data-url=${subMenu.enlace}, data-id=${subMenu.idMenu}, data-padre=${subMenu.idMenuSuperior}" style="text-align: left;">
+                			<div class="form-group" style="margin-bottom: 0px;">
+	                			<span></span>
+	                			<span style="cursor: pointer;" th:text="${subMenu.nombre}"></span>	
+	                			<!-- <span th : if="${subMenu.cantidad != null}" 
+	                			th : id="${subMenu.idMenuSuperior+'_'+subMenu.idMenu}" class="badge badge-primary badge-pill menucantidad"
+	                			th : text="${subMenu.cantidad > 99 ? '99+' : subMenu.cantidad}" data-toggle="tooltip" th : title="$ { subMenu.cantidad+' correspondencias'}">
+	                				99+
+	                			</span> -->
+	                			<ul class="list-group" th:attr="data-cantidad=${subMenu.subMenu.size()}">
+	                			 	<li th:each="supraMenu : ${subMenu.subMenu}" class="list-group-item d-flex justify-content-between align-items-center menuItem" th:attr="data-url=${supraMenu.enlace}, data-id=${supraMenu.idMenu}, data-padre=${supraMenu.idMenuSuperior}" style="display:none!important;">
+	                			 		<span th:text="${supraMenu.nombre}"></span>	
+	                			 	</li>
+	                			</ul>
+                			</div>
+                		</li>
+                	</ul>
+                </div>
+                <div class="col-xs-12">
+                	<h2 style="color: white;font-size: 18px;text-align: left;"><span class="closeSession" id="btnCerrarSession">Cerrar Sesi&oacute;n</span></h2><!-- TICKET 9000004403 H1 POR H2 -->
+                </div>
+                <div id="menuLoading" class="text-center" style="display:none">
+                	<div class="spinner-border text-warning" style="width: 3rem; height: 3rem;" role="status">
+					  <span class="sr-only">Loading...</span>
+					</div>
+                </div>
+            </div>
+            <form th:action="@{/j_spring_security_logout}" method="post" id="logoutForm">
+				<input id="csrfToken" type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+				<input id="csrfHeader" type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.headerName}" />
+			</form>
+			<script>
+				function closeSession() {
+					document.getElementById("logoutForm").submit();
+				}
+			</script>
+            <!--div class="cerrar_session">
+                <span class="closeSession" id="btnCerrarSession">Cerrar sesi&oacute;n</span>
+            </div-->
+        </div>
+	
+</body>
+
+
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/plantilla_correspondencia_edicion">
+<head>
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid" id="principal">
+		<input type="hidden" th:value="${correspondencia}" id="main_correspondencia"/>
+		<input type="hidden" th:value="${username}" id="main_username"/>
+		<input type="hidden" th:value="${nombreUsuario}" id="main_nombreUsuario"/>
+		<div class="petro-tabs mx-2">
+			<ul class="nav tabs-petro" id="myClassicTabOrange" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link  waves-light active show" id="Datos-tab" data-toggle="tab" data-tab="datos"
+                            href="#contenidoDatos" role="tab" aria-controls="contenidoDatos" aria-selected="true">Datos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-light" id="Destinatario-tab" data-toggle="tab" data-tab="destinatario"
+                            href="#contenidoDestinatario" role="tab"
+                            aria-controls="contenidoDestinatario" aria-selected="false">Destinatario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-light" id="Copias-tab" data-toggle="tab" data-tab="copias"
+                            href="#contenidoCopias" role="tab" aria-controls="contenidoCopias"
+                            aria-selected="false">Copias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-light" id="RutaAprobacion-tab" data-toggle="tab" data-tab="rutaAprobacion"
+                            href="#contenidoRutaAprobacion" role="tab" aria-controls="contenidoRutaAprobacion"
+                            aria-selected="false">Ruta Aprobaci&oacute;n</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-light" id="Flujo-tab" data-toggle="tab" data-tab="flujo"
+                            href="#contenidoFlujo" role="tab" aria-controls="contenidoFlujo"
+                            aria-selected="false">Flujo</a>
+                    </li>
+            </ul>
+               
+        	<div class="tab-content card" id="myClassicTabContentOrange">
+            	<div th:replace="fragments/correspondencia_edicion/tab_datos :: main"></div>
+                <div th:replace="fragments/correspondencia_edicion/tab_destinatario :: main"></div>
+                <div th:replace="fragments/correspondencia_edicion/tab_copias :: main"></div>
+                <div th:replace="fragments/correspondencia_edicion/tab_rutaaprobacion :: main"></div>
+                <div th:replace="fragments/correspondencia_edicion/tab_flujo :: main"></div>
+            </div>
+		</div>
+		
+		<script th:inline="javascript">
+		/*<![CDATA[*/
+		    var ERRORES =  /*[[${errores}]]*/ '';
+		    var EDICION = /*[[${edicion}]]*/ 'true';
+		    var TIPOS_CORRESPONDENCIA  = /*[[${tiposCorrespondencia}]]*/ '';
+		    var DEPENDENCIAS_USUARIO = /*[[${dependenciasUsuario}]]*/ '';
+		    var ctrlDown = false,
+	        ctrlKey = 17,
+	        cmdKey = 91,
+	        vKey = 86,
+	        cKey = 67;
+		/*]]>*/
+		</script>
+		
+	</div>
+	
+	<div layout:fragment="modals">	
+		<div class="modal fade" id="modalConfirmarRegistro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		        <h4 class="modal-title w-100 font-weight-bold">Registro de Correspondencia</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body mx-3">
+		        <p align="justify" class="texto_modal">&iquest;Est&aacute; realmente seguro de que desea guardar los datos de la correspondencia?, recuerde verificar que todos los datos y documentos sean correctos. </p>
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnConfirmarRegistroSi">Si</button>
+		        <button class="btn btn-petroperu-rojo" type="button"  data-dismiss="modal">No</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<div class="modal fade" id="modalConfirmarInicioRutaAprobacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		        <h4 class="modal-title w-100 font-weight-bold">Inicio de Ruta de Aprobaci&oacute;n</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body mx-3">
+		        <p align="justify" class="texto_modal">&iquest;Desea iniciar la asignaci&oacute;n definida en ruta de aprobaci&oacute;n?</p>
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnConfirmarInicioRutaAprobacionSi">Si</button>
+		        <button class="btn btn-petroperu-rojo" type="button" id="btnConfirmarInicioRutaAprobacionNo" data-dismiss="modal">No</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>	
+		
+		<div class="modal fade" id="modalEliminarRegistroRutaAprobacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		        <h4 class="modal-title w-100 font-weight-bold">Eliminar Firmante</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body mx-3">
+		      	<input type="hidden" id="idFirmanteEliminar" />
+		        <p align="justify" class="texto_modal">&iquest;Est&aacute; seguro de eliminar el firmante seleccionado?</p>
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnConfirmarEliminarRegistroRutaAprobacionSi">Si</button>
+		        <button class="btn btn-petroperu-rojo" type="button" id="btnConfirmarEliminarRegistroRutaAprobacionNo" data-dismiss="modal">No</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<div class="modal fade" id="modalConfirmarAsignarFirma" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		        <h4 class="modal-title w-100 font-weight-bold">Registro de Correspondencia</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body mx-3">
+		        <p align="justify" class="texto_modal">&iquest;Desea asignar esta correspondencia al remitente u otro personal para la emisi&oacute;n de la firma digital? </p>
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnConfirmarAsignarFirmaSi">Si</button>
+		        <button class="btn btn-petroperu-rojo" type="button" id="btnConfirmarAsignarFirmaNo"  data-dismiss="modal">No</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>	
+		
+		<div class="modal fade" id="modalSeleccionarFirmante" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		        <h4 class="modal-title w-100 font-weight-bold">Asignaci&oacute;n para Firma</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body mx-3">
+		      	<div class="md-form mb-3" style="margin-top: 15px !important">
+		      		<select id="firmante" class="form-control sistcorrSelect">
+		      			<option disabled="disabled" selected="selected"></option>
+		        		<option value="remitente">Remitente</option>
+			        	<option value="otros">Otros</option>
+			        </select>
+			        <label for="firmante" class="active" >Solicitar firmar a</label>
+		      	</div>
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnSeleccionarFirmanteAceptar">Aceptar</button>
+		        <button class="btn btn-petroperu-rojo" type="button" id="btnSeleccionarFirmanteCancelar"  data-dismiss="modal">Cancelar</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>	
+		
+		<div class="modal fade" id="modalOcultarRutaAprobacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		        <h4 class="modal-title w-100 font-weight-bold">Correspondencia sin ruta de aprobaci&oacute;n</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body mx-3">
+		      	<div class="md-form mb-3" style="margin-top: 15px !important">
+			        <p align="justify" class="texto_modal">&iquest;Est&aacute; seguro de cambiar el campo ruta de aprobaci&oacute;n? Si acepta, la ruta de aprobaci&oacute;n definida hasta el momento se perder&aacute;.</p>
+		      	</div>
+		      </div>
+		      <div class="modal-footer d-flex justify-content-center">
+		      	<button class="btn btn-petroperu-verde" type="button" id="btnOcultarRutaAprobacionAceptar">Aceptar</button>
+		        <button class="btn btn-petroperu-rojo" type="button" id="btnOcultarRutaAprobacionCancelar"  data-dismiss="modal">Cancelar</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+			
+	</div>
+	
+	<div layout:fragment="modulo_js">
+		<script type="text/javascript" th:src="@{/js/correspondencia_edicion/modulo.js?time=180120221711}" src="static/js/correspondencia_edicion/modulo.js"></script>
+    	<script type="text/javascript" th:src="@{/js/correspondencia_edicion/vista.js?time=180120221758}" src="static/js/correspondencia_edicion/vista.js"></script>
+	</div>
+</body>
+</html>

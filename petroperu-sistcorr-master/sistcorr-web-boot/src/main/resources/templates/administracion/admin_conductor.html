@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/administracion/plantilla_administracion_conductor">
+<head>
+
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid" id="principal">
+		<input type="hidden" id="bandeja" th:value="${bandeja}"/>
+		<input type="hidden" id="url" th:value="${url}"/>
+		
+		<div class="row" id="filtrosBusqueda">
+			<div class="col-sm-12">
+				<div class="rgba-petro-strong py-1" id="contenidoAccordionDatos">
+					<div class="row d-flex justify-content-center">
+						<div class="col-md-12 col-xl-12">
+							<div class="accordion md-accordion accordion-5" id="acordionFiltros" role="tablist" aria-multiselectable="false">
+								<div th:replace="fragments/administracion/admin_conductor/tab_filtros :: main"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br/>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-sm-12" align="right">
+								<button class="btn btn-petroperu-verde" type="button" id="btnReintentarMasivo" style="padding: 0.84rem 1.5rem" disabled="disabled"><i class="far fa-caret-square-right" style="font-size: 25px;vertical-align: middle;"></i> <span>&nbsp;&nbsp;&nbsp;Reintentar masivo</span></button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12" align="left">
+								<table id="tablaConsultaCorrespondenciasJG" class="table table-striped table-bordered dt-responsive nowrap"
+									cellspacing="0" style="width: 100%;">
+										<thead style="width: 100%;">
+											<tr>
+												<th>Ver</th>
+												<th>Seleccionar</th>
+												<th>&Uacute;ltimo mensaje de error</th>
+												<th>Proceso</th>
+												<th>Referencia Principal</th>
+												<th>Referencia Alternativa</th>
+												<th>Fecha Excepci&oacute;n</th>
+											</tr>
+										</thead>
+										<tbody style="width: 100%;" id="bodyTableConductores"></tbody>
+								</table>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script th:inline="javascript">
+		</script>
+		
+	</div>
+	
+	<div layout:fragment="modals">
+		
+	</div>
+	
+	<div layout:fragment="modulo_js">
+		<script type="text/javascript" th:src="@{/js/administracion/admin_conductor/modulo.js?time=080220220756}" src="static/js/administracion/admin_conductor/modulo.js"></script>
+    	<script type="text/javascript" th:src="@{/js/administracion/admin_conductor/vista.js?time=0802202207108}" src="static/js/administracion/admin_conductor/vista.js"></script>
+	</div>
+</body>
+</html>

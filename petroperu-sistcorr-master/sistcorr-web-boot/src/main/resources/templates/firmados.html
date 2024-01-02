@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/plantilla_correspondencia_firmados">
+<head>
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid" id="principal">
+		<p>Nro. Documento: <b><span th:text="${correlativoInt}"></span></b></p>
+			<p>Asunto: <b><span th:text="${asunto}"></span></b></p>
+			<br/>
+		<div class="card" >
+			
+			<ul class="list-group">
+				<li class="list-group-item" th:each="doc : ${documentos}" th:if="${doc.principal or manual}">
+					<div class="row">
+						<div class="col-10" align="left">
+							<a class="documentoDescarga" th:href="${'../../app/emision/descargar-archivo/'+doc.id}"> 
+								<i	th:if="${doc.contentType.contains('pdf')}"	class="fas fa-file-pdf icon_pdf mr-3"></i> 
+								<i th:if="${doc.contentType.contains('excel')}" class="fas fa-file-excel icon_excel mr-3"></i> 
+								<i	th:if="${doc.contentType.contains('word')}" class="fas fa-file-word icon_word mr-3"></i> 
+								<i	th:if="${doc.contentType.contains('image')}" class="fas fa-file-image icon_image mr-3"></i> 
+								<i	th:if="${!doc.contentType.contains('pdf') and !doc.contentType.contains('excel') and !doc.contentType.contains('word') and !doc.contentType.contains('image')}"
+								class="fas fa-file icon_otro mr-3"></i> <span
+								th:text="${doc.nombre}" class="color:black !important">CR-IP 0001</span>
+							</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+
+		<script th:inline="javascript">
+		/*<![CDATA[*/
+		/*]]>*/
+		</script>
+
+	</div>
+
+	<div layout:fragment="modals"></div>
+
+	<div layout:fragment="modulo_js">
+		<script type="text/javascript" th:src="@{/js/firmados/modulo.js?time=1111}"
+			src="static/js/firmados/modulo.js"></script>
+		<script type="text/javascript" th:src="@{/js/firmados/vista.js?time=1111}"
+			src="static/js/firmados/vista.js"></script>
+	</div>
+</body>
+</html>

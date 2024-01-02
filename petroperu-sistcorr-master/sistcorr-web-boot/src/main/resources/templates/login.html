@@ -1,0 +1,297 @@
+﻿<!DOCTYPE html>
+<html class="m-aplicaciones-login" lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="UTF-8"/>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <meta http-equiv="refresh" content="1200"/>
+    <title>Sistema de Tr&aacute;mite Documentario y Correspondencia</title>
+    
+    <link rel="icon" th:href="@{/images/favicon.ico}"/>
+    
+    <link rel="stylesheet" th:href="@{/js/librerias/fontawesone/css/all.css}" href="static/librerias/fontawesone/css/all.css"/>
+    <link rel="stylesheet" th:href="@{/js/librerias/mdboostrap/css/bootstrap.css}" href="static/librerias/mdboostrap/css/bootstrap.css" />
+    <link rel="stylesheet" th:href="@{/js/librerias/mdboostrap/css/mdb.css}" href="static/librerias/mdboostrap/css/mdb.css" />
+    <link rel="stylesheet" th:href="@{/js/librerias/toastr/toastr.css}" href="static/librerias/toastr/toastr.css" />
+    <link rel="stylesheet" th:href="@{/css/general.css}" href="static/css/general.css" />
+    
+    <link rel="stylesheet" th:href="@{/css/aplicaciones.css?time=202101221237}" href="static/css/aplicaciones.css" /><!-- TICKET 9000004403 -->
+    <style type="text/css">
+    	#captcha{
+			text-transform: uppercase;
+		}
+    </style>
+</head>
+<body>
+	<input id="csrfToken" type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+	<input id="csrfHeader" type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.headerName}" />
+
+	<!-- INICIO TICKET 9000004403 -->
+	<header class="m-header m-header--login">
+		<div class="m-box-table m-box-table--middle">
+			<div class="m-header__logo">
+				<img th:src="@{/img/logo_mobile@2x.png?time=20211235}" alt=""/><img
+					th:src="@{/img/logo_petroperu@2x.png?time=20211237}" alt=""/>
+			</div>
+			<h1 class="m-header__title">
+				<span>Sistema de Tr&aacute;mite Documentario y Correspondencia - </span><span>SISTCORR 2.0</span>
+			</h1>
+		</div>
+	</header>
+		
+	<div class="m-login">
+		<img class="m-login__logo" th:src="@{/img/sistcorr2.jpg}"/>
+		<p>
+			<strong>Ingrese usuario y contrase&ntilde;a</strong>
+		</p>
+		<form id="frmLogin" th:action="@{login}" method="post">
+			<div id="page">
+			<div class="m-input">
+				<input type="text" id="parametro_1" name="parametro_1" class="form-control validate" maxlength="30" th:placeholder="Usuario" th:required="true" th:autocomplete="off" autofocus="autofocus" />
+			</div>
+			<div class="m-input">
+				
+				<input type="password" name="2_parametro" maxlength="30" th:placeholder="Contrase&ntilde;a" th:required="true" autocomplete="off" />
+				<!-- <input type="hidden" name="recaptcha_response"
+					id="recaptchaResponse" /> -->
+			</div>
+			
+			<button class="g-recaptcha m-button m-button--secondary"
+				id="btnIngreso" th:attr="data-sitekey=${@environment.getProperty('key.public.recaptchav3')}" data-callback='onSubmit'>Iniciar sesi&oacute;n</button>
+			<br/>
+			<br/>
+			<div class="m-input">
+				<div class="d-flex justify-content-around">	
+					<span  th:if="${param.error}" th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}" class="alert alert-danger" style="padding: 0.75rem 1rem;margin-bottom: 0px;width: 100%;font-size: 14px;font-family: Roboto,sans-serif;font-weight: 400;">Mot de passe inconnu</span>          
+                </div>
+			</div>
+			</div>
+		</form>
+	</div>
+	<!-- FIN TICKET 9000004403 -->
+	
+	<!-- INICIO TICKET 9000004403 COMENTADO -->
+	<!-- <header class="m-header">
+		<div class="m-box-table m-box-table - - middle">
+			<a class="m-header__logo" href="https://www.petroperu.com.pe/"> <picture>
+				<source th:attr="srcset=|@{/img/logo_petroperu.png}, @{/img/logo_petroperu@2x.png} 2x|"
+					media="(min-width: 768px)" type="image/png" />
+				<source th:attr="srcset=|@{/img/logo_mobile.png}, @{/img/logo_mobile@2x.png} 2x|"
+					type="image/png" />
+				<img th:src="@{/img/logo_mobile.png}" alt="" /> </picture>
+			</a>
+			<h1 class="m-header__title">SISTCORR 2.0</h1>
+		</div>
+	</header>
+	<div class="m-login">
+		<p>
+			<strong>Sistema de Trámite Documentario y Correspondencia</strong>
+		</p>
+		<picture class="m-login__logo">
+		<source th:attr="srcset=|@{/img/logo_vertical.png}, @{/img/logo_vertical@2x.png} 2x|"
+			type="image/png" />
+		<img class="class" th:src="@{/img/logo_vertical.png}" alt="" /> </picture>
+		<form id="frmLogin" th:action="@{login}" method="post">
+			<div class="m-input">
+				<input type="text" id="parametro_1" name="parametro_1" maxlength="30" th:placeholder="Usuario" th:required="true" th:autocomplete="off" autofocus="autofocus" />
+			</div>
+			<div class="m-input">
+				<input type="password" name="2_parametro" maxlength="30" th:placeholder="Contraseña" th:required="true" autocomplete="off" />
+			</div>
+			<div
+				class="m-login__captcha m-box-table m-box-table - - middle m-box-table - - auto">
+				<picture>
+				<img th:src="@{/img/captcha.png}" id="imgCaptcha" /></picture>
+				<div>
+					<button class="m-button" type="button" id="btnGenerarCaptcha">
+						<span class="update m-inline-block m-inline-block- -top"></span>
+					</button>
+				</div>
+			</div>
+			<div class="m-input">
+				<input type="text" id="captcha" placeholder="Código captcha" name="parametro_3" class="form-control mb-4"  maxlength="4" th:required="true" th:autocomplete="off" />
+				<input type="hidden" name="parametro_4" id="ramdomId"/>
+				<div class="d-flex justify-content-around">
+					<span class="alert alert-success" th:if="${msg}" th:text="${msg}" style="margin-bottom: 0px;"></span>	
+					<span  th:if="$ {param.error}" th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}" class="alert alert-danger" style="margin-bottom: 0px;">Mot de passe inconnu</span>          
+                </div>
+			</div>
+			<button id="btnIngresar" class="m-button m-button- -secondary" type="submit">Ingresar</button>
+		</form>
+	</div> -->
+	<!-- FIN TICKET 9000004403 COMENTADO -->
+
+	<!-- COMENTADO POR EL TICKET 9000004268 -->
+	<!-- <nav class="navbar fixed-top navbar-expand-lg navbar-petroperu scrolling-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/sistcorr">
+            	<img th:src="@{/images/logo.png}"/>
+                <strong th:text="${version}">SISTCORR 2.0</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
+        </div>
+    </nav>
+    
+    <main class="pt-5 mx-lg-5">
+    	<div class="container-fluid mt-5">
+    		<div class="row justify-content-md-center">
+    			<div class="col col-lg-2"></div>
+    			<div class="col-12 col-md-auto">
+    				<div class="card">
+    					<div class="card-body">
+    						<form id="frmLogin" class="text-center border border-light p-5" th:action="@{login}" method="post">
+    							<p class="h6 mb-4" th:text="${titulo_form}">Sistema de TrDocumentario y Correspondencia</p>
+    							<img alt="PETROPERU" th:src="@{/images/logo_petroperu.jpg}" width="171" height="150" class="logoPetro"/>
+								<br/>
+								<input type="text" id="parametro_1" name="parametro_1" class="form-control mb-4" maxlength="30" th:placeholder="Usuario" th:required="true" th:autocomplete="off" autofocus="autofocus"/>
+								<input type="password" name="2_parametro" class="form-control mb-4" maxlength="30" th:placeholder="Contraseña" th:required="true" autocomplete="off"/>
+								<img id="imgCaptcha" class="captcha img-thumbnail center-block logoPetro" alt="captcha" />
+								<button type="button" id="btnGenerarCaptcha" class="btn btn-petroperu-verde"><i class="fas fa-redo"></i></button>
+								<input type="text" id="captcha" name="parametro_3" class="form-control mb-4"  maxlength="4" th:required="true" th:autocomplete="off"/>
+								<input type="hidden" name="parametro_4" id="ramdomId"/>
+								<div class="d-flex justify-content-around">
+									<p class="alert alert-success" th:if="${msg}" th:text="${msg}"></p>	
+									<p  th:if="${param.error}" th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}" class="alert alert-danger">Mot de passe inconnu</p>          
+                                </div>
+                                <button id="btnIngresar" class="btn btn-petroperu-rojo btn-block" type="submit">Ingresar</button>
+    						</form>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col col-lg-2">
+    				
+    			</div>
+    		</div>
+    	</div>
+    </main>
+    
+    <div class="modal fade" id="modalProcesando" tabindex="-1" data-backdrop="static" data-keyboard="false"
+		role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-sm cascading-modal" role="document"
+			align="center">
+			<div class="spinner-border text-warning" style="width: 3rem; height: 3rem;" role="status">
+			  <span class="sr-only">Loading...</span>
+			</div>
+		</div>
+	</div> --><!-- <nav class="navbar fixed-top navbar-expand-lg navbar-petroperu scrolling-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/sistcorr">
+            	<img th:src="@{/images/logo.png}"/>
+                <strong th:text="${version}">SISTCORR 2.0</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
+        </div>
+    </nav>
+    
+    <main class="pt-5 mx-lg-5">
+    	<div class="container-fluid mt-5">
+    		<div class="row justify-content-md-center">
+    			<div class="col col-lg-2"></div>
+    			<div class="col-12 col-md-auto">
+    				<div class="card">
+    					<div class="card-body">
+    						<form id="frmLogin" class="text-center border border-light p-5" th:action="@{login}" method="post">
+    							<p class="h6 mb-4" th:text="${titulo_form}">Sistema de TrDocumentario y Correspondencia</p>
+    							<img alt="PETROPERU" th:src="@{/images/logo_petroperu.jpg}" width="171" height="150" class="logoPetro"/>
+								<br/>
+								<input type="text" id="parametro_1" name="parametro_1" class="form-control mb-4" maxlength="30" th:placeholder="Usuario" th:required="true" th:autocomplete="off" autofocus="autofocus"/>
+								<input type="password" name="2_parametro" class="form-control mb-4" maxlength="30" th:placeholder="Contraseña" th:required="true" autocomplete="off"/>
+								<img id="imgCaptcha" class="captcha img-thumbnail center-block logoPetro" alt="captcha" />
+								<button type="button" id="btnGenerarCaptcha" class="btn btn-petroperu-verde"><i class="fas fa-redo"></i></button>
+								<input type="text" id="captcha" name="parametro_3" class="form-control mb-4"  maxlength="4" th:required="true" th:autocomplete="off"/>
+								<input type="hidden" name="parametro_4" id="ramdomId"/>
+								<div class="d-flex justify-content-around">
+									<p class="alert alert-success" th:if="${msg}" th:text="${msg}"></p>	
+									<p  th:if="${param.error}" th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}" class="alert alert-danger">Mot de passe inconnu</p>          
+                                </div>
+                                <button id="btnIngresar" class="btn btn-petroperu-rojo btn-block" type="submit">Ingresar</button>
+    						</form>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col col-lg-2">
+    				
+    			</div>
+    		</div>
+    	</div>
+    </main>
+     -->
+     
+     <div class="modal fade" id="modalProcesando" tabindex="-1" data-backdrop="static" data-keyboard="false"
+		role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-sm cascading-modal" role="document"
+			align="center">
+			<div class="spinner-border text-warning" style="width: 3rem; height: 3rem;" role="status">
+			  <span class="sr-only">Loading...</span>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+	    function onSubmit(token) {
+		   document.getElementById("frmLogin").submit();
+	    }
+	    function onloadCallback(){
+		    console.log("reCAPTCHA cargado correctamente");
+		}
+    </script>
+    
+    <script src="https://www.google.com/recaptcha/api.js" th:async="false" th:defer="defer"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=explicit&amp;onload=onloadCallback" th:async="false" th:defer="defer"></script>
+    
+    <!-- <script th:src="'https://www.google.com/recaptcha/api.js?render='+ $ { @ environment.getProperty('key.public.recaptchav3') } "></script> TICKET 9000004403 -->
+    <script type="text/javascript" th:src="@{/js/librerias/mdboostrap/js/jquery-3.4.0.min.js}" src="static/librerias/mdboostrap/js/jquery-3.4.0.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/librerias/mdboostrap/js/popper.min.js}" src="static/librerias/mdboostrap/js/popper.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/librerias/mdboostrap/js/bootstrap.js}" src="static/librerias/mdboostrap/js/bootstrap.js"></script>
+    <script type="text/javascript" th:src="@{/js/librerias/mdboostrap/js/mdb.js}" src="static/librerias/mdboostrap/js/mdb.js"></script>
+    <script type="text/javascript" th:src="@{/js/librerias/toastr/toastr.js}" src="static/librerias/toastr/toastr.js"></script>
+    <!-- INICIO TICKET 9000004403 -->
+    <script th:inline="javascript">
+		/*<![CDATA[*/
+		    var keyPublic = /*[[${@environment.getProperty('key.public.recaptchav3')}]]*/ '';
+		/*]]>*/
+	</script>
+    
+   <script type="text/javascript">
+    	
+        /*grecaptcha.ready(function() {
+            document.getElementById('frmLogin').addEventListener("submit", function(event) {
+
+              event.preventDefault();
+
+              grecaptcha.execute(keyPublic, {action: 'login'}).then(function(token) {
+                 document.getElementById("recaptchaResponse").value = token; 
+                 document.getElementById('frmLogin').submit();
+              });        
+            }, false);
+
+        });*/
+    </script>
+    <!-- FIN TICKET 9000004403 -->
+    <script type="text/javascript">
+        new WOW().init();
+        var SISTCORR = {
+            version: '1.0'
+        };
+        SISTCORR.fire = function (type, data, propagate) {
+        	return this;
+        };
+    </script>
+    <script type="text/javascript" th:src="@{/js/sistcorr_modulo.js?time=9000004276}" src="static/js/sistcorr_modulo.js"></script>
+    <!-- <script type="text/javascript" th:src="@{/js/login/login_modulo.js}" src="static/js/login/login_modulo.js"></script>
+    <script type="text/javascript" th:src="@{/js/login/login_vista.js}" src="static/js/login/login_vista.js"></script> -->
+</body>
+</html>

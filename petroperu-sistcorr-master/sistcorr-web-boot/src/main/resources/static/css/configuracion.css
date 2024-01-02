@@ -1,0 +1,30 @@
+
+.fondo_div{
+	background: #f7f7f7; 
+	/*margin: 0.5%;*/
+   	padding: 3%;
+   	margin-inline: -4%;
+   	box-shadow: 0 0 5px #b8a5a5;
+   	border-radius: 4px;
+    /*border-top-right-radius: 3px;*/
+    /*margin-top: 5%;*/
+    height: 65px;
+}
+.p_configuracion{
+	/*margin: auto;*/
+    font-size: 0.8rem;
+    color: #212529;
+    font-weight: bold;
+}
+.p_configuracion:hover{
+	font-size: 0.81rem;
+	color:#cd1316;
+    cursor: pointer;
+}
+.css_icono{
+	font-size:30px;
+}
+
+.css_top{
+	margin-top: 1%;
+}

@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>pe.com.petroperu</groupId>
+    <artifactId>sistcorr-module</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>sistcorr-module-scheduling-tasks</artifactId>
+  <name>sistcorr-module-scheduling-tasks</name>
+  <description>Tareas programadas</description>
+  <dependencies>
+		
+		<dependency>
+			<groupId>pe.com.petroperu</groupId>
+			<artifactId>sistcorr-module-notificacion</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.6</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>pe.com.petroperu</groupId>
+			<artifactId>sistcorr-module-cliente-rest</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+  </dependencies>
+</project>

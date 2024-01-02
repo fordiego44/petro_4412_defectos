@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div id="contenidoDatos"  class="tab-pane fade active show"  role="tabpanel" aria-labelledby="profile-tab-classic-orange" th:fragment="main">
+		<div class="card">
+			<div class="card-body">
+				<h3 th:text="${correlativo}">CORRELATIVO</h3>
+				<h4 th:text="${asunto}"></h4>
+				<br/>
+				<div class="md-form mb-3">
+					<label for="lugarTrabajo">Centro de Gesti&oacute;n de Correspondencia</label>
+					<select class="form-control sistcorrAutocompleRemoto" id="lugarTrabajo"></select>
+				</div>
+				<div class="md-form mb-3">
+					<label for="dependencia">Dependencia</label>
+					<select class="form-control sistcorrAutocompleRemoto" id="dependencia"></select>
+				</div>
+				<div class="md-form mb-3">
+					<label for="responsableFirma">Nombre completo</label>
+					<select class="form-control sistcorrAutocompleRemoto" id="responsableFirma"></select>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+
+<body>
+	<div th:fragment="js_imports">
+	
+	
+		<script type="text/javascript" th:src="@{/js/librerias/handlebars-v3.0.3.js}" src="static/librerias/handlebars-v3.0.3.js"></script>
+		<script type="text/javascript" th:src="@{/js/librerias/mdboostrap/js/jquery-3.4.0.min.js}" src="static/librerias/mdboostrap/js/jquery-3.4.0.min.js"></script>
+	    <script type="text/javascript" th:src="@{/js/librerias/mdboostrap/js/popper.min.js}" src="static/librerias/mdboostrap/js/popper.min.js"></script>
+	    <script type="text/javascript" th:src="@{/js/librerias/mdboostrap/js/bootstrap.js}" src="static/librerias/mdboostrap/js/bootstrap.js"></script>
+	    <script type="text/javascript" th:src="@{/js/librerias/mdboostrap/js/mdb.js}" src="static/librerias/mdboostrap/js/mdb.js"></script>
+	    <script type="text/javascript" th:src="@{/js/librerias/toastr/toastr.js}" src="static/librerias/toastr/toastr.js"></script>
+	    <script type="text/javascript" th:src="@{/js/librerias/datepicker_ui/jquery-ui.js}" src="static/librerias/datepicker_ui/jquery-ui.js"></script>
+    	<script type="text/javascript" th:src="@{/js/librerias/es_datepicker.js}" src="static/librerias/es_datepicker.js"></script>
+    	<script type="text/javascript" th:src="@{/js/librerias/materialize-select2/select2.min.js}" src="static/librerias/materialize-select2/select2.min.js"></script>
+    	<script type="text/javascript" th:src="@{/js/librerias/materialize-select2/select2-materialize.js}" src="static/librerias/materialize-select2/select2-materialize.js"></script>
+    	<script type="text/javascript" th:src="@{/js/constantes.js}" src="static/js/constantes.js"></script>
+	    <script type="text/javascript">
+	        new WOW().init();
+	        var SISTCORR = {
+	            version: '1.0'
+	        };
+	        SISTCORR.fire = function (type, data, propagate) {
+	        	return this;
+	        };
+	    </script>
+    
+	</div>
+</body>
+
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/administracion/plantilla_conductor_detalle">
+<head>
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid" id="principal">
+		<input type="hidden" th:value="${correspondencia}" id="main_correspondencia"/>
+		<input type="hidden" th:value="${permiso}" id="visualizar_archivo" />
+		<input type="hidden" th:value="${usuario.username}" id="usuario" />
+		<div class="petro-tabs mx-2">
+			<ul class="nav tabs-petro" id="myClassicTabOrange" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link  waves-light active show petro-tabs-activo" id="Datos-tab" data-toggle="tab" data-tab="datos"
+                            href="#contenidoDatos" role="tab" aria-controls="contenidoDatos" aria-selected="true">Datos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-light" id="Trazas-tab" data-toggle="tab" data-tab="trazas"
+                            href="#contenidoTrazas" role="tab" aria-controls="contenidoTrazas"
+                            aria-selected="false">Traza</a>
+                    </li>
+            </ul>
+               
+        	<div class="tab-content card" id="myClassicTabContentOrange">
+            	<div th:replace="fragments/administracion/admin_conductor/tab_datos :: main"></div>
+                <div th:replace="fragments/administracion/admin_conductor/tab_trazas :: main"></div>
+            </div>
+		</div>
+		
+		<script th:inline="javascript">
+		/*<![CDATA[*/
+		    var ERRORES =  /*[[${errores}]]*/ '';
+		    var EDICION = /*[[${edicion}]]*/ 'true';
+		    var esUserResponsable = /*[[${esUserResponsable}]]*/ '';
+		/*]]>*/
+		</script>
+		
+	</div>
+	
+	<div layout:fragment="modulo_js">
+		<script type="text/javascript" th:src="@{/js/administracion/admin_conductor/conductor_detalle/modulo.js?time=080220221136}" src="static/js/administracion/admin_conductor/conductor_detalle/modulo.js"></script>
+    	<script type="text/javascript" th:src="@{/js/administracion/admin_conductor/conductor_detalle/vista.js?time=080220221150}" src="static/js/administracion/admin_conductor/conductor_detalle/vista.js"></script>
+	</div>
+</body>
+</html>

@@ -1,0 +1,222 @@
+.col_correspondencia{
+	padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.correspondencia_seleccionda{
+	border: 2px solid;
+}
+
+.footer_correspondencia{
+	background: #f7f7f7;
+    height: 50px;
+    cursor: default;
+}
+
+.texto_tipo_correspondencia {
+    font-size: 17px;
+    margin-top: 5px;
+    display: block;
+    margin-right: -42px;
+    margin-top: 14px;
+    z-index: 5;
+    width: 30px;
+}
+
+.icon_tipo_correspondencia {
+   
+    background: #3fea3f;
+    
+}
+
+.card_texto_correspondencia {
+    margin: 0px !important;
+}
+
+.icon_opcion{
+	color: black;
+    font-size: 24px;
+}
+
+.icon_opcion:hover{
+	color: black;
+    font-size: 25px;
+}
+
+#sinResultados {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    border: 0;
+    font-weight: 400;
+    width: 100%;
+    height: 80px;
+    padding-top: 20px;
+    padding-left: 20px;
+    display: none;
+}
+
+.icon_view{
+	color: black;
+	cursor: pointer;
+}
+
+.icon_add_document {
+    color: black;
+    font-size: 24px;
+}
+
+.icon_add_document:hover {
+    color: black;
+    font-size: 25px;
+}
+
+.icon_editar{
+	color: #ad9242;
+	cursor: pointer;
+}
+
+.icon_asignar_firma{
+	color: green;
+	cursor: pointer;
+}
+
+.icon_enviar_documento{
+	color: #61583f;
+	cursor: pointer;
+}
+
+.icon_emitir_firma{
+	color: #4285f4;
+	cursor: pointer;
+}
+
+.icon_rechazar{
+	color: red;
+	cursor: pointer;
+}
+
+.icon_rechazar:hover{
+	color: red;
+	cursor: pointer;
+}
+
+.icon_reasignar{
+	color: orange;
+	cursor: pointer;
+}
+
+.icon_reasignar:hover{
+	color: orange;
+	cursor: pointer;
+}
+
+.icon_declinar{
+	color: red;
+	cursor: pointer;
+}
+.icon_declinar:hover{
+	color: red;
+	cursor: pointer;
+}
+
+.icon_view_detail {
+    color: blue;
+    font-size: 24px;
+}
+
+.gj-datepicker{
+	width: 93% !important;
+}
+
+.icon-date{
+	position: inherit !important;
+    top: 20px !important;
+    cursor: pointer;
+}
+
+.table_traza{
+	border-collpase: collapse;
+}
+
+.table_traza td{
+	padding: 7px;
+	border: #4e95f4 1px soled;
+}
+
+.table_traza tr{
+	background: #b8d1f3;
+}
+
+.table_traza tr:nth-child(odd) {
+	background: #b8d1f3;
+}
+
+.table_Traza tr:nth-child(even) {
+	background: #dae5f4;
+}
+
+.detalle_lista{
+	font-size: 13px;
+	color: #4E4E4E;
+}
+
+.cabecera_lista{
+	font-size: 14px;
+}
+
+.icon_color_TA{
+	/*background: #77DF79;*/
+	background: #FFC300;
+}
+
+.icon_color_TC{
+	background: #E6E6CA;	
+}
+
+.icon_color_PR{
+	background: #E6B9A1;	
+}
+
+.icon_color_RD{
+	background: ##CE9DD9;	
+}
+
+.icon_color_IN{
+	background: #F7F48B;	
+}
+
+.icon_color_RD{
+	background:  #58949C;	
+}
+
+.icon_color_NC{
+	background:  #3fea3f;
+}
+
+.tarea_seleccionada{
+	border: 2px solid;
+}
+
+.footer_tarea{
+	background: #f7f7f7;
+	height: 50px;
+	cursor: default;
+}
+
+.col_tarea{
+	padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.masFiltros{
+	cursor: pointer;
+}
+
+.etiqueta{
+	/*font-weight: 500!important;*/
+	color: #000000;
+	font-size: 0.9rem;
+}
+
+.icon_color_PA{
+	background: #82FCFF;
+}

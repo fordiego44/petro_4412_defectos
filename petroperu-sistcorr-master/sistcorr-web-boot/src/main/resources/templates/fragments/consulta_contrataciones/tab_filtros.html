@@ -1,0 +1,66 @@
+<!-- 9000004276 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head></head>
+  <body>
+    <div class="card mb-2" th:fragment="main">
+      <div class="card-header p-0 z-depth-1 plomo_relleno" role="tab" id="headingDatosRemitente" data-form="datosFiltros">
+        <a data-toggle="collapse" data-parent="#acordionFiltros" id="btnFiltrosCC" href="#collapseFiltros" aria-expanded="true" aria-controls="contenidoFiltros" data-form="datosFiltros">
+          <i class="fas fa-filter fa-1x p-3 mr-4 float-left black-text" aria-hidden="true" data-form="datosFiltros"></i>
+          <h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title" data-form="datosFiltros">FILTROS</h6>
+        </a>
+      </div>
+      <div id="collapseFiltros" class="collapse show" role="tabpanel" aria-labelledby="headingFiltros" data-parent="#contenidoFiltros">
+        <div class="card-body rgba-petro-strong  z-depth-1" style="padding-bottom: 0px !important;">
+          <br />
+          <div class="form-row">
+            <div class="col-lg-6">
+              <div class="form-row">
+                <div class="col-sm-6">
+                  <div class="md-form">
+                    <input type="text" class="form-control validate" maxlength="40" id="txtNroProceso" />
+                    <label for="txtNroProceso" class="active">Nro de proceso</label>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="md-form">
+                    <label for="cbmTipoProceso" class="active">Tipo de proceso</label>
+                    <select class="form-control sistcorrAutocompleRemoto" id="cbmTipoProceso" style="margin-top: 3px; margin-bottom: 2.5rem;">
+                      <option selected="selected" value="">[TODOS]</option>
+                      <option th:each="tp : ${tiposProceso}" th:value="${tp.codigo}" th:text="${tp.descripcion}"></option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-row">
+                <div class="col-sm-6">
+                  <div class="md-form">
+                    <input type="text" class="form-control validate" id="txtNroMemo" maxlength="30" />
+                    <label for="txtNroMemo" class="active">N&uacute;mero de Memo</label>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="md-form">
+                    <label for="cmbDependenciaCC" class="active">Dependencia</label>
+                    <select class="form-control sistcorrAutocompleRemoto" id="cmbDependenciaCC" selected="selected">
+                      <option selected="selected" value="0000">[TODAS]</option>
+											<option th:each="dep : ${dependencias}" th:value="${dep.codigo}" th:text="${dep.descripcion}"></option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-sm-12" align="right">
+              <button class="btn btn-petroperu-rojo" type="button" id="btnResetearCC">Limpiar</button>
+              <button class="btn btn-petroperu-verde" type="button" id="btnBuscarCC">Buscar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

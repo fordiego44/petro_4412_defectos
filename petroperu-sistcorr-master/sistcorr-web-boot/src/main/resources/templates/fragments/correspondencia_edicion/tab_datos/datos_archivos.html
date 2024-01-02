@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div class="card mb-2" th:fragment="datos_archivos">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosArchivos" data-form="datosArchivos">
+			<a data-toggle="collapse" data-parent="#acordionDatos"
+				id="btnDatosArchivos"
+				href="#collapseDatosArchivos" aria-expanded="false"
+				aria-controls="contenidoDatosArchivos" data-form="datosArchivos">
+				<i class="fas fa-file-archive fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosArchivos"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosArchivos">ARCHIVOS</h6>
+			</a>
+		</div>
+
+		<div id="collapseDatosArchivos" class="collapse show"
+			role="tabpanel" aria-labelledby="headingDatosArchivos"
+			data-parent="#contenidoDatosArchivos">
+			<div class="card-body rgba-petro-strong  z-depth-1">
+				<div align="left">
+					<button class="btn-floating btn-petroperu-verde" data-toggle="modal" style=" border: none; outline:none;" id="btnOpenModalNuevoArchivo">
+						<i class="fas fa-file-pdf" data-toggle="tooltip" title="Adjuntar documento"></i>
+					</button>
+					<div class="float-right icon-texto-firma-digital">Firma Digital</div>
+				</div>
+						
+				<ul class="list-group" id="listaArchivosAdjuntos">
+					<li class="list-group-item">
+						No archivos adjuntos
+					</li>
+				</ul>
+							
+				
+			</div>
+		</div>
+		
+		<script type="text/x-handlebars-template" id="template-archivosAdjuntos">
+		<ul class="list-group">
+		{{#each adjuntos}}
+			<li class="list-group-item" id="adjunto_{{identificador}}">
+				<i class="fas {{icono_documento this}} mr-3 {{descargar this}}"  data-identificador="{{identificador}}"></i>
+				<span class="{{descargar this}}" data-identificador="{{identificador}}">{{nombre}}</span>
+				<i class="fas fa-trash-alt btnEliminarAdjunto icon-archivo-eliminar" data-identificador="{{identificador}}" data-toggle="tooltip" title="Borrar"></i>
+				<div class="custom-control custom-switch icon-archivo-principal"><input type="checkbox" class="custom-control-input archivo-principal" id="corr_archivo_{{identificador}}" name="corr_archivo_{{identificador}}" /><label class="custom-control-label label_switch" for="corr_archivo_{{identificador}}"></label></div>			
+			</li>
+		{{/each}}
+		</ul>
+		
+		</script>
+		
+		<div class="modal fade" id="modalNueoArchivAdjunto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		    	<form id="frmAdjuntarArchivo"> 
+			      <div class="modal-header text-center">
+			        <h4 class="modal-title w-100 font-weight-bold">Adjuntar Documento</h4>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			     
+			      	<div class="modal-body mx-2">
+			      		<div class="md-form mb-3">
+			      			<div class="custom-control custom-switch">
+			      				<input type="checkbox" class="custom-control-input" id="arc_principal" name="arc_principal" title=" "/>
+								<label class="custom-control-label label_switch" for="arc_principal">Requiere firma digital</label>
+			      			</div>
+			      		</div>
+			      		<div class="md-form mb-3" style="margin-top: 20px !important">
+			      			<input  id="arc_file" type="file" class="form-control" style="border:none !important" name="file" required="required" th:attr="data-max-size=${sizeFileUpload},data-max-size-sin-firma-digital=${sizeFileUploadSinFirmaDigital}" multiple="multiple" />
+			      		</div>
+			      		<br/>
+			      	</div>
+			     
+			      <div class="modal-footer d-flex justify-content-center">
+			      	<button class="btn btn-petroperu-verde" type="submit" id="btnAdjuntar">Guardar</button>
+			        <button class="btn btn-petroperu-rojo" type="button"  data-dismiss="modal">Cancelar</button>
+			      </div>
+		    	</form>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</body>
+</html>

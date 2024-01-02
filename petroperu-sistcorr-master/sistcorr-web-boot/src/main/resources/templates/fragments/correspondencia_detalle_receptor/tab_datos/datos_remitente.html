@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div class="card mb-2" th:fragment="datos_remitente">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosAsigancion" data-form="datosAsignacion">
+			<a data-toggle="collapse" data-parent="#acordionDatosReceptor"
+				id="btnDatosAsignacion"
+				href="#collapseDatosAsignacion" aria-expanded="true"
+				aria-controls="contenidoDatosAsignacion" data-form="datosRemitente">
+				<i class="fas fa-building fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosAsignacion"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosAsignacion">REMITENTE</h6>
+				<input type="hidden" id="proceso" th:value="${tarea.proceso}" />
+				<input type="hidden" id="codigoTraza" value="171" />
+			</a>
+		</div>
+
+		<div id="collapseDatosAsignacion" class="collapse"
+			role="tabpanel" aria-labelledby="headingDatosAsigancion"
+			data-parent="#contenidoDatosAsignacion">
+			<div class="card-body rgba-petro-strong  z-depth-1">
+				<form action="">
+					<div class="row">
+						<div class="col">						
+							<span class="labelTextArea">DNI</span>
+							<div>&nbsp;</div>
+							<div class="more textarea" th:text="${correspondenciaMPV.dni}"></div>
+						</div>
+						<div class="col">
+							<span class="labelTextArea">Nombres y Apellidos</span>
+							<div>&nbsp;</div>
+							<div class="more textarea" th:text="${correspondenciaMPV.nombresApellido}"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<span class="labelTextArea">RUC</span>
+							<div>&nbsp;</div>
+							<div class="more textarea" th:text="${correspondenciaMPV.ruc}"></div>
+						</div>
+						<div class="col">
+							<span class="labelTextArea">Raz&oacute;n Social</span>
+							<div>&nbsp;</div>
+							<div class="more textarea" th:text="${correspondenciaMPV.razonSocial}"></div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

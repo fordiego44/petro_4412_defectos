@@ -1,0 +1,116 @@
+<!-- 9000004412 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body> 
+	<div class="tab-pane fade" id="contenidoTraza"	role="tabpanel" aria-labelledby="follow-tab-classic-orange"
+		th:fragment="main">
+		<div id="cabeceraTraza">
+			<div class="row">
+				<button class="btn-floating btn-petroperu-verde" id="btnOpenModalTraza" data-toggle="modal" data-target="#modalTraza" style=" border: none;
+    outline:none;">
+					<i class="fas fa-building" data-toggle="tooltip" title="Agregar copia"></i>
+				</button>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card" >
+						<div class="card-body">
+							<div id="listaCopias">
+								<a href="#!" class="list-group-item list-group-item-action flex-column align-items-start" >No existen destinatarios</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/x-handlebars-template" id="template-copias">
+		{{#each copias}}
+		<a href="#!" id="destinatarioCopia_{{identificador}}" class="list-group-item list-group-item-action flex-column align-items-start">
+			<div class="d-flex w-100 justify-content-between">
+				<h5 class="mb-2 h5">{{dependencia}}</h5>
+				<i class="fas fa-trash-alt btnEliminarCopia" data-identificador="{{identificador}}" data-toggle="tooltip" title="Borrar"></i>
+			</div>
+ 			<p class="mb-2">{{lugarTrabajo}}</p>
+		</a>
+		{{/each}}
+		</script>
+		
+		<div class="modal fade" id="modalTraza" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+	
+			      <div class="modal-header text-center">
+			        <h4 class="modal-title w-100 font-weight-bold">Agregar Destinatario Interno</h4>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btnCloseCopias">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			     	
+			     	<div class="modal-body mx-3"> 
+			     		<br/>
+			     		<div class="form-row">
+							<div class="col-sm-12">
+								<div class="md-form mb-3">
+									<label for="rmtTrabajo" class="active">Lugar de Trabajo</label>
+									<select class="form-control sistcorrAutocompleRemoto"
+										id="rmtTrabajo"  style="margin-top: 3px;"
+										data-msgerror="El campo tipo de correspondencia es obligatorio">
+										<option selected="selected" value="0">Seleccione</option>
+									 	<option  value="1">OP1</option>
+									 	<option  value="2">OP2</option>
+									</select>
+								</div>
+							</div>
+							 
+						</div> 
+						<div class="form-row">
+							<div class="col-sm-12">
+								<div class="md-form mb-3">
+									<label for="rmtDestino" class="active">Dependencia destino</label>
+									<select class="form-control sistcorrAutocompleRemoto"
+										id="rmtDestino"  style="margin-top: 3px;"
+										data-msgerror="El campo tipo de correspondencia es obligatorio">
+										<option selected="selected" value="0">Seleccione</option>
+									 	<option  value="1">OP1</option>
+									 	<option  value="2">OP2</option>
+									</select>
+								</div>
+							</div>
+							 
+						</div> 
+						<div class="form-row">
+							<div class="col-sm-12">
+								<div class="md-form mb-3">
+									<label for="rmtPersona" class="active">Persona Destino</label>
+									<select class="form-control sistcorrAutocompleRemoto"
+										id="rmtPersona"  style="margin-top: 3px;"
+										data-msgerror="El campo tipo de correspondencia es obligatorio">
+										<option selected="selected" value="0">Seleccione</option>
+									 	<option  value="1">OP1</option>
+									 	<option  value="2">OP2</option>
+									</select>
+								</div>
+							</div>
+							 
+						</div> 
+			     		   
+			     	 
+			      	</div>
+			      <div class="modal-footer d-flex justify-content-center">
+			      	<button class="btn btn-petroperu-verde" type="button" id="copia_btnAgregar">Guardar</button>
+			        <button class="btn btn-petroperu-rojo" type="button"  data-dismiss="modal" id="btnCancarlarAgregarCopia">Cancelar</button>
+			      </div>
+	
+		    </div>
+		  </div>
+		</div>
+		
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div  class="card mb-2"	th:fragment="main">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosRemitente" data-form="datosFiltros">
+			<a data-toggle="collapse" data-parent="#acordionFiltros"
+				id="btnFiltros"
+				href="#collapseFiltros" aria-expanded="true"
+				aria-controls="contenidoFiltros" data-form="datosFiltros">
+				<i class="fas fa-filter fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosFiltros"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosFiltros">FILTROS</h6>
+			</a>
+		</div>
+		
+		<div id="collapseFiltros" class="collapse show"
+			role="tabpanel" aria-labelledby="headingFiltros"
+			data-parent="#contenidoFiltros">
+			<div class="card-body rgba-petro-strong  z-depth-1" style="padding-bottom: 0px !important;">
+				<br/>
+				<div class="form-row">
+						<div class="col-sm-6">
+							<div class="md-form mb-3">
+								<label for="cmbDependenciaOriginadora">Dependencia
+									Originadora</label> <select
+									class="form-control sistcorrAutocompleRemoto"
+									id="cmbDependenciaOriginadora" 
+									data-msgerror="El campo dependencia originadora es obligatorio"></select>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="md-form mb-3">
+								<label for="cmbDependenciaRemitente">Dependencia
+									Remitente</label> <select class="form-control sistcorrAutocompleRemoto"
+									id="cmbDependenciaRemitente"
+									data-msgerror="El campo dependencia originadora es obligatorio"></select>
+							</div>
+						</div>
+				</div>
+					<div class="form-row">
+						<div class="col-sm-4">
+							<div class="md-form mb-3">
+								<input type="text" class="form-control validate" maxlength="20"
+									id="txtCorrelativo" /> <label for="txtCorrelativo" class="active">Nro. Documento</label>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="md-form mb-3">
+								<input type="text" class="form-control validate" id="txtAsunto"  maxlength="254"/>
+								<label for="txtAsunto" class="active">Asunto</label>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="md-form mb-3">
+								<label for="rmt_tipoCorrespondencia" class="active">Estado</label>
+								<select class="form-control sistcorrAutocompleRemoto"
+									id="cbmEstado"  style="margin-top: 3px;"
+									data-msgerror="El campo tipo de correspondencia es obligatorio">
+									<option selected="selected" value="0">Seleccione</option>
+									<option th:each="estado : ${estados_correspondencia}"
+										th:value="${estado}" th:text="${estado}"></option>
+								</select>
+							</div>
+						</div>
+
+					</div>
+					
+					<div class="form-row">
+						<div class="col-sm-5">
+							<div class="md-form mb-3">
+								<i class="far fa-calendar-alt float-right icon-date" id="btnFechaModificaDesde"></i>
+								<input type="text" class="form-control validate"
+									id="txtFechaModificaDesde" style="margin-top: 15px" th:value="${fechaDesde}"/> <label
+									for="txtFechaModificaDesde">Fecha Modificaci&oacute;n - Desde</label>
+							</div>
+						</div>
+						<div class="col-sm-1">
+						</div>
+						<div class="col-sm-5">
+							<div class="md-form mb-3">
+								<i class="far fa-calendar-alt float-right icon-date" id="btnFechaModificaHasta"></i>
+								<input type="text" class="form-control validate"
+									id="txtFechaModificaHasta" style="margin-top: 15px" th:value="${fechaActual}"/> <label
+									for="txtFechaModificaHasta">Fecha Modificaci&oacute;n - Hasta</label>
+							</div>
+						</div>
+						<div class="col-sm-1" align="right">
+							<button type="button" class="btn btn-petroperu-verde px-3"
+								id="btnMasFiltros" data-toggle="tooltip" title="Aplicar m&aacute;s filtros">
+								<i class="fas fa-plus"></i> <i class="fas fa-filter"></i>
+							</button>
+							<button type="button" class="btn btn-petroperu-verde px-3"
+								id="btnMenosFiltros" data-toggle="tooltip" title="Aplicar menos Filtros">
+								<i class="fas fa-minus"></i> <i class="fas fa-filter"></i>
+							</button>
+						</div>
+					</div>
+					
+					<div class="form-row filtro_secundario">
+						<div class="col-sm-6">
+							<div class="md-form mb-3">
+								<label for="cmbNombreOriginador">Nombre
+									del Originador</label>
+									<select class="form-control sistcorrAutocompleRemoto"
+									id="cmbNombreOriginador"
+									data-msgerror="El campo dependencia originadora es obligatorio"></select>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="md-form mb-3">
+								<label for="rmt_tipoCorrespondencia" class="active" style="margin-top: -8px;">Tipo
+									de Correspondencia</label> <select
+									class="form-control sistcorrAutocompleRemoto"
+									id="cbmTipoCorrespondencia"  style="margin-top: 8px;"
+									data-msgerror="El campo tipo de correspondencia es obligatorio">
+									<option selected="selected" value="0">Seleccione</option>
+									<option th:each="tipo : ${tiposCorrespondencia}"
+										th:value="${tipo.id}" th:text="${tipo.text}"></option>
+								</select>
+							</div>
+						</div>
+	
+					</div>
+					<div class="form-row filtro_secundario">
+						<div class="col-sm-6">
+							<div class="md-form mb-3">
+								<i class="far fa-calendar-alt float-right icon-date" id="btnFechaDesde"></i>
+								<input type="text" class="form-control validate"
+									id="txtFechaDocumentoDesde" style="margin-top: 15px"/> <label
+									for="txtFechaDocumentoDesde">Fecha del Documento - Desde</label>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="md-form mb-3">
+								<i class="far fa-calendar-alt float-right icon-date" id="btnFechaHasta"></i>
+								<input type="text" class="form-control validate"
+									id="txtFechaDocumentoHasta" style="margin-top: 15px"/> <label
+									for="txtFechaDocumentoHasta">Fecha del Documento - Hasta</label>
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-row filtro_secundario" >
+						<div class="col-sm-3" style="margin-bottom: 10px">
+							<div class="md-form mb-3">
+								<label for="cbmFlujoFirma" class="active" style="margin-top: -8px;">
+									Flujo de Firma
+								</label>
+								<select class="form-control sistcorrAutocompleRemoto"
+								id="cbmFlujoFirma" >
+									<option selected="selected" value="2">Todos</option>
+									<option value="1">Digital</option>
+									<option value="0">Manual</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-3" style="margin-bottom: 10px">
+							<div class="md-form mb-3">
+								<label for="cbmConfidencialidad" class="active" style="margin-top: -8px;">
+									Confidencial
+								</label>
+								<select class="form-control sistcorrAutocompleRemoto"
+								id="cbmConfidencialidad" >
+									<option selected="selected" value="2">Todos</option>
+									<option value="1">Si</option>
+									<option value="0">No</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-3" style="margin-bottom: 10px">
+							<div class="md-form mb-3">
+								<label for="cbmUrgente" class="active" style="margin-top: -8px;">
+									Urgente
+								</label>
+								<select class="form-control sistcorrAutocompleRemoto"
+								id="cbmUrgente" >
+									<option selected="selected" value="2">Todos</option>
+									<option value="1">Si</option>
+									<option value="0">No</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="md-form mb-3" style="margin-bottom: 10px">
+								<label for="cbmDespachoFisico" class="active" style="margin-top: -8px;">
+									Tipo de despacho
+								</label>
+								<select class="form-control sistcorrAutocompleRemoto"
+								id="cbmDespachoFisico" >
+									<option selected="selected" value="2">Todos</option>
+									<option value="1">Despacho f&iacute;sico</option>
+									<option value="3">Correo electr&oacute;nico</option>
+									<option value="0">Sin despacho</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-row filtro_secundario" style="margin-top: 20px;">
+						<div class="col-sm-6">
+							<div class="md-form mb-3" style="margin-bottom: 10px">
+							<label for="cbmTipoEmision" class="active">Tipo de emisi&oacute;n</label>
+							<select class="form-control sistcorrAutocompleRemoto"
+								id="cbmTipoEmision" >
+									<option selected="selected" value="0">Todos</option>
+									<option th:each="tipo : ${listaTipoEmision}" th:value="${tipo.id}" th:text="${tipo.nombre}">TIPO</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<label>Tipo de Depen. Externa</label>
+								<div class="custom-control custom-radio custom-control-inline" style="margin-right: 60px;">
+								  <input type="radio" class="custom-control-input" id="desExterno_nacional"  name="rbtnTipoDestinatario" value="true"/>
+								  <label class="custom-control-label label_switch" for="desExterno_nacional">Nacional</label>
+								</div>
+								<div class="custom-control custom-radio custom-control-inline" style="margin-right: 60px">
+								  <input type="radio" class="custom-control-input" id="desExterno_internacional"  name="rbtnTipoDestinatario" value="false"/>
+								  <label class="custom-control-label label_switch" for="desExterno_internacional">Internacional</label>
+								</div>
+						</div>
+					</div>
+					
+					<div class="form-row filtro_secundario" style="margin-top: 25px;">
+						<div class="col-sm-6" id="dependenciaDestinatariaInterna" style="display: none">
+							<div class="md-form mb-3" >
+								<label for="cbmDependenciaDestinatariaInterno">Dependencia
+									Destinataria</label>
+								<select class="form-control sistcorrAutocompleRemoto"
+									id="cbmDependenciaDestinatariaInterno" 
+									data-msgerror="El campo dependencia originadora es obligatorio"></select>
+							</div>
+						</div>
+						<div class="col-sm-6" id="dependenciaDestinatariaExternaNacionalRemove" style="display: none">
+							<div class="md-form mb-3">
+								<label	for="cbmDependenciaDestinatariaExternaNacional">Raz&oacute;n Social</label>
+								<select class="form-control sistcorrAutocompleRemoto"
+									id="cbmDependenciaDestinatariaExternaNacional" 
+									data-msgerror="El campo dependencia originadora es obligatorio"></select>
+							</div>
+						</div>
+						<div class="col-sm-6" id="dependenciaDestinatariaExternaNacional" style="display: none">
+							<div class="md-form mb-3">
+								<input type="text" class="form-control validate" style="margin-top: 5px;"
+									id="txtDependenciasDestinatariaExternaNacional" /> <label
+									for="txtDependenciasDestinatariaExternaNacional">Raz&oacute;n Social</label>
+							</div>
+						</div>
+						<div class="col-sm-6" id="dependenciaDestinatariaExternaInternaNacional" style="display: none">
+							<div class="md-form mb-3">
+								<input type="text" class="form-control validate" style="margin-top: 5px;"
+									id="txtDependenciasDestinatariaExterna" /> <label
+									for="txtDependenciasDestinatariaExterna">Raz&oacute;n Social</label>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="md-form mb-3">
+								<label for="cbmDependenciaCopia">Dependencia Copia</label>
+								<select class="form-control sistcorrAutocompleRemoto"
+									id="cbmDependenciaCopia" 
+									data-msgerror="El campo dependencia originadora es obligatorio"></select>
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-row">
+						<div class="col-sm-12" align="right">
+							<button class="btn btn-petroperu-rojo" type="button" id="btnResetear">Limpiar</button>
+							<button class="btn btn-petroperu-verde" type="button" id="btnBuscar">Buscar</button>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

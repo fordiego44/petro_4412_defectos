@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+</head>
+<body>
+
+	<div  class="card mb-2"	th:fragment="main">
+		<div class="card-header p-0 z-depth-1 plomo_relleno" role="tab"
+			id="headingDatosRemitente" data-form="datosFiltros">
+			<a data-toggle="collapse" data-parent="#acordionFiltros"
+				id="btnFiltros"
+				href="#collapseFiltros" aria-expanded="true"
+				aria-controls="contenidoFiltros" data-form="datosFiltros">
+				<i class="fas fa-filter fa-1x p-3 mr-4 float-left black-text"
+				aria-hidden="true" data-form="datosFiltros"></i>
+				<h6 class="text-uppercase mb-0 py-3 mt-1 sistcorr_acortion_title"
+					data-form="datosFiltros">FILTROS</h6>
+			</a>
+		</div>
+		
+		<div id="collapseFiltros" class="collapse show"
+			role="tabpanel" aria-labelledby="headingFiltros"
+			data-parent="#contenidoFiltros">
+			<div class="card-body rgba-petro-strong  z-depth-1" style="padding-bottom: 0px !important;">
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="asigCorrelativo" class="form-control" /> 
+							<label data-error="error" data-success="correcto" for="asigFecha" id="lblAsigCorrelativo">Correlativo</label><!-- TICKET 9000004269 ADD id="lblAsigCorrelativo" -->
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<select class="form-control sistcorrSelect" id="asigEstado">
+								<option value="0">[TODOS]</option>
+			        			<option th:each="est : ${estadosAsig}" th:value="${est.codigoEstado}" th:text="${est.estado}"></option>
+			        		</select>
+							<label data-error="error" data-success="correcto" for="asigEstado" class="active">Estado</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<input type="text" id="asigNumeroDocumento" class="form-control" />
+							<label data-error="error" data-success="correcto" for="asigNumeroDocumento">N&uacute;mero de Documento</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<i class="far fa-calendar-alt float-right icon-date" id="btnFechaAsignacionDesde"></i>
+		        			<input type="text" id="asigFechaAsignacionDesde" class="form-control" /> 
+							<label data-error="error" for="asigFechaAsignacionDesde">Fecha de Asignaci&oacute;n Desde</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<i class="far fa-calendar-alt float-right icon-date" id="btnFechaAsignacionHasta"></i>
+		        			<input type="text" id="asigFechaAsignacionHasta" class="form-control" />
+		        			<label data-error="error" for="asigFechaAsignacionHasta">Fecha de Asignaci&oacute;n Hasta</label>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="md-form mb-3">
+							&nbsp;
+						</div>
+					</div>
+					<div class="col-sm-2" align="right">
+						<button type="button" class="btn btn-petroperu-verde px-3"
+							id="btnMasFiltros" data-toggle="tooltip" title="Aplicar m&aacute;s filtros">
+							<i class="fas fa-plus"></i> <i class="fas fa-filter"></i>
+						</button>
+						<button type="button" class="btn btn-petroperu-verde px-3"
+							id="btnMenosFiltros" data-toggle="tooltip" title="Aplicar menos Filtros">
+							<i class="fas fa-minus"></i> <i class="fas fa-filter"></i>
+						</button>
+					</div>
+				</div>
+				<div class="form-row filtro_secundario">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<select class="form-control sistcorrSelect" id="asigTipoAccion">
+								<option value="">[TODOS]</option>
+								<option th:each="tipo : ${acciones}" th:value="${tipo.codigoAccion}" th:text="${tipo.accion}"></option>
+							</select>
+							<label data-error="error" data-success="correcto" for="asigTipoAccion" class="active">Tipo de Acci&oacute;n</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+			        		<label for="asigDependenciaAsignante" class="active">Dependencia Asignante</label>
+							<select class="form-control sistcorrSelect" id="asigDependenciaAsignante">
+								<option value="0">[TODOS]</option>
+			        			<option th:each="dep : ${dependenciasAsignantes}" th:value="${dep.codigo}" th:text="${dep.descripcion}"></option>
+			        		</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-row filtro_secundario">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<label for="asigPersonaAsignada" class="active">Persona Asignada</label>
+							<select class="form-control sistcorrSelect" id="asigPersonaAsignada">
+								<option value="">[TODOS]</option>
+			        			<option th:each="per : ${personasAsignadas}" th:value="${per.id}" th:text="${per.nombreApellido}"></option>
+			        		</select>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<i class="far fa-calendar-alt float-right icon-date" id="btnFechaVencimientoDesde"></i>
+		        			<input type="text" id="asigFechaVencimientoDesde" class="form-control" />
+							<label data-error="error" for="asigFechaVencimientoDesde">Fecha de Vencimiento Desde</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-row filtro_secundario">
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							<i class="far fa-calendar-alt float-right icon-date" id="btnFechaVencimientoHasta"></i>
+		        			<input type="text" id="asigFechaVencimientoHasta" class="form-control" />
+							<label data-error="error" for="asigFechaVencimientoHasta">Fecha de Vencimiento Hasta</label>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="md-form mb-3">
+							&nbsp;
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-row">
+					<div class="col-sm-12" align="right">
+						<button class="btn btn-petroperu-rojo" type="button" id="btnLimpiar">Limpiar</button>
+						<button class="btn btn-petroperu-verde" type="button" id="btnBuscar">Buscar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
