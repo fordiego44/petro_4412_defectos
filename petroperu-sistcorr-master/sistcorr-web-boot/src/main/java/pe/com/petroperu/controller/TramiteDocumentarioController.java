@@ -82,6 +82,9 @@ import pe.com.petroperu.util.datatable.entity.DatatableRequestConsultaDespacho;
 import pe.com.petroperu.util.datatable.entity.DatatableRequestConsultaEstDigContratacion;
 import pe.com.petroperu.util.datatable.entity.DatatableRequestConsultaValijasRecibidas;
 
+import pe.com.petroperu.model.Planilla;
+import pe.com.petroperu.model.PlanillaGuiaRemision;
+
 @Controller
 @RequestMapping({ "/app/" })
 @PropertySource({ "classpath:application.properties" })
@@ -216,6 +219,84 @@ public class TramiteDocumentarioController {
 	}
 	
 	/*INI Ticket 9000004412*/
+
+	@PostMapping(value = {"/generarPlanilla"}, produces = {"application/json"})
+	public ResponseEntity<Respuesta<Planilla>> generarPlanilla(@RequestBody Planilla data){
+		this.LOGGER.info("[INICIO] registrarValija");
+		Respuesta<Planilla> respuesta = new Respuesta<>();
+		respuesta.estado = true;
+		respuesta.mensaje = "OK";
+		UsuarioPetroperu usuario = obtenerUsuario(); 
+		String mensajeRespuesta = "";
+		 System.out.println("usuario:" + usuario.getUsername());
+		 System.out.println("alcance:" + data.getAlcance());
+		 System.out.println("courier:" + data.getCourier());
+		 System.out.println("urgente:" + data.getUrgente());
+
+		mensajeRespuesta = this.filenetService.generarPlanilla(usuario.getUsername(),data.getAlcance(), data.getCourier(), data.getUrgente());
+		 System.out.println("Mensaje Respuesta:" + mensajeRespuesta);
+		if(mensajeRespuesta != null){
+			respuesta.estado = true;
+			respuesta.mensaje = mensajeRespuesta;
+		} else {
+			respuesta.estado = false;
+			respuesta.mensaje = mensajeRespuesta;
+		}
+		
+		return new ResponseEntity<>(respuesta, HttpStatus.OK);
+		
+	}
+	
+	@PostMapping(value = {"/generarPlanillaGuiaRemision"}, produces = {"application/json"})
+	public ResponseEntity<Respuesta<PlanillaGuiaRemision>> generarPlanillaGuiaRemision(@RequestBody PlanillaGuiaRemision data){
+		this.LOGGER.info("[INICIO] registrarValija");
+		Respuesta<PlanillaGuiaRemision> respuesta = new Respuesta<>();
+		respuesta.estado = true;
+		respuesta.mensaje = "OK";
+		UsuarioPetroperu usuario = obtenerUsuario(); 
+		String mensajeRespuesta = "";
+		 System.out.println("usuario:" + usuario.getUsername());
+		 System.out.println("alcance:" + data.getLugarTrabajo());
+		 System.out.println("courier:" + data.getCourier());
+ 
+		mensajeRespuesta = this.filenetService.generarPlanillaGuiaRemision(usuario.getUsername(),data.getLugarTrabajo(), data.getCourier());
+		 System.out.println("Mensaje Respuesta:" + mensajeRespuesta);
+		if(mensajeRespuesta != null){
+			respuesta.estado = true;
+			respuesta.mensaje = mensajeRespuesta;
+		} else {
+			respuesta.estado = false;
+			respuesta.mensaje = mensajeRespuesta;
+		} 
+		return new ResponseEntity<>(respuesta, HttpStatus.OK);
+		
+	}
+	
+	@PostMapping(value = {"/generarGuiaRemision"}, produces = {"application/json"})
+	public ResponseEntity<Respuesta<Planilla>> generarGuiaRemision(@RequestBody PlanillaGuiaRemision data){
+		this.LOGGER.info("[INICIO] registrarValija");
+		Respuesta<Planilla> respuesta = new Respuesta<>();
+		respuesta.estado = true;
+		respuesta.mensaje = "OK";
+		UsuarioPetroperu usuario = obtenerUsuario(); 
+		String mensajeRespuesta = "";
+		 System.out.println("usuario:" + usuario.getUsername());
+		 System.out.println("alcance:" + data.getLugarTrabajo());
+		 System.out.println("courier:" + data.getCourier()); 
+
+		mensajeRespuesta = this.filenetService.generarPlanillaGuiaRemision(usuario.getUsername(),data.getLugarTrabajo(), data.getCourier());
+		 System.out.println("Mensaje Respuesta:" + mensajeRespuesta);
+		if(mensajeRespuesta != null){
+			respuesta.estado = true;
+			respuesta.mensaje = mensajeRespuesta;
+		} else {
+			respuesta.estado = false;
+			respuesta.mensaje = mensajeRespuesta;
+		} 
+		return new ResponseEntity<>(respuesta, HttpStatus.OK);
+		
+	}
+
 	@GetMapping({ "/valijas" })
 	public ModelAndView valijas(Locale locale) {
 		this.LOGGER.info("[INICIO] valijas");
@@ -1095,7 +1176,9 @@ public class TramiteDocumentarioController {
 			
 			view.addObject("nombreUsuario", usuario.getNombreCompleto());
 			view.addObject("listaMenu", this.correspondeciaService.obtenerMenuSistcorr(usuario, locale));  
-		 
+			view.addObject("listaCourier",this.filenetService.listaCouriers(""));
+			view.addObject("listaLugarTrabajo",this.filenetService.listaLugares(""));
+
 			view.addObject("sizeFileUpload", this.tamanioMaxArchivoUpload);
 			view.addObject("sizeFileUploadSinFirmaDigital", this.tamanioMaxArchivoUploadSinFirmaDigital); 
 			view.addObject("errores", errores); 
@@ -1117,6 +1200,7 @@ public class TramiteDocumentarioController {
 			view.addObject("titulo", this.messageSource.getMessage("sistcorr.correspondencia.generar_planillas", null, locale)); 
 			
 			view.addObject("usuario", usuario);
+			view.addObject("listaCourier",this.filenetService.listaCouriers(""));
 			view.addObject("username", usuario.getUsername());
 			
 			view.addObject("nombreUsuario", usuario.getNombreCompleto());

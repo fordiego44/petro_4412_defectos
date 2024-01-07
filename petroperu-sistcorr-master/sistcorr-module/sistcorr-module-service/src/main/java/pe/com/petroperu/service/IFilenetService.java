@@ -279,5 +279,10 @@ public interface IFilenetService {
 	List<ItemFilenet> listarMotivos(String texto);
 	String registrarDevolucion(Devolucion devolucion, String usuario, String token, Locale locale);
 	String asociarOrdenServicio(OrdenServicio ordenServicio, String usuario, String token, Locale locale);
+	
+	String generarPlanilla(String usuario, String alcance, String curier, String urgente);
+	String generarPlanillaGuiaRemision(String usuario, String lugarTrabajo, String courier);
+
+	
 	/*FIN Ticket 9000004412*/
 }

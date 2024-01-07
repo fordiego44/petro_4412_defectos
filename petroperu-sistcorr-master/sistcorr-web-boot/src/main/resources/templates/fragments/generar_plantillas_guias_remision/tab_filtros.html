@@ -33,8 +33,8 @@
 									id="rmt_trabajo"  style="margin-top: 3px;"
 									data-msgerror="El campo tipo de correspondencia es obligatorio">
 									<option selected="selected" value="0">[SELECCIONE]</option>
-								 	<option  value="1">OP1</option>
-								 	<option  value="2">OP2</option>
+								    <option th:each="dep : ${listaLugarTrabajo}" th:value="${dep.codigo}" th:text="${dep.descripcion}"></option>
+								 	 
 								</select>
 							</div>
 					</div>
@@ -45,15 +45,13 @@
 									id="rmt_courier"  style="margin-top: 3px;"
 									data-msgerror="El campo tipo de correspondencia es obligatorio">
 									<option selected="selected" value="0">[SELECCIONE]</option>
-								 	<option  value="1">OP1</option>
-								 	<option  value="2">OP2</option>
+									<option th:each="dep : ${listaCourier}" th:value="${dep.codigo}" th:text="${dep.descripcion}"></option>
+								  
 								</select>
 							</div>
 					</div>
-				</div>
-				 
-				   
-			  	<div class="form-row">
+				</div> 
+			  	<div class="form-row" style="margin-top: 20px;">
 					<div class="col-sm-12">
 						<div class="md-form mb-3">
 							<textarea id="rmt_respuesta" class="md-textarea form-control sistcorrTextArea validate" required="required" data-msgerror="El campo asunto es obligatorio" rows="2" maxlength="254"></textarea>

@@ -1,0 +1,5 @@
+sw-server/
+.recommenders/
+.metadata/
+RemoteSystemsTempFiles/
+clientdb.xml

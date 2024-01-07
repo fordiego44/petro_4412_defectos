@@ -383,18 +383,18 @@ public class ContratacionServiceImpl implements IContratacionService {
 		LOGGER.info("[INICIO] consultarEstDigContratacionExcel " + filtro.toString());
 		Respuesta<ByteArrayInputStream> respuesta = new Respuesta<>();
 		try {
-			Respuesta<EstDigContratacionConsultaDTO> consulta = consultarEstDigContratacion(filtro,locale); 
+			//Respuesta<EstDigContratacionConsultaDTO> consulta =  consultarEstDigContratacion(filtro,locale); 
 			//LOGGER.info("[INICIO] consultarEstDigContratacionExcel -consulta.estado" + consulta.estado);
 			IReport<ByteArrayInputStream> report;
-			if(consulta.estado) {
-				report = new ReportExcelEstDigContratacion(consulta.datos, usuarioCreador);
-			} else {
-				report = new ReportExcelEstDigContratacion(new ArrayList<>(), usuarioCreador);
-			}
-			report.prepareRequest();
-			report.process();
-			respuesta.estado = true;
-			respuesta.datos.add(report.getResult());
+			//if(consulta.estado) {
+			//	report = new ReportExcelEstDigContratacion(consulta.datos, usuarioCreador);
+			//} else {
+			//	report = new ReportExcelEstDigContratacion(new ArrayList<>(), usuarioCreador);
+			//}
+			//report.prepareRequest();
+			//report.process();
+			//respuesta.estado = true;
+			//respuesta.datos.add(report.getResult());
 		} catch (Exception e) {
 			respuesta.estado = false;
 			respuesta.mensaje = e.getMessage();
@@ -402,7 +402,6 @@ public class ContratacionServiceImpl implements IContratacionService {
 		LOGGER.info("[FIN] consultarCorrespondenciasExcelEventoDocumento " + filtro.toString());
 		return respuesta;
 	}
-	
 	
 	@Override
 	public Respuesta<DespachoConsultaDTO> consultaDespachoPaginado(String usuario, FiltroConsultaDespacho filtro, int itemsPorPagina, int numeroPagina, String nombreColumna, String desc, String exportaExcel, Locale locale) {

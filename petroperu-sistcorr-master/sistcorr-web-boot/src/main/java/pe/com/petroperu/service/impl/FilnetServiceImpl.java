@@ -313,7 +313,51 @@ public class FilnetServiceImpl implements IFilenetService {
 	public List<ItemFilenet> eliminarIntegrante(String integrante, int codigoDependencia){
 		return this.filenetDAO.eliminarIntegrante(integrante, codigoDependencia);
 	}
+	@Override
+	public String generarPlanilla(String usuario, String alcance, String courier, String urgente) {
+		LOGGER.info("[INICIO] GENERAR PLANILLA");
+		String estado = "";
+		Respuesta<RespuestaApi> respuesta = new Respuesta<>();
+		try{
+			estado = filenetDAO.generarPlanilla(usuario, alcance, courier, urgente);
+			 System.out.println("estado:" + estado);
+
+			/*List<ItemFilenet> result = this.registrarTracking(tracking, usuario, modo);
+			if(result != null && result.size() > 0){
+				String nroBatch="";
+				this.LOGGER.info("Tamaño:" + result.size());
+				this.LOGGER.info(result.get(0).getDescripcion());
+				if("".equalsIgnoreCase(result.get(0).getDescripcion())){
+					this.LOGGER.info("Estado:" + estado);
+				}else{
+					estado = result.get(0).getDescripcion();
+					this.LOGGER.info("Estado:" + estado);
+				}
+			}else{
+				estado = "ERROR EN LA RESPUESTA";
+			} */
+		}catch(Exception e){
+			LOGGER.error("[ERROR] registrarTracking ", e);
+			estado = "ERROR";
+		}
+		return estado;
+	}
 	
+	@Override
+	public String generarPlanillaGuiaRemision(String usuario, String lugarTrabajo, String courier) {
+		LOGGER.info("[INICIO] GENERAR PLANILLA GUIA REMISION");
+		String estado = "";
+		Respuesta<RespuestaApi> respuesta = new Respuesta<>();
+		try{
+			estado = filenetDAO.generarPlanillaGuiaRemision(usuario, lugarTrabajo, courier);
+			 System.out.println("estado:" + estado);
+ 
+		}catch(Exception e){
+			LOGGER.error("[ERROR] registrarTracking ", e);
+			estado = "ERROR";
+		}
+		return estado;
+	}
 	@Override
 	public Respuesta<ByteArrayInputStream> consultarDependenciasExcel(FiltroConsultaDependencia filtro, String nombreUsuario, 
 			List<ItemFilenet> datosFuncionarios, List<ItemFilenet> jerarquias, List<ItemFilenet> lugares,

@@ -378,5 +378,8 @@ public interface IFilenetDAO {
 	List<Object[]> consultar_estDigContrataciones_paginado(String usuario, String nroProceso, String fechaDesde, String fechaHasta,String ruc, String estado, int itemsPorPagina, int numeroPagina, String exportaExcel, String nombreColumna, String desc);
 	List<Object[]> consultar_despacho_paginado(String usuario,String nroCorrelativo,String codEstado,String fechaDesde,String fechaHasta,String dependenciaRemitente,String usuarioRemitente,String numeroDocumento,String entidadExterna,String asunto,String guiaRemision, int itemsPorPagina, int numeroPagina, String exportaExcel, String nombreColumna, String desc);
 	List<Object[]> consultar_valijas_recibidas_paginado(String usuario,String nroCorrelativo,String codEstado,String fechaDesde,String fechaHasta,String cgcReceptor,String cgcRemitente,String courier, int itemsPorPagina, int numeroPagina, String exportaExcel, String nombreColumna, String desc);
+	String generarPlanilla(String usuario, String alcance, String curier, String urgente);
+	String generarPlanillaGuiaRemision(String usuario, String lugarTrabajo, String courier);
+	
 	/*FIN Ticket 9000004412*/
 }

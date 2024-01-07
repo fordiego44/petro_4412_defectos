@@ -3883,5 +3883,82 @@ public class FilenetDAOImpl extends JdbcDaoSupport implements IFilenetDAO {
 			}
 			return listRows;
 		}
+		
+		@Override
+		public String generarPlanilla(String usuario, String alcance, String courier, String urgente) {
+			String mensaje = null;
+			SimpleJdbcCall call = null;
+			
+			int courier_ = Integer.valueOf(courier);
+			
+			try {
+				call = (new SimpleJdbcCall(getDataSource())).withoutProcedureColumnMetaDataAccess().withSchemaName("dbo")
+						.withProcedureName("sic_sp_generar_planilla").declareParameters(
+								new SqlParameter[] { new SqlInOutParameter("@Usuario", Types.VARCHAR), 
+													 new SqlInOutParameter("@CodigoCourier", Types.INTEGER),
+													 new SqlInOutParameter("@Alcance", Types.VARCHAR), 
+													 new SqlInOutParameter("@Murgente", Types.VARCHAR),
+													 new SqlInOutParameter("@Mensaje", Types.VARCHAR),
+													 new SqlInOutParameter("@IdGeneracion", Types.VARCHAR),
+													 new SqlInOutParameter("@Aux", Types.VARCHAR)
+								});
+			 
+				MapSqlParameterSource mapSqlParameterSource = (new MapSqlParameterSource())
+													.addValue("@Usuario", usuario)
+													.addValue("@CodigoCourier", courier_)
+													.addValue("@Alcance", alcance)
+													.addValue("@Murgente", urgente)
+													.addValue("@Mensaje", "")
+													.addValue("@IdGeneracion", "")
+													.addValue("@Aux", "");
+				
+				Map<String, Object> resultMap = call.execute((SqlParameterSource) mapSqlParameterSource);
+				System.out.println("resultMap:" + resultMap);
+ 				mensaje = resultMap.get("@Mensaje").toString();
+ 				System.out.println("mensaje:" + mensaje);
+ 				
+				this.logger.info("[INFO] generarPlanilla " + mensaje);
+				
+			} catch (Exception e) {
+				this.logger.error("[ERROR] generarPlanilla", e);
+			}
+			return mensaje;
+		}	
+		@Override
+		public String generarPlanillaGuiaRemision(String usuario, String lugarTrabajo, String courier) {
+			String mensaje = null;
+			SimpleJdbcCall call = null;
+			
+			int courier_ = Integer.valueOf(courier);
+			
+			try {
+				call = (new SimpleJdbcCall(getDataSource())).withoutProcedureColumnMetaDataAccess().withSchemaName("dbo")
+						.withProcedureName("sic_sp_generar_plaguia").declareParameters(
+								new SqlParameter[] { new SqlInOutParameter("@Usuario", Types.VARCHAR), 
+													 new SqlInOutParameter("@CodigoCourier", Types.INTEGER),
+													 new SqlInOutParameter("@CodigoLugar", Types.VARCHAR),  
+													 new SqlInOutParameter("@Mensaje", Types.VARCHAR),
+													 new SqlInOutParameter("@IdGeneracion", Types.VARCHAR)
+								});
+			 
+				MapSqlParameterSource mapSqlParameterSource = (new MapSqlParameterSource())
+													.addValue("@Usuario", usuario)
+													.addValue("@CodigoCourier", courier_)
+													.addValue("@CodigoLugar", lugarTrabajo)
+ 													.addValue("@Mensaje", "")
+													.addValue("@IdGeneracion", "");
+				
+				Map<String, Object> resultMap = call.execute((SqlParameterSource) mapSqlParameterSource);
+				System.out.println("resultMap:" + resultMap);
+ 				mensaje = resultMap.get("@Mensaje").toString();
+ 				System.out.println("mensaje:" + mensaje);
+ 				
+				this.logger.info("[INFO] generarPlanillaGuiaRemision " + mensaje);
+				
+			} catch (Exception e) {
+				this.logger.error("[ERROR] generarPlanilla", e);
+			}
+			return mensaje;
+		}		
 	/*FIN Ticket 9000004412*/	
 }
