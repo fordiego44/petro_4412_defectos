@@ -17,6 +17,7 @@ var IMPUGNACIONES_SUBSANACIONES_VISTA = {
 		inicializarComponentes: function(){
 			var ref = this; 
 			//INICIO defecto 14
+			ref.modulo.componentesValidarImpugnacionesSubsanaciones.cmpProceso.select2();
 			ref.modulo.componentesValidarImpugnacionesSubsanaciones.txtSunat.prop('disabled', true);
 			
 			ref.modulo.btnValidarSUNAT.click(function(){
@@ -62,9 +63,13 @@ var IMPUGNACIONES_SUBSANACIONES_VISTA = {
 			var ref = this;
 			ref.modulo.componentesValidarImpugnacionesSubsanaciones.txtRucSunat.val('');
 			ref.modulo.componentesValidarImpugnacionesSubsanaciones.txtSunat.val('');
+			ref.modulo.componentesValidarImpugnacionesSubsanaciones.cmpProceso.val("0");
 			ref.modulo.componentesValidarImpugnacionesSubsanaciones.cmpProceso.change();
+			ref.modulo.componentesValidarImpugnacionesSubsanaciones.cmpTipoRecepcion.val("-");
 			ref.modulo.componentesValidarImpugnacionesSubsanaciones.cmpTipoRecepcion.change();
+			ref.modulo.componentesValidarImpugnacionesSubsanaciones.cmpAdmisible.val("No");
 			ref.modulo.componentesValidarImpugnacionesSubsanaciones.cmpAdmisible.change();
+
 
 		}
 

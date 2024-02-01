@@ -11,8 +11,17 @@ var MODULO_RECIBIR_PROPUESTA = (function(){
 		this.btnAbrirmenu = $("#btnAbrirMenu");
 		this.compBtnGuardar = $("#btnGuardarCorrespondencia");
 		this.compBtnCancelar = $("#btnCancelarCorrespondencia"); 
+
+
 		
 		this.btnValidarSUNAT = $("#validarSUNAT");
+
+		this.componentesRecibirPropuesta = {
+			txtRucSunat: $("#rmt_ruc"),
+			txtSunat:$("#rmt_proveedor"),
+			cmpProceso: $("#rmt_proceso"),
+			cmpHora:$("#rmt_hora"),
+	};
 	}
 	
 	ModuloRecibirPropuesta.prototype.abrirMenu = function(){

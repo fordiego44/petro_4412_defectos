@@ -17,6 +17,9 @@ var CONSULTA_BASE_VISTA = {
 		
 		inicializarComponentes: function(){
 			var ref = this; 
+			//Inicio defecto 12
+			ref.modulo.componentesVentasBases.cmpProceso.select2();
+			//Fin defecto 12
 			
 			ref.modulo.componentesValidarVentasBases.txtSunat.prop('disabled', true);
 			
@@ -53,9 +56,26 @@ var CONSULTA_BASE_VISTA = {
 				console.log('Validar Ventas Bases');
 				ref.validarVentasBases();
 				
-			});	
+			});
 			
-		},	
+			//Inicio defecto 12
+			ref.modulo.compBtnCancelar.click(function(){
+				ref.limpiarFormulario();
+			})
+			//Fin defecto 12
+			
+		},
+
+		//Inicio defecto 12
+		limpiarFormulario: function(){
+			var ref = this;
+			ref.modulo.componentesVentasBases.txtRucSunat.val('');
+			ref.modulo.componentesVentasBases.txtSunat.val('');
+			ref.modulo.componentesVentasBases.cmpProceso.val();
+			ref.modulo.componentesVentasBases.cmpHora.val();
+
+		},
+		//Fin defecto 12		
 		
 		validarVentasBases: function(){
 			console.log('validarVentasBases');

@@ -363,6 +363,9 @@ public class TramiteDocumentarioController {
 			view.addObject("correlativo", "");
 			view.addObject("errores", errores); 
 			view.addObject("version", this.messageSource.getMessage("sistcorr.login.version", null, locale));
+			//Inicio defecto 14
+			view.addObject("proceso",this.filenetService.listarProcesos(""));
+			//Fin defecto 14
 			
 			view.addObject("proceso",this.filenetService.listarProcesos(""));
 			
@@ -442,6 +445,9 @@ public class TramiteDocumentarioController {
 			view.addObject("correlativo", "");
 			view.addObject("errores", errores); 
 			view.addObject("version", this.messageSource.getMessage("sistcorr.login.version", null, locale));
+			//Inicio defecto 13
+			view.addObject("proceso",this.filenetService.listarProcesos(""));
+			//Inicio defecto 13
 			
 			// TICKET 9000003908
 			view.addObject("firmantes", new ArrayList());

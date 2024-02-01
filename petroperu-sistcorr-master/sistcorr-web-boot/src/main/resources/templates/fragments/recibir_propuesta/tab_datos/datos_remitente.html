@@ -30,7 +30,9 @@
 				<div class="form-row">
 						<div class="col-sm-6">
 							<div class="md-form mb-3">
-								<input type="number" id="rmt_ruc" class="form-control sistcorrInput"   /> 
+								<!-- INICIO defecto 13 -->
+								<input type="text" id="rmt_ruc" class="form-control sistcorrInput"   /> 
+								<!-- INICIO defecto 13 -->
 								<label for="rmt_ruc" class="active">* RUC del Proveedor</label>
 							</div>
 						</div>
@@ -53,7 +55,9 @@
 					<div class="col-sm-12">
 							<div class="md-form mb-3">
 								<input type="text" id="rmt_proveedor" class="form-control sistcorrInput"   /> 
-								<label for="rmt_proveedor" class="active">* Nombre del Proveedor</label>
+								<!-- INICIO defecto 13 -->
+								<label for="rmt_proveedor" class="active"></label>
+								<!-- INICIO defecto 13 -->
 							</div>
 						</div>
 				</div>
@@ -64,10 +68,11 @@
 						<div class="mb-3">
 							<label for="rmt_proceso">* N&uacute;mero del proceso</label>
 							<select class="form-control sistcorrAutocompleRemoto" id="rmt_proceso" required="required" data-msgerror="El campo dependencia es obligatorio">
-								 <option  value="0" >[SELECCIONE]</option>
-								 <option  value="no" >NO</option>
-								 <option value="si"  >SI</option> 	 
-							</select>
+								 	<option  value="0" >[SELECCIONE]</option>
+								 	<!-- INICIO defecto 13 -->
+								 	<option th:each="dep : ${proceso}" th:value="${dep.codigo}" th:text="${dep.descripcion}"></option> 	 
+									<!-- INICIO defecto 13 -->
+								</select>
 						</div>
 					</div>
 					<div class="col-sm-6">

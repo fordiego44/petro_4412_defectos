@@ -16,11 +16,33 @@ var RECIBIR_PROPUESTA_VISTA = {
 		
 		inicializarComponentes: function(){
 			var ref = this; 
+
+			//Inicio defecto 13
+			ref.modulo.componentesRecibirPropuesta.cmpProceso.select2();
+			//Fin defecto 13
 			
 			ref.modulo.btnValidarSUNAT.click(function(){
 				 console.log("???");
 			});	
-		},	
+
+			//Inicio defecto 11
+			ref.modulo.compBtnCancelar.click(function(){
+				ref.limpiarFormulario();
+			})
+			//Fin defecto 11
+		},
+		
+		
+		//Inicio defecto 11
+		limpiarFormulario: function(){
+			var ref = this;
+			ref.modulo.componentesVentasBases.txtRucSunat.val('');
+			ref.modulo.componentesVentasBases.txtSunat.val('');
+			ref.modulo.componentesVentasBases.cmpProceso.val();
+			ref.modulo.componentesVentasBases.cmpHora.val();
+
+		},
+		//Fin defecto 11
 
 };
 
